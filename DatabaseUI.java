@@ -140,6 +140,10 @@ public class DatabaseUI {
         criminal.sex = scanner.nextLine();
         nextLine();
 
+        enterInfo("Case No.", "Criminal");
+        criminal.caseNum = scanner.nextInt();
+        nextLine();
+
         enterInfo("Nickname", "Criminal");
         criminal.nickname = scanner.nextLine();
         nextLine();
