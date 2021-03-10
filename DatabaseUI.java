@@ -43,6 +43,10 @@ public class DatabaseUI {
                 createPerson();
                 break;
 
+                case(1):
+                changePerson();
+                break;
+
             }
 
         }
@@ -71,6 +75,9 @@ public class DatabaseUI {
 
     private void createPerson()
     {
+        for(int i=0; i<personOptions.length; i++)
+            System.out.println((i+1) + ". " + personOptions[i]);
+
         System.out.println("What kind of profile would you like to make? (Enter the corresponding number and hit ENTER)\n");
         while(true)
         {
@@ -320,5 +327,27 @@ public class DatabaseUI {
     private void nextLine()
     {
         System.out.println("");
+    }
+
+    private void changePerson()
+    {
+        while(true)
+        {
+        for(int i=0; i<personOptions.length; i++)
+            System.out.println((i+1) + ". " + personOptions[i]);
+        System.out.println("Which type of person would you like to make a change to?(Type the corresponding number then hit ENTER)");
+
+        int userInput = scanner.nextInt() - 1;
+        if(userInput < 0 || userInput > personOptions.length)
+        {
+            System.out.println("That is not a valid input");
+        }
+        System.out.println("Which person(s) profile would you like to make changes to? Enter first name, then ENTER, then enter last name");
+        
+        
+        String[] searchName = new String[2];
+        searchName[0] = scanner.nextLine();
+        searchName[1] = scanner.nextLine();
+    }
     }
 }
