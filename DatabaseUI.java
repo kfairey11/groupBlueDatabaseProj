@@ -84,6 +84,7 @@ public class DatabaseUI {
         switch(userCommand)
         {
             case(0):
+            Person criminal = createCriminal(criminal);
 
         }
         }
@@ -129,10 +130,28 @@ public class DatabaseUI {
         nextLine();
 
         enterInfo("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
-        int tattooCount = 0;
-        
+        while(true)
+        {
+            if(scanner.next().equalsIgnoreCase("Exit")) 
+                break;
+            criminal.tattoos.add(scanner.nextLine());
+        }
+        nextLine();
 
+        enterInfo("Shoe Size", "Criminal");
+        criminal.shoeSize = scanner.nextDouble();
+        nextLine();
 
+        enterInfo("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
+        while(true)
+        {
+            if(scanner.next().equalsIgnoreCase("Exit")) 
+                break;
+            criminal.piercings.add(scanner.nextLine());
+        }
+        nextLine();
+
+        return criminal;
     }
 
     private void enterInfo(String data, String person)
