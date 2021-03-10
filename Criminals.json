@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "caseNum":2,
+        "firstName":"John",
+        "lastName":"Smith",
+        "age":35,
+        "sex":"Male",
+        "nickname":"NA",
+        "height":"6'0\"",
+        "weight":200,
+        "race":"white",
+        "tattoos":["cross on left arm","roman numerals on right shoulder"],
+        "shoeSize":10,
+        "piercings":[null]
+
+    }
+
+    {
+        "id":2,
+        "caseNum":2,
+        "firstName":"Terry",
+        "lastName":"Smalls",
+        "age":23,
+        "sex":"Female",
+        "nickname":"T-Swizzle",
+        "height":"5'6\"",
+        "weight":160,
+        "race":"black",
+        "tattoos":[null],
+        "shoeSize":6.5,
+        "piercings":["three in each ear", "septum piercing"]
+    }
+
+    {
+        "id":3,
+        "caseNum":3,
+        "firstName":"Sophia",
+        "lastName":"Gonzalez",
+        "age":54,
+        "sex":"Female",
+        "nickname":"Gonzo",
+        "height":"5'2\"",
+        "weight":135,
+        "race":"Latin",
+        "tattoos":["butterfly on right shoulder", "cross on left wrist", "lion on left calf"],
+        "shoeSize":6,
+        "piercings":["nose ring", "lip ring", "two earrings in each ear"]
+    }
+]
