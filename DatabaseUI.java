@@ -40,6 +40,8 @@ public class DatabaseUI {
             switch(userCommand){
 
                 case(0):
+                createPerson();
+                break;
 
             }
 
@@ -85,12 +87,31 @@ public class DatabaseUI {
         {
             case(0):
             Person criminal = createCriminal(criminal);
+            database.addToPeople(criminal);
+            break;
+
+            case(1):
+            Person victim = createVictim(victim);
+            database.addToPeople(victim);
+            break;
+
+            case(2):
+            Person policeOfficer = createOfficer(policeOfficer);
+            database.addToPeople(policeOfficer);
+            break;
+
+            case(3):
+            Person witness = createWitness(witness);
+            database.addToPeople(witness);
+            break;
+
 
         }
         }
 
 
     }
+
 
     private Person createCriminal()
     {
@@ -151,7 +172,144 @@ public class DatabaseUI {
         }
         nextLine();
 
+
         return criminal;
+    }
+
+    private Person createVictim()
+    {
+        Person victim = new Victim();
+
+        enterInfo("First Name", "Victim");
+        victim.firstName = scanner.next();
+        nextLine();
+
+        enterInfo("Last Name", "Victim");
+        victim.lastName = scanner.next();
+        nextLine();
+
+        enterInfo("Age", "Victim");
+        victim.age = scanner.nextInt();
+        nextLine();
+
+        enterInfo("Sex", "Victim");
+        victim.sex = scanner.nextLine();
+        nextLine();
+
+        enterInfo("report", "Victim");
+        victim.report = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Case No.", "Victim");
+        victim.caseNum = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Hospital", "Victim");
+        victim.hospital = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Phone Number", "Victim");
+        victim.phoneNum = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Address", "Victim");
+        victim.address = scanner.nextLine();
+        nextLine();
+
+        boolean custody = true;
+        enterInfo("Protective Custody status (y/n)", "Victim");
+        if(scanner.next().equalsIgnoreCase("y"))
+            victim.protCustody = custody;
+        else if(scanner.next().equalsIgnoreCase("n"))
+        {
+            custody = !custody;
+            victim.protCustody = custody;
+        }
+        nextLine();
+
+        return victim;
+    }
+
+    private void createOfficer()
+    {
+        Person officer = new policeOfficer();
+
+        enterInfo("First Name", "Officer");
+        officer.firstName = scanner.next();
+        nextLine();
+
+        enterInfo("Last Name", "Officer");
+        officer.lastName = scanner.next();
+        nextLine();
+
+        enterInfo("Age", "Officer");
+        officer.age = scanner.nextInt();
+        nextLine();
+
+        enterInfo("Sex", "Officer");
+        officer.sex = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Rank (Officer, Detective, Corporal, Lieutenant, Sergeant, Captian)", "Officer");
+        officer.rank = scanner.next();
+        nextLine();
+
+        enterInfo("Case No.", "Officer");
+        officer.caseNum = scanner.nextInt();
+        nextLine();
+
+        enterInfo("City", "Officer");
+        officer.city = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Phone number", "Officer");
+        officer.phoneNum = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Address", "Officer");
+        officer.address = scanner.nextLine();
+        nextLine();
+
+        return officer;
+    }
+
+    private Person createWitness()
+    {
+        Person witness = new Witness();
+
+        enterInfo("First Name", "Witness");
+        witness.firstName = scanner.next();
+        nextLine();
+
+        enterInfo("Last Name", "Witness");
+        witness.lastName = scanner.next();
+        nextLine();
+
+        enterInfo("Age", "Witness");
+        witness.age = scanner.nextInt();
+        nextLine();
+
+        enterInfo("Sex", "Witness");
+        witness.sex = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Testimony", "Witness");
+        witness.testimony = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Phone number", "Witness");
+        witness.phoneNum = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Address", "Witness");
+        witness.address = scanner.nextLine();
+        nextLine();
+
+        enterInfo("Case No.", "Wintess");
+        witness.caseNum = scanner.nextInt();
+        nextLine();
+
+        return witness;
     }
 
     private void enterInfo(String data, String person)
