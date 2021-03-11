@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class User {
     private UUID userID;
     private String firstName;
@@ -7,43 +9,33 @@ public class User {
         //empty stub
     }
 
-    public Criminal createCriminal() {
-        //empty stub
-    }
+        public UUID getUserID()
+        {
+            return userID;
+        }
 
-    public Criminal searchCriminal(){
-        //empty stub
-    }
+        public void setUserID(UUID userID)
+        {
+            this.userID = userID;
+        }
 
-    public Case createCase() {
-        //empty stub
-    }
+        public String getFirstName()
+        {
+            return firstName;
+        }
 
-    public Case searchCase() {
-        //empty stub
-    }
+        public void setFirstName(String firstName)
+        {
+            this.firstName = firstName;
+        }
 
-    public Witness createWitness() {
-        //empty stub
-    }
+        public String getLastName()
+        {
+            return lastName;
+        }
 
-    public Witness searchWitness(){
-        //empty stub
-    }
-
-    public Officer createOfficer() {
-        //empty stub
-    }
-
-    public Officer searchOfficer() {
-        //empty stub
-    }
-
-    public Victim createVictim() {
-        //empty stub
-    }
-
-    public Victim searchVictim() {
-        //empty stub
-    }
+        public void setLastName(String lastName)
+        {
+            this.lastName = lastName;
+        }
 }
