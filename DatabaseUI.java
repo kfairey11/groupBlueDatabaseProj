@@ -439,6 +439,8 @@ public class DatabaseUI {
         case.location = scannner.nextLine();
         nextLine();
 
+        database.addToCase(case);
+
         return case;
 
     }

@@ -2,9 +2,9 @@ public class Officer {
     private Rank rank;
     private Case caseLink;
     private int officeNum;
-    private String officeAddress;
+    private String address;
 
-    public Officer(Rank rank, Case caseLink, String city, int officeNum, String officeAddress){
+    public Officer(Rank rank, Case caseLink, String city, int officeNum, String address){
         //empty stub
     }
 
