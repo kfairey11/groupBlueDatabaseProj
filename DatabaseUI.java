@@ -18,6 +18,12 @@ public class DatabaseUI {
         database = new Database();
     }
 
+    public static void main(String args[])
+    {
+        DatabaseUI ui = new DatabaseUI();
+        ui.run();
+    }
+
     public void run()
     {
         System.out.println(HOME_MSG);
@@ -57,11 +63,13 @@ public class DatabaseUI {
                 changeCase();
 
                 case(4):
-                searchPerson();
+                //create this method in database
+                database.searchPerson();
                 break;
 
                 case(5):
-                searchCase();
+                //create this method in database
+                database.searchCase();
                 break;
 
             }
@@ -435,4 +443,14 @@ public class DatabaseUI {
 
     }
 
+
+    private void changeCase()
+    {
+        System.out.println("Enter the case number you would like to change");
+        //need to make searchByCaseNum method in database class
+        Case case = database.searchCaseByCaseNum(scanner.nextInt());
+        //need to make changeCase in database class, needs to print options as well
+        database.changeCase(case);
+
+    }
 }
