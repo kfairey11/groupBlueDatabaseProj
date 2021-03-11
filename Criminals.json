@@ -14,7 +14,7 @@
         "shoeSize":10,
         "piercings":[null]
 
-    }
+    },
 
     {
         "id":2,
@@ -30,7 +30,7 @@
         "tattoos":[null],
         "shoeSize":6.5,
         "piercings":["three in each ear", "septum piercing"]
-    }
+    },
 
     {
         "id":3,
