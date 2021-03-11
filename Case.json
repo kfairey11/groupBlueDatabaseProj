@@ -1,0 +1,27 @@
+[
+    {
+        "caseId": 1,
+        "crimeType": "Murder",
+        "date": "05-12-2020",
+        "description": "male was stabbed in an alleyway",
+        "location": "Alleyway off 391 Long Street",
+        "suspectID": [null],
+        "inJail": false
+    }, {
+        "caseId": 2,
+        "crimeType": "Hit and Run",
+        "date": "08-28-2020",
+        "description": "female hit a person and proceeded to drive away",
+        "location": "Corner of Short Street and West Lane",
+        "suspectID": [1, 2],
+        "inJail": true
+    }, {
+        "caseId": 3,
+        "crimeType": "Robbery",
+        "date": "03-04-2021",
+        "description": "female robbed a cash register",
+        "location": "Olive Garden on 87 Long Street",
+        "suspectID": 3,
+        "inJail": true
+    }
+]

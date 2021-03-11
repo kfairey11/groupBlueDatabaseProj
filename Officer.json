@@ -1,0 +1,25 @@
+[
+    {
+        "id": 11,
+        "caseNum": 1,
+        "rank": "officer",
+        "city": "Columbia",
+        "officeNum": 3,
+        "officeAddress": "123 Village Lane"
+    }, {
+        "id": 12,
+        "caseNum": 2,
+        "rank": "detective",
+        "city": "Spartenburg",
+        "officeNum": 5,
+        "officeAddress": "312 Sandy Street"
+    }, {
+        "id": 13,
+        "caseNum": 3,
+        "rank": "officer",
+        "city": "Spartenburg",
+        "officeNum": 4,
+        "officeAddress": "392 Sweet Street"
+    }
+
+]
