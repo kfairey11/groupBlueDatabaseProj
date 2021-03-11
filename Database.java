@@ -14,22 +14,22 @@ public class Database {
         return database;
     }
 
-    public void changeCriminal(Criminal criminal)
+    public void changeCriminal(Person criminal)
     {
         //empty stub
     }
 
-    public void changeVictim(Victim victim)
+    public void changeVictim(Person victim)
     {
         //empty stub
     }
 
-    public void changeOfficer(Officer officer)
+    public void changeOfficer(Person officer)
     {
         //empty stub
     }
 
-    public void changeWitness(Witness witness)
+    public void changeWitness(Person witness)
     {
         //empty stub
     }

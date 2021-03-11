@@ -271,7 +271,7 @@ public class DatabaseUI {
 
     private void createOfficer()
     {
-        Person officer = new policeOfficer();
+        Person officer = new Officer();
 
         enterInfo("First Name", "Officer");
         officer.firstName = scanner.next();
@@ -387,7 +387,7 @@ public class DatabaseUI {
 
             case(1):
             makeChanges("Victim");
-            Person victim = database.searchVictimByLastname(scanner.next());
+            Person victim = database.searchVictimByLastName(scanner.next());
             System.out.println(victim.firstName + " " + victim.lastName + " is a victim in the database");
             database.changeVictim(victim);
             break;
