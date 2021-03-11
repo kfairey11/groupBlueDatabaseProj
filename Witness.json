@@ -1,0 +1,38 @@
+[
+    {
+        "id":4,
+        "caseNum":2,
+        "firstName":"Evelyn",
+        "lastName":"Mahrez",
+        "age":43,
+        "sex":"Female",
+        "testimony":"I saw a woman hit a pedestrian with her car and drive away",
+        "phoneNum":"555-555-1888",
+        "address":"321 4th Street"
+    },
+
+    {
+        "id":5,
+        "caseNum":3,
+        "firstName":"Terrence",
+        "lastName":"Marshall",
+        "age":56,
+        "sex":"Male",
+        "testimony":"I saw a woman steal $100 from a cash register at a resturant",
+        "phoneNum":"555-555-0099",
+        "address":"899 American Lane"
+    },
+
+    {
+        "id":6,
+        "caseNum":1,
+        "firstName":"Wesley",
+        "lastName":"Clark",
+        "age":19,
+        "sex":"Male",
+        "testimony":"I saw a man get stabbed in an alleyway",
+        "phoneNum":"555-555-2000",
+        "address":"1000 Hugee St"
+    }
+    
+]
