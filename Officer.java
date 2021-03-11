@@ -1,4 +1,4 @@
-public class Officer {
+public class Officer extends Person{
     private Rank rank;
     private Case caseLink;
     private int officeNum;

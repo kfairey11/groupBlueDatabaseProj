@@ -1,4 +1,4 @@
-public class Witness
+public class Witness extends Person
 {
         private String testimony;
         private int phoneNum;

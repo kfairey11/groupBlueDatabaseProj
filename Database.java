@@ -34,6 +34,10 @@ public class Database {
         //empty stub
     }
 
+    public void changeCase(Case caseToChange)
+    {
+        //empty stub
+    }
     public Criminal searchCriminalByLastName(String name)
     {
         //empty stub
@@ -78,7 +82,7 @@ public class Database {
         //empty stub
     }
 
-    public void addToCase(Case case)
+    public void addToCase(Case newCase)
     {
         //empty stub
     }

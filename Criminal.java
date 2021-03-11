@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Criminal {
+public class Criminal extends Person{
     private String nickname;
     private Height height;
     private Double weight;

@@ -421,27 +421,27 @@ public class DatabaseUI {
 
     private Case createCase()
     {
-        Case case = new Case();
+        Case newCase = new Case();
 
         System.out.println("Enter the type of crime");
-        case.crimeType = scanner.nextLine();
+        newCase.crimeType = scanner.nextLine();
         nextLine();
 
         System.out.println("Enter the date of the crime (MM/DD/YYYY format)");
-        case.date = scanner.next();
+        newCase.date = scanner.next();
         nextLine();
 
         System.out.println("Enter a description of the crime");
-        case.description = scanner.nextLine();
+        newCase.description = scanner.nextLine();
         nextLine();
 
         System.out.println("Enter the location of the crime");
-        case.location = scannner.nextLine();
+        newCase.location = scanner.nextLine();
         nextLine();
 
-        database.addToCase(case);
+        database.addToCase(newCase);
 
-        return case;
+        return newCase;
 
     }
 
@@ -450,9 +450,9 @@ public class DatabaseUI {
     {
         System.out.println("Enter the case number you would like to change");
         //need to make searchByCaseNum method in database class
-        Case case = database.searchCaseByCaseNum(scanner.nextInt());
+        Case caseToChange = database.searchCaseByCaseNum(scanner.nextInt());
         //need to make changeCase in database class, needs to print options as well
-        database.changeCase(case);
+        database.changeCase(caseToChange);
 
     }
 }

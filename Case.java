@@ -7,6 +7,11 @@ public class Case {
     private String location;
     private boolean inJail;
 
+    public Case()
+    {
+        //empty stub
+    }
+
     public UUID getCaseID() {
         //empty stub
         return null;
