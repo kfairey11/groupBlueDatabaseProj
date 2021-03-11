@@ -33,6 +33,8 @@ public class DatabaseUI {
                 System.out.println("Not a valid command");
                 continue;
             }
+            else if(userCommand == -2)
+                break;
 
             if(userCommand == homePageOptions.length)
                 break;
@@ -47,9 +49,25 @@ public class DatabaseUI {
                 changePerson();
                 break;
 
+                case(2):
+                createCase();
+                break;
+
+                case(3):
+                changeCase();
+
+                case(4):
+                searchPerson();
+                break;
+
+                case(5):
+                searchCase();
+                break;
+
             }
 
         }
+        System.out.println("You've been successfully logged out of your account");
     }
 
     private void displayHomePage()
@@ -67,8 +85,10 @@ public class DatabaseUI {
 
         int userCommand = scanner.nextInt() - 1;
 
-        if(userCommand >= 0 && userCommand <= numOfCommands)
+        if(userCommand >= 0 && userCommand < numOfCommands)
             return userCommand;
+        else if(userCommand == numOfCommands)
+            return -2;
         else    
             return -1;
     }
@@ -109,7 +129,7 @@ public class DatabaseUI {
 
             case(3):
             Person witness = createWitness(witness);
-            database.addToPeople(witness);
+            database.addToPeople(witness); 
             break;
 
 
@@ -341,17 +361,78 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + personOptions[i]);
         System.out.println("Which type of person would you like to make a change to?(Type the corresponding number then hit ENTER)");
 
-        int userInput = scanner.nextInt() - 1;
+        int userInput = scanner.nextInt();
         if(userInput < 0 || userInput > personOptions.length)
         {
             System.out.println("That is not a valid input");
+            continue;
         }
-        System.out.println("Which person(s) profile would you like to make changes to? Enter first name, then ENTER, then enter last name");
+
+        switch(userInput)
+        {
+            case(0):
+            makeChanges("Criminal");
+            Person criminal = database.searchCriminalByLastName(scanner.next());
+            System.out.println(criminal.firstName + " " + criminal.lastName + " is a criminal in the database");
+            database.changeCriminal(criminal);
+            break;
+
+            case(1):
+            makeChanges("Victim");
+            Person victim = database.searchVictimByLastname(scanner.next());
+            System.out.println(victim.firstName + " " + victim.lastName + " is a victim in the database");
+            database.changeVictim(victim);
+            break;
+
+            case(2):
+            makeChanges("Officer");
+            Person officer = database.searchOfficerByLastName(scanner.next());
+            System.out.println(officer.firstName + " " + officer.lastName + " is a officer in the database");
+            database.changeOfficer(officer);
+            break;
+
+            case(3):
+            makeChanges("Witness");
+            Person witness = database.searchWitnessByLastName(scanner.next());
+            System.out.println(witness.firstName + " " + witness.lastName + " is a officer in the database");
+            database.changeWitness(witness);
+            break;
+            
+            
+        }
+        break;
         
         
-        String[] searchName = new String[2];
-        searchName[0] = scanner.nextLine();
-        searchName[1] = scanner.nextLine();
+    
     }
     }
+    private void makeChanges(String person)
+    {
+        System.out.println("Which" + person + "'s profile would you like to make changes to? Enter their last name then ENTER.");
+    }
+
+    private Case createCase()
+    {
+        Case case = new Case();
+
+        System.out.println("Enter the type of crime");
+        case.crimeType = scanner.nextLine();
+        nextLine();
+
+        System.out.println("Enter the date of the crime (MM/DD/YYYY format)");
+        case.date = scanner.next();
+        nextLine();
+
+        System.out.println("Enter a description of the crime");
+        case.description = scanner.nextLine();
+        nextLine();
+
+        System.out.println("Enter the location of the crime");
+        case.location = scannner.nextLine();
+        nextLine();
+
+        return case;
+
+    }
+
 }
