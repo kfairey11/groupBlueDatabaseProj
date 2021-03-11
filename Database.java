@@ -65,10 +65,15 @@ public class Database {
 
     public void searchCase()
     {
-
+        //empty stub
     }
 
-    public void addToPeople(People person)
+    public Case searchCaseByCaseNum(int caseNum)
+    {
+        //empty stub
+        return null;
+    }
+    public void addToPeople(Person person)
     {
         //empty stub
     }
@@ -77,4 +82,6 @@ public class Database {
     {
         //empty stub
     }
+
+
 }

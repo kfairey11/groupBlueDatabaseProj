@@ -1,3 +1,4 @@
+import java.util.*;
 public class Case {
     private UUID caseID;
     private String crimeType;
