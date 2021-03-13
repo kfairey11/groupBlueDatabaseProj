@@ -1,8 +1,8 @@
 import java.util.*;
 public class Database {
     
-    private ArrayList<Person> people;
-    private ArrayList<Case> cases;
+    private static ArrayList<Person> people;
+    private static ArrayList<Case> cases;
     private static Database database;
 
     private Database(ArrayList<Person> people, ArrayList<Case> cases)
@@ -10,7 +10,9 @@ public class Database {
 
     public static Database getInstance()
     {
-        //empty stub
+        //creates one database
+        if(database == null) 
+            database = new Database(people, cases);
         return database;
     }
 

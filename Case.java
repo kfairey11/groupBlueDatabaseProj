@@ -1,6 +1,6 @@
 import java.util.*;
 public class Case {
-    private UUID caseID;
+    private UUID caseNum;
     private String crimeType;
     private Date date;
     private String description;
@@ -13,7 +13,7 @@ public class Case {
         //empty stub
     }
 
-    public UUID getCaseID() {
+    public UUID getCaseNum() {
         //empty stub
         return null;
     }
