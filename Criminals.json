@@ -31,7 +31,7 @@
         "shoeSize":6.5,
         "piercings":["three in each ear", "septum piercing"]
     },
-
+//make folder for .json files
     {
         "id":3,
         "caseNum":3,

@@ -7,6 +7,7 @@ public class Case {
     private String location;
     private boolean inJail;
 
+    //insert arrayList attributes
     public Case()
     {
         //empty stub
