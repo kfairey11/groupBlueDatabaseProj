@@ -3,6 +3,7 @@
  * @author Kennedy Fairey
  */
 import java.util.Scanner;
+import java.util.ArrayList;
 public class DatabaseUI {
 
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
@@ -148,73 +149,36 @@ public class DatabaseUI {
     }
 
 
-    private Person createCriminal()
+    private Person createCriminal(Person criminal)
     {
 
         //call setters instead of criminal.*
-        Person criminal = new Criminal();
 
-        enterInfo("First Name", "Criminal");
-        criminal.firstName = scanner.next();
-        nextLine();
-
-        enterInfo("Last Name", "Criminal");
-        criminal.lastName = scanner.next();
-        nextLine();
-
-        enterInfo("Age", "Criminal");
-        criminal.age = scanner.nextInt();
-        nextLine();
-
-        enterInfo("Sex", "Criminal");
-        criminal.sex = scanner.nextLine();
-        nextLine();
-
+        String firstName = enterInfo("First Name", "Criminal");
+        String lastName = enterInfo("Last Name", "Criminal");
+        int age = Integer.parseInt(enterInfo("Age", "Criminal"));
+        String sex = enterInfo("Sex", "Criminal");
+       
+        //this will prob be replaced by UUIDs
+        /*
         enterInfo("Case No.", "Criminal");
         criminal.caseNum = scanner.nextInt();
         nextLine();
+        */
+        String nickname = enterInfo("Nickname", "Criminal");
 
-        enterInfo("Nickname", "Criminal");
-        criminal.nickname = scanner.nextLine();
-        nextLine();
+        System.out.println("Enter the Criminal's Height (Enter feet, hit ENTER, then enter inches");
+        int feet = scanner.nextInt();
+        int inches = scanner.nextInt();
 
-        enterInfo("Height (Enter feet, hit ENTER, then enter inches)", "Criminal");
-        criminal.height.feet = scanner.nextInt();
-        criminal.height.inches = scanner.nextInt();
-        nextLine();
+        double weight = Double.parseDouble(("Weight", "Criminal"));
+        String race = enterInfo("Race", "Criminal");
+        String[] tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
 
-        enterInfo("Weight", "Criminal");
-        criminal.weight = scanner.nextDouble();
-        nextLine();
+        double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
+        String[] piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
-        enterInfo("Race", "Criminal");
-        criminal.race = scanner.next();
-        nextLine();
-
-        enterInfo("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
-        while(true)
-        {
-            if(scanner.next().equalsIgnoreCase("Exit")) 
-                break;
-            criminal.tattoos.add(scanner.nextLine());
-        }
-        nextLine();
-
-        enterInfo("Shoe Size", "Criminal");
-        criminal.shoeSize = scanner.nextDouble();
-        nextLine();
-
-        enterInfo("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
-        while(true)
-        {
-            if(scanner.next().equalsIgnoreCase("Exit")) 
-                break;
-            criminal.piercings.add(scanner.nextLine());
-        }
-        nextLine();
-
-
-        return criminal;
+        database.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
     }
 
     private Person createVictim()
@@ -353,9 +317,27 @@ public class DatabaseUI {
         return witness;
     }
 
-    private void enterInfo(String data, String person)
+    private String enterInfo(String data, String person)
     {
         System.out.println("Enter the "+ person + "'s " + data + ": ");
+        return scanner.nextLine();
+    }
+
+    private String[] enterInfoLoop(String data, String person)
+    {
+        System.out.println("Enter the " + person + "'s " + data + ": ");
+        ArrayList<String> elements = new ArrayList<String>();
+        while(true)
+        {
+            if(scanner.next().equalsIgnoreCase("Exit")) 
+                break;
+            elements.add(scanner.nextLine());
+        }
+        String[] info = new String[elements.size()];
+        for(int i=0;i<info.length;i++)
+            info[i] = elements.get(i);
+        return info;
+
     }
 
     private void nextLine()

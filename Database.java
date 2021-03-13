@@ -16,6 +16,14 @@ public class Database {
         return database;
     }
 
+    public void createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
+    double weight, String race, String[] tattoos, double shoeSize, String[] piercings)
+    {
+        //adds criminal to the database based on this info
+        //need to convert height info into the height format
+        //need to add all elements of string arrays into arraylists
+    }
+
     public void changeCriminal(Person criminal)
     {
         //empty stub
