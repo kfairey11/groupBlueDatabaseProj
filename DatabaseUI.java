@@ -150,6 +150,8 @@ public class DatabaseUI {
 
     private Person createCriminal()
     {
+
+        //call setters instead of criminal.*
         Person criminal = new Criminal();
 
         enterInfo("First Name", "Criminal");
