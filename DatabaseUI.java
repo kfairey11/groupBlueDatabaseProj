@@ -123,7 +123,6 @@ public class DatabaseUI {
         {
             case(0):
             Person criminal = createCriminal(criminal);
-            database.addToPeople(criminal);
             break;
 
             case(1):
@@ -181,50 +180,31 @@ public class DatabaseUI {
         database.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
     }
 
-    private Person createVictim()
+    private Person createVictim(Person victim)
     {
-        Person victim = new Victim();
+        String firstName = enterInfo("First Name", "Victim");
+        String lastName = enterInfo("Last Name", "Victim");
 
-        enterInfo("First Name", "Victim");
-        victim.firstName = scanner.next();
-        nextLine();
+        int age = Integer.parseInt(enterInfo("Age", "Victim"));
 
-        enterInfo("Last Name", "Victim");
-        victim.lastName = scanner.next();
-        nextLine();
+        String sex = enterInfo("Sex", "Victim");
 
-        enterInfo("Age", "Victim");
-        victim.age = scanner.nextInt();
-        nextLine();
-
-        enterInfo("Sex", "Victim");
-        victim.sex = scanner.nextLine();
-        nextLine();
-
-        enterInfo("report", "Victim");
-        victim.report = scanner.nextLine();
-        nextLine();
-
+        String report = enterInfo("report", "Victim");
+        //prob will be replaced with UUID
+        /*
         enterInfo("Case No.", "Victim");
         victim.caseNum = scanner.nextLine();
         nextLine();
+        */
+        String hospital = enterInfo("Hospital", "Victim");
+        int phoneNum = Integer.parseInt(enterInfo("Phone Number", "Victim"));
 
-        enterInfo("Hospital", "Victim");
-        victim.hospital = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Phone Number", "Victim");
-        victim.phoneNum = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Address", "Victim");
-        victim.address = scanner.nextLine();
-        nextLine();
-
-        boolean custody = true;
-        enterInfo("Protective Custody status (y/n)", "Victim");
+        String address = enterInfo("Address", "Victim");
+        String custody = enterInfo("Protective Custody status (y/n)", "Victim");
+        boolean cust
+        if(custody.equalsIgnoreCase("y"))
         if(scanner.next().equalsIgnoreCase("y"))
-            victim.protCustody = custody;
+            victim.protectCustody = custody;
         else if(scanner.next().equalsIgnoreCase("n"))
         {
             custody = !custody;

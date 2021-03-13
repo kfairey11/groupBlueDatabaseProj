@@ -87,10 +87,7 @@ public class Database {
         //empty stub
         return null;
     }
-    public void addToPeople(Person person)
-    {
-        //empty stub
-    }
+    
 
     public void addToCase(Case newCase)
     {
