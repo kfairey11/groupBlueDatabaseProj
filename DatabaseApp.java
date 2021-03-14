@@ -68,25 +68,25 @@ public class DatabaseApp {
     {
         //empty stub
     }
-    public Criminal searchCriminalByLastName(String name)
+    public Criminal searchCriminalByName(String name)
     {
         //empty stub
         return null;
     }
 
-    public Victim searchVictimByLastName(String name)
+    public Victim searchVictimByName(String name)
     {
         //empty stub
         return null;
     }
 
-    public Officer searchOfficerByLastName(String name)
+    public Officer searchOfficerByName(String name)
     {
         //empty stub
         return null;
     }
 
-    public Witness searchWitnessByLastName(String name)
+    public Witness searchWitnessByName(String name)
     {
         //empty stub 
         return null;

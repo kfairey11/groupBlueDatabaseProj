@@ -288,28 +288,28 @@ public class DatabaseUI {
         {
             case(0):
             makeChanges("Criminal");
-            Person criminal = databaseApp.searchCriminalByLastName(scanner.next());
+            Person criminal = databaseApp.searchCriminalByName(scanner.next());
             System.out.println(criminal.firstName + " " + criminal.lastName + " is a criminal in the database");
             databaseApp.changeCriminal(criminal);
             break;
 
             case(1):
             makeChanges("Victim");
-            Person victim = databaseApp.searchVictimByLastName(scanner.next());
+            Person victim = databaseApp.searchVictimByName(scanner.next());
             System.out.println(victim.firstName + " " + victim.lastName + " is a victim in the database");
             databaseApp.changeVictim(victim);
             break;
 
             case(2):
             makeChanges("Officer");
-            Person officer = databaseApp.searchOfficerByLastName(scanner.next());
+            Person officer = databaseApp.searchOfficerByName(scanner.next());
             System.out.println(officer.firstName + " " + officer.lastName + " is a officer in the database");
             databaseApp.changeOfficer(officer);
             break;
 
             case(3):
             makeChanges("Witness");
-            Person witness = databaseApp.searchWitnessByLastName(scanner.next());
+            Person witness = databaseApp.searchWitnessByName(scanner.next());
             System.out.println(witness.firstName + " " + witness.lastName + " is a officer in the database");
             databaseApp.changeWitness(witness);
             break;
@@ -324,7 +324,7 @@ public class DatabaseUI {
     }
     private void makeChanges(String person)
     {
-        System.out.println("Which" + person + "'s profile would you like to make changes to? Enter their last name then ENTER.");
+        System.out.println("Which" + person + "'s profile would you like to make changes to? Enter their full name then ENTER.");
     }
 
     private void createCase()
@@ -340,6 +340,33 @@ public class DatabaseUI {
 
         System.out.println("Enter the location of the crime");
         String location = scanner.nextLine();
+
+        System.out.println("Enter the full names of the criminals associated with this case (enter name, hit ENTER, then either keep entering names or type \"exit\" to stop");
+        while(true)
+        {
+        if(scanner.nextLine().equalsIgnoreCase("exit"))
+            break;
+        String criminal = scanner.nextLine();
+        //need to find a way to link every criminal typed to the case
+        if(databaseApp.searchCriminalByName(criminal) != null)
+            System.out.println("That criminal is in the database, they have been added to the case");
+        else    
+            {
+                System.out.println("That criminal is not in the database, would you like to add a new one? (y/n)");
+                if(scanner.next().equalsIgnoreCase("y"))
+                {
+                    createCriminal();
+                    System.out.println("Enter the name full name of the criminal just created to add them to the case.");
+                }
+                else    
+                {
+                    System.out.println("Either continue entering criminals, or type exit to stop");
+                    continue;
+                }
+            }    
+    
+
+        }
 
         databaseApp.createCase(crimeType, date, description, location);
 
