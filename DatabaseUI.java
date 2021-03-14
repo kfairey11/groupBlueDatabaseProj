@@ -122,22 +122,19 @@ public class DatabaseUI {
         switch(userCommand)
         {
             case(0):
-            Person criminal = createCriminal(criminal);
+            createCriminal();
             break;
 
             case(1):
-            Person victim = createVictim(victim);
-            database.addToPeople(victim);
+            createVictim();
             break;
 
             case(2):
-            Person policeOfficer = createOfficer(policeOfficer);
-            database.addToPeople(policeOfficer);
+            createOfficer();
             break;
 
             case(3):
-            Person witness = createWitness(witness);
-            database.addToPeople(witness); 
+            createWitness();
             break;
 
 
@@ -148,7 +145,7 @@ public class DatabaseUI {
     }
 
 
-    private Person createCriminal(Person criminal)
+    private void createCriminal()
     {
 
         //call setters instead of criminal.*
@@ -170,7 +167,7 @@ public class DatabaseUI {
         int feet = scanner.nextInt();
         int inches = scanner.nextInt();
 
-        double weight = Double.parseDouble(("Weight", "Criminal"));
+        double weight = Double.parseDouble(enterInfo("Weight", "Criminal"));
         String race = enterInfo("Race", "Criminal");
         String[] tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
 
@@ -180,7 +177,7 @@ public class DatabaseUI {
         database.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
     }
 
-    private Person createVictim(Person victim)
+    private void createVictim()
     {
         String firstName = enterInfo("First Name", "Victim");
         String lastName = enterInfo("Last Name", "Victim");
@@ -201,100 +198,53 @@ public class DatabaseUI {
 
         String address = enterInfo("Address", "Victim");
         String custody = enterInfo("Protective Custody status (y/n)", "Victim");
-        boolean cust
+        boolean protCust = true;
         if(custody.equalsIgnoreCase("y"))
-        if(scanner.next().equalsIgnoreCase("y"))
-            victim.protectCustody = custody;
-        else if(scanner.next().equalsIgnoreCase("n"))
-        {
-            custody = !custody;
-            victim.protCustody = custody;
-        }
-        nextLine();
+            continue;
+        else if(custody.equalsIgnoreCase("n"))
+            protCust = !protCust;
 
-        return victim;
+        database.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address, protCust);
     }
 
     private void createOfficer()
     {
-        Person officer = new Officer();
+        String firstName = enterInfo("First Name", "Officer");
+        String lastName = enterInfo("Last Name", "Officer");
+        int age = Integer.parseInt(enterInfo("Age", "Officer"));
+        String sex = enterInfo("Sex", "Officer");
 
-        enterInfo("First Name", "Officer");
-        officer.firstName = scanner.next();
-        nextLine();
-
-        enterInfo("Last Name", "Officer");
-        officer.lastName = scanner.next();
-        nextLine();
-
-        enterInfo("Age", "Officer");
-        officer.age = scanner.nextInt();
-        nextLine();
-
-        enterInfo("Sex", "Officer");
-        officer.sex = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Rank (Officer, Detective, Corporal, Lieutenant, Sergeant, Captian)", "Officer");
-        officer.rank = scanner.next();
-        nextLine();
-
+        String rank = enterInfo("Rank (Officer, Detective, Corporal, Lieutenant, Sergeant, Captian)", "Officer");
+        //will prob be replaced with UUID
+        /*
         enterInfo("Case No.", "Officer");
         officer.caseNum = scanner.nextInt();
         nextLine();
+        */
+        String city = enterInfo("City", "Officer");
+        int phoneNum = Integer.parseInt(enterInfo("Phone number", "Officer"));
+        String address = enterInfo("Address", "Officer");
 
-        enterInfo("City", "Officer");
-        officer.city = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Phone number", "Officer");
-        officer.phoneNum = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Address", "Officer");
-        officer.address = scanner.nextLine();
-        nextLine();
-
-        return officer;
+        database.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address);
     }
 
-    private Person createWitness()
+    private void createWitness()
     {
-        Person witness = new Witness();
 
-        enterInfo("First Name", "Witness");
-        witness.firstName = scanner.next();
-        nextLine();
-
-        enterInfo("Last Name", "Witness");
-        witness.lastName = scanner.next();
-        nextLine();
-
-        enterInfo("Age", "Witness");
-        witness.age = scanner.nextInt();
-        nextLine();
-
-        enterInfo("Sex", "Witness");
-        witness.sex = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Testimony", "Witness");
-        witness.testimony = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Phone number", "Witness");
-        witness.phoneNum = scanner.nextLine();
-        nextLine();
-
-        enterInfo("Address", "Witness");
-        witness.address = scanner.nextLine();
-        nextLine();
-
+        String firstName = enterInfo("First Name", "Witness");
+        String lastName = enterInfo("Last Name", "Witness");
+        int age = Integer.parseInt(enterInfo("Age", "Witness"));
+        String sex = enterInfo("Sex", "Witness");
+        String testimony = enterInfo("Testimony", "Witness");
+        int phoneNum = Integer.parseInt(enterInfo("Phone number", "Witness"));
+        String address = enterInfo("Address", "Witness");
+       //may be replaced with UUID
+        /*
         enterInfo("Case No.", "Wintess");
         witness.caseNum = scanner.nextInt();
         nextLine();
-
-        return witness;
+        */
+        database.createWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
     }
 
     private String enterInfo(String data, String person)
@@ -319,12 +269,6 @@ public class DatabaseUI {
         return info;
 
     }
-
-    private void nextLine()
-    {
-        System.out.println("");
-    }
-
     private void changePerson()
     {
         while(true)
@@ -383,29 +327,21 @@ public class DatabaseUI {
         System.out.println("Which" + person + "'s profile would you like to make changes to? Enter their last name then ENTER.");
     }
 
-    private Case createCase()
+    private void createCase()
     {
-        Case newCase = new Case();
-
         System.out.println("Enter the type of crime");
-        newCase.crimeType = scanner.nextLine();
-        nextLine();
+        String crimeType = scanner.nextLine();
 
         System.out.println("Enter the date of the crime (MM/DD/YYYY format)");
-        newCase.date = scanner.next();
-        nextLine();
+        String date = scanner.nextLine();
 
         System.out.println("Enter a description of the crime");
-        newCase.description = scanner.nextLine();
-        nextLine();
+        String description = scanner.nextLine();
 
         System.out.println("Enter the location of the crime");
-        newCase.location = scanner.nextLine();
-        nextLine();
+        String location = scanner.nextLine();
 
-        database.addToCase(newCase);
-
-        return newCase;
+        database.createCase(crimeType, date, description, location);
 
     }
 

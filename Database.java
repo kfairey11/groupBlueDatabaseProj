@@ -24,6 +24,26 @@ public class Database {
         //need to add all elements of string arrays into arraylists
     }
 
+    public void createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
+    String address, boolean protCust)
+    {
+        //adds victim to the database
+    }
+
+    public void createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int phoneNum, String address)
+    {
+        //adds officer to the database
+    }
+
+    public void createWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
+    {
+        //adds witness to the database
+    }
+
+    public void createCase(String crimeType, String date, String description, String location)
+    {
+        //adds a case to the database
+    }
     public void changeCriminal(Person criminal)
     {
         //empty stub
@@ -87,7 +107,7 @@ public class Database {
         //empty stub
         return null;
     }
-    
+
 
     public void addToCase(Case newCase)
     {
