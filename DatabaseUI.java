@@ -7,16 +7,16 @@ import java.util.ArrayList;
 public class DatabaseUI {
 
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
-    private String[] homePageOptions = {"Create a Person(s) Profile", "Add to an existing Person(s) Profile", "Create a Case Profile", 
+    private static final String[] homePageOptions = {"Create a Person(s) Profile", "Add to an existing Person(s) Profile", "Create a Case Profile", 
     "Add to a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
-    private String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
+    private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
     private Scanner scanner;
-    private Database database;
+    private DatabaseApp databaseApp;
 
     public DatabaseUI()
     {
         scanner = new Scanner(System.in);
-        database = new Database();
+        databaseApp = databaseApp.getInstance();
     }
 
     public static void main(String args[])
@@ -65,12 +65,12 @@ public class DatabaseUI {
 
                 case(4):
                 //create this method in database
-                database.searchPerson();
+                databaseApp.searchPerson();
                 break;
 
                 case(5):
                 //create this method in database
-                database.searchCase();
+                databaseApp.searchCase();
                 break;
 
             }
@@ -174,7 +174,7 @@ public class DatabaseUI {
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         String[] piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
-        database.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
+        databaseApp.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
     }
 
     private void createVictim()
@@ -204,7 +204,7 @@ public class DatabaseUI {
         else if(custody.equalsIgnoreCase("n"))
             protCust = !protCust;
 
-        database.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address, protCust);
+        databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address, protCust);
     }
 
     private void createOfficer()
@@ -225,7 +225,7 @@ public class DatabaseUI {
         int phoneNum = Integer.parseInt(enterInfo("Phone number", "Officer"));
         String address = enterInfo("Address", "Officer");
 
-        database.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address);
+        databaseApp.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address);
     }
 
     private void createWitness()
@@ -244,7 +244,7 @@ public class DatabaseUI {
         witness.caseNum = scanner.nextInt();
         nextLine();
         */
-        database.createWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
+        databaseApp.createWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
     }
 
     private String enterInfo(String data, String person)
@@ -288,30 +288,30 @@ public class DatabaseUI {
         {
             case(0):
             makeChanges("Criminal");
-            Person criminal = database.searchCriminalByLastName(scanner.next());
+            Person criminal = databaseApp.searchCriminalByLastName(scanner.next());
             System.out.println(criminal.firstName + " " + criminal.lastName + " is a criminal in the database");
-            database.changeCriminal(criminal);
+            databaseApp.changeCriminal(criminal);
             break;
 
             case(1):
             makeChanges("Victim");
-            Person victim = database.searchVictimByLastName(scanner.next());
+            Person victim = databaseApp.searchVictimByLastName(scanner.next());
             System.out.println(victim.firstName + " " + victim.lastName + " is a victim in the database");
-            database.changeVictim(victim);
+            databaseApp.changeVictim(victim);
             break;
 
             case(2):
             makeChanges("Officer");
-            Person officer = database.searchOfficerByLastName(scanner.next());
+            Person officer = databaseApp.searchOfficerByLastName(scanner.next());
             System.out.println(officer.firstName + " " + officer.lastName + " is a officer in the database");
-            database.changeOfficer(officer);
+            databaseApp.changeOfficer(officer);
             break;
 
             case(3):
             makeChanges("Witness");
-            Person witness = database.searchWitnessByLastName(scanner.next());
+            Person witness = databaseApp.searchWitnessByLastName(scanner.next());
             System.out.println(witness.firstName + " " + witness.lastName + " is a officer in the database");
-            database.changeWitness(witness);
+            databaseApp.changeWitness(witness);
             break;
             
             
@@ -341,7 +341,7 @@ public class DatabaseUI {
         System.out.println("Enter the location of the crime");
         String location = scanner.nextLine();
 
-        database.createCase(crimeType, date, description, location);
+        databaseApp.createCase(crimeType, date, description, location);
 
     }
 
@@ -350,9 +350,9 @@ public class DatabaseUI {
     {
         System.out.println("Enter the case number you would like to change");
         //need to make searchByCaseNum method in database class
-        Case caseToChange = database.searchCaseByCaseNum(scanner.nextInt());
+        Case caseToChange = databaseApp.searchCaseByCaseNum(scanner.nextInt());
         //need to make changeCase in database class, needs to print options as well
-        database.changeCase(caseToChange);
+        databaseApp.changeCase(caseToChange);
 
     }
 }
