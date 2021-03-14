@@ -6,6 +6,12 @@ public class Case {
     private String description;
     private String location;
     private boolean inJail;
+    private Criminal criminal;
+    private Victim victim;
+    private boolean isVictim;
+    private ArrayList<Officer> officers;
+    private ArrayList<Witness> witnesses;
+    private boolean isWitness;
 
     //insert arrayList attributes
     public Case()
