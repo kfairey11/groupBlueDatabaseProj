@@ -6,8 +6,8 @@ public class Case {
     private String description;
     private String location;
     private boolean inJail;
-    private Criminal criminal;
-    private Victim victim;
+    private ArrayList<Criminal> criminals;
+    private ArrayList<Victim> victim;
     private boolean isVictim;
     private ArrayList<Officer> officers;
     private ArrayList<Witness> witnesses;
