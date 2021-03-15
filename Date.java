@@ -6,12 +6,12 @@ public class Date extends Case
 
     public Date(int day, int month, int year)
     {
-        //empty stub
+        toString();
     }
 
     public String toString()
     {
-        return "";
+        return "Month: " + month + " Day: " + day + " Year: " + year + "\n" + month + "/" + day + "/" + year;
     }
     
 }

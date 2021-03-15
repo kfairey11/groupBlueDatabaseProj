@@ -1,16 +1,16 @@
-public class Height extends Criminal
+public class Height //check extension
 {
     private int feet;
     private int inches;
 
     public Height(int feet, int inches)
     {
-        //empty stub
+        toString();
     }
 
     public String toString()
     {
-        return "";
+        return "Height: " + feet + " feet, " + inches + " inches";
     }
     
 }
