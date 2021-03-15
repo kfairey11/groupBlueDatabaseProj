@@ -10,71 +10,83 @@ public class Criminal extends Person{
     private ArrayList<String> piercing;
     private boolean isUnderAge;
 
-    public Criminal(String nickname, Height height, double weight, String race,
-    ArrayList<String> tattoos, ArrayList<String> piercing, double shoesize){
-         //empty stub
+    public Criminal(String nickName, Height aheight, double aweight, String arace,
+    ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize, boolean IsUnderAge){
+        nickname = nickName;
+        height = aheight;
+        race = arace;
+        weight = aweight;
+        tattoos = atattoos;
+        piercing = apiercing;
+        shoeSize = shoesize;
+        isUnderAge = IsUnderAge;
     }
 
     public String getNickname() {
-         //empty stub
-         return "";
+        return nickname;
     }
 
     public void setNickname(String aNickname) {
-        //empty stub
+        if(aNickname.equalsIgnoreCase(" ")) {
+            nickname = nickname;
+        } else {
+            nickname = aNickname;
+        }
     }
 
     public Height getHeight() {
-         //empty stub
-         return null;
+        return height;
     }
 
-    public void setHeight(){
-          //empty stub
+    public void setHeight(Height aHeight){
+        height = aHeight;
     }
 
     public double getWeight() {
-        //empty stub
-        return 0.0;
+        return weight;
     }
 
     public void setWeight(double aWeight) {
-        //empty stub
+        if (aWeight > 0.0) {
+            weight = aWeight;
+        }
     }
     
     public String getRace(){
-        //empty stub
-        return "";
+        return race;
     }
 
     public void setRace(String aRace) {
-        //empty stub
+        if(aRace.equalsIgnoreCase(" ")) {
+            race = race;
+        } else {
+            race = aRace;
+        }
     }
 
     public ArrayList<String> getTattoos() {
-        //empty stub
-        return null;
+        return tattoos;
     }
 
-    public void setTattos(ArrayList<String> aTatoos){
-        //empty stub
+    public void setTattos(ArrayList<String> aTattoos){
+        tattoos = aTattoos;
     }
 
     public double getShoeSize() {
-        //empty stub
-        return 0.0;
+        return shoeSize;
     }
 
     public void setShoeSize(double aShoeSize) {
-        //empty stub
+        if (aShoeSize > 0.0) {
+            shoeSize = aShoeSize;
+        }
     }
 
     public ArrayList<String> getPiercing() {
-        //empty stub
-        return null;
+        return piercing;
     }
 
     public void setPiercing(ArrayList<String> aPiercing) {
-        //empty stub
+        piercing = aPiercing;
     }
 }

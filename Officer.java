@@ -3,53 +3,53 @@ public class Officer extends Person{
     private Case caseLink;
     private int officeNum;
     private String address;
+    private String city;
 
-    public Officer(Rank rank, Case caseLink, String city, int officeNum, String address){
-        //empty stub
+    public Officer(Rank aRank, Case CaseLink, String aCity, int OfficeNum, String anAddress){
+        rank = aRank;
+        caseLink = CaseLink;
+        city = aCity;
+        officeNum = OfficeNum;
+        address = anAddress;
     }
 
     public Rank getRank(){
-        //empty stub
-        return null;
+        return rank;
     }
 
     public void setRank(Rank aRank) {
-        //empty stub
+        rank = aRank;
     }
 
     public Case getCaseLink() {
-        //empty stub
-        return null;
+        return caseLink;
     }
 
     public void setCaseLink(Case aCaseLink) {
-        //empty stub
+        caseLink = aCaseLink;
     }
 
     public String getCity() {
-        //empty stub
-        return null;
+        return city;
     }
 
     public void setCity(String aCity) {
-        //empty stub
+        city = aCity;
     }
 
     public int getOfficeNum() {
-        //empty stub
-        return -1;
+        return officeNum;
     }
 
     public void setOfficeNum(int anOfficeNum){
-        //empty stub
+        officeNum = anOfficeNum;
     }
 
     public String getOfficeAddress() {
-        //empty stub
-        return "";
+        return address;
     }
 
     public void setOfficeAddress(String anOfficeAddress){
-        //empty stub
+        address = anOfficeAddress;
     }
 }

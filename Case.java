@@ -20,49 +20,43 @@ public class Case {
     }
 
     public UUID getCaseNum() {
-        //empty stub
-        return null;
+        return caseNum;
     }
 
     public String getCrimeType() {
-        //empty stub
-        return "";
+        return crimeType;
     }
 
     public void setCrimeType(String aCrimeType){
-        //empty stub
+        crimeType = aCrimeType;
     }
 
     public Date getDate() {
-        //empty stub
-        return null;
+        return date;
     }
 
     public void setDate(Date aDate){
-        //empty stub
+        date = aDate;
     }
 
     public String getDescription() {
-         //empty stub
-         return "";
+        return description;
     }
 
     public void setDescription(String aDescription){
-         //empty stub
+        description = aDescription;
     }
 
     public String getLocation(){
-         //empty stub
-         return "";
+        return location;
     }
 
     public void setLocation(String aLocation){
-         //empty stub
+        location = aLocation;
     }
 
     public boolean getInJail(){
-         //empty stub
-         return false;
+        return inJail;
     }
 
 }

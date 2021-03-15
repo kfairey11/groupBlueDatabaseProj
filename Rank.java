@@ -1,3 +1,8 @@
 public enum Rank {
-    //empty stub
+    OFFICER,
+    DETECTIVE,
+    CORPORAL,
+    LIEUTENANT,
+    SERGEANT,
+    CAPTAIN;
 }

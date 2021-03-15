@@ -1,3 +1,6 @@
 public enum Sex {
-    //empty stub
+    MALE,
+    FEMALE,
+    NON_BINARY,
+    PREFER_NOT_TO_SAY;
 }
