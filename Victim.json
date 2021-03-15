@@ -1,0 +1,28 @@
+[
+    {
+        "id": 4,
+        "caseNum": 3,
+        "firstName": "Victoria",
+        "lastName": "Rosenthal",
+        "age": 22,
+        "sex": "Non-binary",
+        "report": "I was walking across the cross walk at university, when a Silver car ran over my foot",
+        "hospital": "saint mary's hospital, columbia",
+        "phoneNum": "333-222-9999",
+        "address": "432 Rosebud rd"
+    },
+  
+    {
+        "id": 5,
+        "caseNum": 32,
+        "firstName": "Ashton",
+        "lastName": "Hal",
+        "age": 26,
+        "sex": "Male",
+        "report": "I came home from work on tuesday to a broken door frame and all my valuables gone",
+        "hospital": "Lexington medical center",
+        "phoneNum": "999-333-2222",
+        "address": "8909 Valor circle"
+
+    }
+]
