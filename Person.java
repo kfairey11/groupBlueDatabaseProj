@@ -7,42 +7,50 @@ public abstract class Person
 
     public String getFirstName()
     {
-        return "";
+        return firstName;
     }
 
     public void setFirstName(String aFirstName)
     {
-        //empty stub
+        this.firstName=aFirstName;
     }
 
     public String getLastName()
     {
-        return "";
+        return lastName;
     }
 
     public void setLastName(String aLastName)
     {
-        //empty stub
+        this.lastName=aLastName;
     }
 
     public int getAge()
     {
-        return 0;
+        if(age <= 0)
+        {
+            return age;
+        }
+        else
+        {
+            System.out.println("Improper age input");
+            return 0;
+        }
     }
     
     public void setAge(int anAge)
     {
-        //empty stub
+        this.age=anAge;
     }
 
     public Sex getSex()
     {
-        return null;
+        return sex;
     }
 
     public void setSex(Sex sex)
     {
-        //empty stub
+        this.sex=sex;
     }
 
 
