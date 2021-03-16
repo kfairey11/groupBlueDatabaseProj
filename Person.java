@@ -5,6 +5,8 @@ public abstract class Person
     protected int age;
     protected Sex sex;
 
+    public Person()
+
     public String getFirstName()
     {
         return firstName;
