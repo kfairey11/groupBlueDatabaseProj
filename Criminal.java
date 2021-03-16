@@ -12,14 +12,14 @@ public class Criminal extends Person{
 
     public Criminal(String nickName, Height aheight, double aweight, String arace,
     ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize, boolean IsUnderAge){
-        nickname = nickName;
-        height = aheight;
-        race = arace;
-        weight = aweight;
-        tattoos = atattoos;
-        piercing = apiercing;
-        shoeSize = shoesize;
-        isUnderAge = IsUnderAge;
+        this.nickname = nickName;
+        this.height = aheight;
+        this.race = arace;
+        this.weight = aweight;
+        this.tattoos = atattoos;
+        this.piercing = apiercing;
+        this.shoeSize = shoesize;
+        this.isUnderAge = IsUnderAge;
     }
 
     public String getNickname() {
