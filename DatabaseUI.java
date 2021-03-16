@@ -16,7 +16,7 @@ public class DatabaseUI {
     public DatabaseUI()
     {
         scanner = new Scanner(System.in);
-        databaseApp = databaseApp.getInstance();
+        databaseApp = new DatabaseApp();
     }
 
     public static void main(String args[])
@@ -199,9 +199,7 @@ public class DatabaseUI {
         String address = enterInfo("Address", "Victim");
         String custody = enterInfo("Protective Custody status (y/n)", "Victim");
         boolean protCust = true;
-        if(custody.equalsIgnoreCase("y"))
-            continue;
-        else if(custody.equalsIgnoreCase("n"))
+        if(custody.equalsIgnoreCase("n"))
             protCust = !protCust;
 
         databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address, protCust);

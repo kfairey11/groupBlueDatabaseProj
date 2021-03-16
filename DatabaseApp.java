@@ -1,19 +1,15 @@
 import java.util.*;
 public class DatabaseApp {
     
-    private static ArrayList<Person> people;
-    private static ArrayList<Case> cases;
-    private static DatabaseApp database;
+    private People people;
+    private Cases cases;
+    private Users users;
 
-    private DatabaseApp(ArrayList<Person> people, ArrayList<Case> cases)
-    {}
-
-    public static DatabaseApp getInstance()
+    public DatabaseApp()
     {
-        //creates one database
-        if(database == null) 
-            database = new DatabaseApp(people, cases);
-        return database;
+        people = people.getInstance();
+        cases = cases.getInstance();
+        users = users.getInstance();
     }
 
     public void createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
