@@ -20,6 +20,10 @@ public class Cases {
         for(int i=0; i<caseList.size(); i++)
         {
             if(caseNum == caseList.get(i).getCaseNum())
+                return true;
         }
+        return false;
     }
+
+    //possibly getCase()?
 }
