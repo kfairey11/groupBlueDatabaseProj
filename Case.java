@@ -1,6 +1,6 @@
 import java.util.*;
 public class Case {
-    private UUID caseNum;
+    private int caseNum;
     private String crimeType;
     private Date date;
     private String description;
@@ -19,8 +19,14 @@ public class Case {
         //empty stub
     }
 
-    public UUID getCaseNum() {
+    public int getCaseNum() {
         return caseNum;
+    }
+
+    public void setCaseNum()
+    {
+        Random rand = new Random();
+        caseNum = rand.nextInt(10000) +1;
     }
 
     public String getCrimeType() {
