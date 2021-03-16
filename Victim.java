@@ -7,68 +7,105 @@ public class Victim extends Person
     private String address;
     private Boolean protectCustody;
 
-    public Victim(String report, Case caseLink, String hospital, int phoneNum, String address, Boolean protectCustody)
+    public Victim(String aReport, Case aCaseLink, String aHospital, int aPhoneNum, String anAddress, Boolean aProtectCustody)
     {
-        //empty stub
+        report= aReport;
+        caseLink=aCaseLink;
+        hospital=aHospital;
+        phoneNum=aPhoneNum;
+        address=anAddress;
+        protectCustody=aProtectCustody;
     }
 
     public String getReport()
     {
-        return "";
+        return report;
     }
 
     public void setReport(String aReport)
     {
-        //empty stub
+        if(aReport.equalsIgnoreCase(" "))
+        {
+            report= aReport;
+        }
+        else
+        {
+            aReport=aReport;
+        }
     }
 
     public Case getCaseLink()
     {
-        return null;
+        return caseLink;
     }
 
     public void setCaseLink(Case aCaseLink)
     {
-        //empty stub
+        caseLink=aCaseLink;
     }
 
     public String getHopsital()
     {
-        return "";
+        return hospital;
     }
 
     public void setHospital(String aHospital)
     {
-        //empty stub
+        if(aHospital.equalsIgnoreCase(" "))
+        {
+            hospital=aHospital;
+        }
+        else
+        {
+            aHospital=aHospital;
+        }
     }
 
     public int getPhoneNum()
     {
-        return 0;
+        return phoneNum;
     }
 
     public void setPhoneNum(int aPhoneNum)
     {
-        //empty stub
+        if(phoneNum > 0)
+        {
+            phoneNum = aPhoneNum;
+        }
+        else
+        {
+            aPhoneNum = aPhoneNum;
+        }
     }
 
     public String getAddress()
     {
-        return "";
+        return address;
     }
 
     public void setAddress(String anAddress)
     {
-        //empty stub
+        if(anAddress.equalsIgnoreCase(" "))
+        {
+            address=anAddress;
+        }
+        else
+        {
+            anAddress=anAddress;
+        }
     }
 
     public Boolean isProtectCustody()
     {
-        return false;
+        if(protectCustody) //not exactly sure if this is right
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public void setProtectCustody(Boolean aProtectCustody)
-    {
-        //empty stub
-    }
+    
 }

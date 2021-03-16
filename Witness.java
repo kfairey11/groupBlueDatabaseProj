@@ -1,3 +1,5 @@
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class Witness extends Person
 {
         private String testimony;
@@ -5,49 +7,73 @@ public class Witness extends Person
         private String address;
         private Case caseLink;
 
-        public Witness(String testimony, int phoneNum, String address, Case caseLink)
+        public Witness(String aTestimony, int aPhoneNum, String anAddress, Case aCaseLink)
         {
-            //empty method stub
+            testimony=aTestimony;
+            phoneNum=aPhoneNum;
+            address=anAddress;
+            caseLink=aCaseLink;
         }
 
         public String getTestimony()
         {
-            return "";
+            return testimony;
         }
 
         public void setTestimony(String aTestimony)
         {
-            //empty stub
+            if(aTestimony.equalsIgnoreCase(" "))
+            {
+                testimony=aTestimony;
+            }
+            else
+            {
+                aTestimony=aTestimony;
+            }
         }
 
         public int getPhoneNum()
         {
-            return 0;
+            return phoneNum;
         }
 
         public void setPhoneNum(int aPhoneNum)
         {
-            //empty stub
+            if(aPhoneNum > 0)
+            {
+                phoneNum=aPhoneNum;
+            }
+            else
+            {
+                aPhoneNum=aPhoneNum;
+            }
         }
 
         public String getAddress()
         {
-            return "";
+            return address;
         }
 
-        public void setAddress()
+        public void setAddress(String anAddress)
         {
-            //empty stub
+            if(anAddress.equalsIgnoreCase(" "))
+        {
+            address=anAddress;
+        }
+        else
+        {
+            anAddress=anAddress;
+        }
         }
 
         public Case getCaseLink()
         {
-            return null;
+            return caseLink;
         }
 
         public void setCaseLink(Case aCaseLink)
         {
-            //empty stub
+            caseLink=aCaseLink;
         }
     
 }
