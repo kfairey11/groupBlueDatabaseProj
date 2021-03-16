@@ -8,7 +8,7 @@ public class Criminal extends Person{
     private ArrayList<String> tattoos;
     private Double shoeSize;
     private ArrayList<String> piercing;
-    private boolean isUnderAge;
+    private boolean isUnderAge; //needs a check for this
 
     public Criminal(String nickName, Height aheight, double aweight, String arace,
     ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize, boolean IsUnderAge){

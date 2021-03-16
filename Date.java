@@ -4,8 +4,11 @@ public class Date extends Case
     private int month;
     private int year;
 
-    public Date(int day, int month, int year)
+    public Date(int aDay, int aMonth, int aYear)
     {
+        day= aDay;
+        month=aMonth;
+        year=aYear;
         toString();
     }
 

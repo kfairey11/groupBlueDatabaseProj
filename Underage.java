@@ -5,9 +5,12 @@ public class Underage //check for extension
     public String parentalContact;
     public boolean adultTrial;
 
-    public Underage()
+    public Underage(String atrialStatus, int phoneNum, String aparentalContact, Boolean anAdultTrial)
     {
-        //empty
+        trialStatus= atrialStatus;
+        parentalContactNum=phoneNum;
+        parentalContact= aparentalContact;
+        adultTrial=anAdultTrial;
 
     }
 
@@ -21,9 +24,9 @@ public class Underage //check for extension
     }
 
     
-    public void setTrialStatus(String trialStatus)
+    public void setTrialStatus(String atrialStatus)
     {
-        this.trialStatus= trialStatus;
+        this.trialStatus= atrialStatus;
     }
 
     public int getParentalContactNum()
@@ -33,12 +36,12 @@ public class Underage //check for extension
 
     public void setParentalContactNum(int phoneNum)
     {
-        this.parentalContactNum= parentalContactNum;
+        this.parentalContactNum= phoneNum;
     }
 
     public Boolean isAdultTrial()
     {
-        if(Criminal.getAge() < 18)
+        if(Person.getAge() < 18)
         {
             return true;
         }
@@ -53,8 +56,8 @@ public class Underage //check for extension
         return parentalContact;
     }
 
-    public void setParentalContact(String parentalContact)
+    public void setParentalContact(String aparentalContact)
     {
-        this.parentalContact=parentalContact;
+        this.parentalContact=aparentalContact;
     }
 }

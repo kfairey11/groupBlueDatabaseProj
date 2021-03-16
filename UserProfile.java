@@ -4,13 +4,14 @@ public class UserProfile
     protected String password;
     private User user;
     
-    public void createUser(User user)
+    public void createUser(User aUser)
     {
-        //empty stub
+        //empty
     }
 
     public User getUser()
     {
-        return null;
+        //ask about validating password/username
+        return user;
     }
 }
