@@ -197,12 +197,8 @@ public class DatabaseUI {
         int phoneNum = Integer.parseInt(enterInfo("Phone Number", "Victim"));
 
         String address = enterInfo("Address", "Victim");
-        String custody = enterInfo("Protective Custody status (y/n)", "Victim");
-        boolean protCust = true;
-        if(custody.equalsIgnoreCase("n"))
-            protCust = !protCust;
 
-        databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address, protCust);
+        databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address);
     }
 
     private void createOfficer()
