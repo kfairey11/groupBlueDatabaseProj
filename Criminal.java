@@ -15,7 +15,7 @@ public class Criminal extends Person{
     private ArrayList<String> tattoos;
     private double shoeSize;
     private ArrayList<String> piercing;
-    private boolean isUnderAge; //this won't be part of teh constructor, just needs to check the age attribute
+    private boolean isUnderAge; //this won't be part of the constructor, just needs to check the age attribute
 
     /**
      * Criminal Constructor
