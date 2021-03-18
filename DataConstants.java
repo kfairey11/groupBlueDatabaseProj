@@ -3,6 +3,8 @@ public abstract class DataConstants {
     protected final static String USER_ID = "id";
     protected final static String USER_FIRST_NAME = "firstName";
     protected final static String USER_LAST_NAME = "lastName";
+    protected final static String USER_USERNAME = "userName";
+    protected final static String USER_PASSWORD = "password";
 
     protected final static String CRIMINAL_FILE_NAME = "src/Criminal.json";
     protected final static String CRIMINAL_FIRST_NAME = "firstName";
