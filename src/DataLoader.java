@@ -15,7 +15,7 @@ public class DataLoader extends DataConstants{
         {
             FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+            JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
             for(int i=0; i< peopleJSON.size(); i++)
             {
@@ -47,7 +47,7 @@ public class DataLoader extends DataConstants{
         {
             FileReader reader = new FileReader(CRIMINAL_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+            JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
             for(int i=0; i<peopleJSON.size(); i++)
             {
@@ -86,7 +86,7 @@ public class DataLoader extends DataConstants{
         {
             FileReader reader = new FileReader(VICTIM_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+            JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
             for(int i=0; i<peopleJSON.size();i++)
             {
@@ -116,7 +116,7 @@ public class DataLoader extends DataConstants{
         try{
             FileReader reader = new FileReader(OFFICER_FILE_NAME);
             JSONParser parser = new JSONParser();
-            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+            JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
             for(int i=0;i<peopleJSON.size();i++)
             {
@@ -148,7 +148,7 @@ public class DataLoader extends DataConstants{
         {
         FileReader reader = new FileReader(WITNESS_FILE_NAME);
         JSONParser parser = new JSONParser();
-        JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
+        JSONArray peopleJSON = (JSONArray)parser.parse(reader);
         for(int i=0;i<peopleJSON.size();i++)
         {
             JSONObject personJSON = (JSONObject)peopleJSON.get(i);
@@ -177,7 +177,7 @@ public class DataLoader extends DataConstants{
         {
         FileReader reader = new FileReader(CASE_FILE_NAME);
         JSONParser parser = new JSONParser();
-        JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
+        JSONArray peopleJSON = (JSONArray)parser.parse(reader);
 
         for(int i=0; i<peopleJSON.size();i++)
         {
