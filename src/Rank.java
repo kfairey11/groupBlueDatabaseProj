@@ -6,3 +6,4 @@ public enum Rank {
     SERGEANT,
     CAPTAIN;
 }
+//delete this file

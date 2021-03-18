@@ -32,6 +32,7 @@ public class Criminal extends Person{
         this.tattoos = atattoos;
         this.piercing = apiercing;
         this.shoeSize = shoeSize;
+        setIsUnderAge(isUnderAge);
     }
 
     /**
@@ -158,5 +159,13 @@ public class Criminal extends Person{
      */
     public void setPiercing(ArrayList<String> aPiercing) {
         piercing = aPiercing;
+    }
+
+    public void setIsUnderAge(boolean isUnderAge)
+    {
+        if(this.age < 18)
+            isUnderAge = true;
+        else 
+            isUnderAge = false;
     }
 }

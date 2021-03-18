@@ -7,12 +7,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants{
 
-
-    private static void declareVariables()
-    {
-        JSONParser parser = new JSONParser();
-        JSONArray peopleJSON = (JSONArray)new JSONParser.parse(reader);
-    }
     public static ArrayList<User> getUsers()
     {
         ArrayList<User> users = new ArrayList<User>();
@@ -20,7 +14,8 @@ public class DataLoader extends DataConstants{
         try
         {
             FileReader reader = new FileReader(USER_FILE_NAME);
-            declareVariables();
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i< peopleJSON.size(); i++)
             {
@@ -43,7 +38,7 @@ public class DataLoader extends DataConstants{
         }
         return null;
     }
-
+    //can make main method in this class to test
     public static ArrayList<Criminal> getCriminals()
     {
         ArrayList<Criminal> criminals = new ArrayList<Criminal>();
@@ -51,19 +46,22 @@ public class DataLoader extends DataConstants{
         try
         {
             FileReader reader = new FileReader(CRIMINAL_FILE_NAME);
-            declareVariables();
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i<peopleJSON.size(); i++)
             {
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 String firstName = (String)personJSON.get(CRIMINAL_FIRST_NAME);
                 String lastName = (String)personJSON.get(CRIMINAL_LAST_NAME);
+                //cast as a long then .inValue()
                 int age = Integer.parseInt((String)personJSON.get(CRIMINAL_AGE));
                 String sex = (String)personJSON.get(CRIMINAL_SEX);
                 String nickname = (String)personJSON.get(CRIMINAL_NICKNAME);
                 String height = (String)personJSON.get(CRIMINAL_HEIGHT);
                 double weight = Double.parseDouble((String)personJSON.get(CRIMINAL_WEIGHT));
                 String race = (String)personJSON.get(CRIMINAL_RACE);
+                //need to interator
                 ArrayList<String> tattoos = (ArrayList<String>)personJSON.get(CRIMINAL_TATTOOS);
                 double shoeSize = Double.parseDouble((String)personJSON.get(CRIMINAL_SHOE_SIZE));
                 ArrayList<String> piercings = (ArrayList<String>)personJSON.get(CRIMINAL_PIERCINGS);
@@ -87,7 +85,8 @@ public class DataLoader extends DataConstants{
         try
         {
             FileReader reader = new FileReader(VICTIM_FILE_NAME);
-            declareVariables();
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0; i<peopleJSON.size();i++)
             {
@@ -116,7 +115,8 @@ public class DataLoader extends DataConstants{
 
         try{
             FileReader reader = new FileReader(OFFICER_FILE_NAME);
-            declareVariables();
+            JSONParser parser = new JSONParser();
+            JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
 
             for(int i=0;i<peopleJSON.size();i++)
             {
@@ -144,11 +144,11 @@ public class DataLoader extends DataConstants{
     public static ArrayList<Witness> getWitnesses()
     {
         ArrayList<Witness> witnesses = new ArrayList<Witness>();
-
-        FileReader reader = new FileReader(WITNESS_FILE_NAME);
-        declareVariables();
         try
         {
+        FileReader reader = new FileReader(WITNESS_FILE_NAME);
+        JSONParser parser = new JSONParser();
+        JSONArray peopleJSON = (JSONArray)new JSONParser().parse(reader);
         for(int i=0;i<peopleJSON.size();i++)
         {
             JSONObject personJSON = (JSONObject)peopleJSON.get(i);
@@ -173,12 +173,12 @@ public class DataLoader extends DataConstants{
     public static ArrayList<Case> getCases()
     {
         ArrayList<Case> cases = new ArrayList<Case>();
-
-        FileReader reader = new FileReader(CASE_FILE_NAME);
-        declareVariables();
-
         try
         {
+        FileReader reader = new FileReader(CASE_FILE_NAME);
+        JSONParser parser = new JSONParser();
+        JSONArray peopleJSON = (JSONArray) new JSONParser().parse(reader);
+
         for(int i=0; i<peopleJSON.size();i++)
         {
             JSONObject personJSON = (JSONObject)peopleJSON.get(i);
