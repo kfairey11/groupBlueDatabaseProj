@@ -2,19 +2,18 @@ import java.util.*;
 public class Case {
     private int caseNum;
     private String crimeType;
-    private Date date;
+    private String date;
     private String description;
     private String location;
     private boolean inJail;
-    private ArrayList<Criminal> criminals;
-    private ArrayList<Victim> victim;
-    private boolean isVictim;
-    private ArrayList<Officer> officers;
-    private ArrayList<Witness> witnesses;
-    private boolean isWitness;
+    private ArrayList<String> criminals;
+    private ArrayList<String> victims;
+    private ArrayList<String> officers;
+    private ArrayList<String> witnesses;
 
     //insert arrayList attributes
-    public Case()
+    public Case(int caseNum, String crimeType, String date, String description, String location, boolean inJail, ArrayList<String> criminals, 
+    ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //empty stub
     }
@@ -37,12 +36,13 @@ public class Case {
         crimeType = aCrimeType;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date aDate){
-        date = aDate;
+    public void setDate(int day, int month, int year){
+        Date date = new Date(day, month, year);
+        this.date = date.toString();
     }
 
     public String getDescription() {

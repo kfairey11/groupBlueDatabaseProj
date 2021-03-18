@@ -7,7 +7,7 @@
         "age":43,
         "sex":"Female",
         "testimony":"I saw a woman hit a pedestrian with her car and drive away",
-        "phoneNum":"555-555-1888",
+        "phoneNum":5555551888,
         "address":"321 4th Street"
     },
 
@@ -19,7 +19,7 @@
         "age":56,
         "sex":"Male",
         "testimony":"I saw a woman steal $100 from a cash register at a resturant",
-        "phoneNum":"555-555-0099",
+        "phoneNum":5555550099,
         "address":"899 American Lane"
     },
 
@@ -31,7 +31,7 @@
         "age":19,
         "sex":"Male",
         "testimony":"I saw a man get stabbed in an alleyway",
-        "phoneNum":"555-555-2000",
+        "phoneNum":5555552000,
         "address":"1000 Hugee St"
     }
     

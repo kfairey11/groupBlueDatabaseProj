@@ -9,7 +9,6 @@ public class Date extends Case
         day= aDay;
         month=aMonth;
         year=aYear;
-        toString();
     }
 
     public String toString()

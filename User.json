@@ -2,25 +2,33 @@
     {
         "id":7,
         "firstName":"Kennedy",
-        "lastName":"Fairey"
+        "lastName":"Fairey",
+        "userName":"kfairey",
+        "password":"kennedy123"
 
     },
 
     {
         "id":8,
         "firstName":"Casey",
-        "lastName":"Blue"
+        "lastName":"Blue",
+        "userName":"cblue",
+        "password":"casey123"
     },
 
     {
         "id":9,
         "firstName":"Sam",
-        "lastName":"Lowry"
+        "lastName":"Lowry",
+        "userName":"slowry",
+        "password":"sam123"
     },
 
     {
         "id":10,
         "firstName":"Aubrey",
-        "lastName":"Addy"
+        "lastName":"Addy",
+        "userName":"aaddy",
+        "password":"aubrey123"
     }
 ]

@@ -21,7 +21,7 @@ public class DatabaseApp {
     }
 
     public void createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
-    String address, boolean protCust)
+    String address)
     {
         //adds victim to the database
     }

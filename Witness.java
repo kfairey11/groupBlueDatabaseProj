@@ -5,14 +5,13 @@ public class Witness extends Person
         private String testimony;
         private int phoneNum;
         private String address;
-        private Case caseLink;
 
-        public Witness(String aTestimony, int aPhoneNum, String anAddress, Case aCaseLink)
+        public Witness(String firstName, String lastName, int age, String sex, String aTestimony, int aPhoneNum, String anAddress)
         {
+            super(firstName, lastName, age, sex);
             testimony=aTestimony;
             phoneNum=aPhoneNum;
             address=anAddress;
-            caseLink=aCaseLink;
         }
 
         public String getTestimony()
@@ -66,14 +65,5 @@ public class Witness extends Person
         }
         }
 
-        public Case getCaseLink()
-        {
-            return caseLink;
-        }
-
-        public void setCaseLink(Case aCaseLink)
-        {
-            caseLink=aCaseLink;
-        }
     
 }

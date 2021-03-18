@@ -4,21 +4,21 @@
         "caseNum": 1,
         "rank": "officer",
         "city": "Columbia",
-        "officeNum": 3,
+        "officeNum": 5551115555,
         "officeAddress": "123 Village Lane"
     }, {
         "id": 12,
         "caseNum": 2,
         "rank": "detective",
         "city": "Spartenburg",
-        "officeNum": 5,
+        "officeNum": 5551100011,
         "officeAddress": "312 Sandy Street"
     }, {
         "id": 13,
         "caseNum": 3,
         "rank": "officer",
         "city": "Spartenburg",
-        "officeNum": 4,
+        "officeNum": 5558886666,
         "officeAddress": "392 Sweet Street"
     }
 

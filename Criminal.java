@@ -9,29 +9,29 @@ public class Criminal extends Person{
      * Attributes of a Criminal
      */
     private String nickname;
-    private Height height;
-    private Double weight;
+    private String height;
+    private double weight;
     private String race;
     private ArrayList<String> tattoos;
-    private Double shoeSize;
+    private double shoeSize;
     private ArrayList<String> piercing;
-    private boolean isUnderAge; //needs a check for this
+    private boolean isUnderAge; //this won't be part of teh constructor, just needs to check the age attribute
 
     /**
      * Criminal Constructor
      * @param String nickname, Height height, double weight, String race, 
-     * @param ArrayList tattoos, ArrayList piercings, double shoesize, boolean isUnderAge
+     * @param ArrayList tattoos, ArrayList piercings, double shoesize
      */
-    public Criminal(String nickName, Height aheight, double aweight, String arace,
-    ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize, boolean IsUnderAge){
+    public Criminal(String firstName, String lastName, int age, String sex, String nickName, String aheight, double aweight, String arace,
+    ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
+        super(firstName, lastName, age, sex);
         this.nickname = nickName;
         this.height = aheight;
         this.race = arace;
         this.weight = aweight;
         this.tattoos = atattoos;
         this.piercing = apiercing;
-        this.shoeSize = shoesize;
-        this.isUnderAge = IsUnderAge;
+        this.shoeSize = shoeSize;
     }
 
     /**
@@ -58,16 +58,18 @@ public class Criminal extends Person{
      * Gets the height of the criminal
      * @return height
      */
-    public Height getHeight() {
+    public String getHeight() {
         return height;
     }
 
     /**
      * Sets the height of the criminal
-     * @param aHeight
+     * @param feet
+     * @param inches
      */
-    public void setHeight(Height aHeight){
-        height = aHeight;
+    public void setHeight(int feet, int inches) {
+        Height height = new Height(feet, inches);
+        this.height = height.toString();   
     }
 
     /**

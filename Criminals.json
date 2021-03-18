@@ -1,7 +1,5 @@
 [
     {
-        "id":1,
-        "caseNum":2,
         "firstName":"John",
         "lastName":"Smith",
         "age":35,
@@ -17,8 +15,6 @@
     },
 
     {
-        "id":2,
-        "caseNum":2,
         "firstName":"Terry",
         "lastName":"Smalls",
         "age":23,
@@ -33,8 +29,6 @@
     },
 //make folder for .json files
     {
-        "id":3,
-        "caseNum":3,
         "firstName":"Sophia",
         "lastName":"Gonzalez",
         "age":54,

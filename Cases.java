@@ -5,7 +5,7 @@ public class Cases {
 
     private Cases()
     {
-        cases = Database.getCases();
+        caseList = Database.getCases();
     }
 
     public Cases getInstance()

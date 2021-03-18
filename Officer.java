@@ -1,33 +1,18 @@
 public class Officer extends Person{
-    private Rank rank;
-    private Case caseLink;
+    private String rank;
     private int officeNum;
     private String address;
     private String city;
 
-    public Officer(Rank aRank, Case CaseLink, String aCity, int OfficeNum, String anAddress){
+    public Officer(String firstName, String lastName, int age, String sex, String aRank,  String aCity, int OfficeNum, String anAddress){
+        super(firstName,lastName,age,sex);
         rank = aRank;
-        caseLink = CaseLink;
         city = aCity;
         officeNum = OfficeNum;
         address = anAddress;
     }
 
-    public Rank getRank(){
-        return rank;
-    }
 
-    public void setRank(Rank aRank) {
-        rank = aRank;
-    }
-
-    public Case getCaseLink() {
-        return caseLink;
-    }
-
-    public void setCaseLink(Case aCaseLink) {
-        caseLink = aCaseLink;
-    }
 
     public String getCity() {
         return city;

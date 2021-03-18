@@ -12,7 +12,7 @@ public class Height //check extension
 
     public String toString()
     {
-        return "Height: " + feet + " feet, " + inches + " inches";
+        return feet "\' " + someInches + "\"";
     }
     
 }

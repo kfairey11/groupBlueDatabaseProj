@@ -3,9 +3,15 @@ public abstract class Person
     protected String firstName;
     protected String lastName;
     protected int age;
-    protected Sex sex;
+    protected String sex;
 
-    public Person()
+    public Person(String firstName, String lastName, int age, String sex)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName; 
+        this.age = age;
+        this.sex = sex;
+    }
 
     public String getFirstName()
     {
@@ -45,12 +51,12 @@ public abstract class Person
         this.age=anAge;
     }
 
-    public Sex getSex()
+    public String getSex()
     {
         return sex;
     }
 
-    public void setSex(Sex sex)
+    public void setSex(String sex)
     {
         this.sex=sex;
     }
