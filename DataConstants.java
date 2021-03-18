@@ -1,3 +1,7 @@
+/**
+ * Useful Data Constants
+ * @author Kennedy
+ */
 public abstract class DataConstants {
     protected final static String USER_FILE_NAME = "src/User.json";
     protected final static String USER_ID = "id";
