@@ -4,7 +4,7 @@
  */
 import java.util.ArrayList;
 public class Cases {
-    private Cases cases;
+    private static Cases cases;
     private ArrayList<Case> caseList;
 
     /**
