@@ -38,6 +38,16 @@ public class Officer extends Person{
         return city;
     }
 
+    public String getRank()
+    {
+        return rank;
+    }
+
+    public void setRank(String rank)
+    {
+        this.rank = rank;
+    }
+
     /**
      * Sets the city the officer is from
      * @param aCity

@@ -129,6 +129,7 @@ public class Case {
     public boolean getInJail(){
         return inJail;
     }
-
+    //need to add criminal, victim, officer, and witness array lists, all need to be of type string
+    // they will be each persons first and last name
 }
 

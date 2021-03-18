@@ -19,7 +19,7 @@ public class Cases {
      * Gets an instance of Cases
      * @return Cases
      */
-    public Cases getInstance()
+    public static Cases getInstance()
     {
         if(cases == null)
             cases = new Cases();
