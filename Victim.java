@@ -7,8 +7,9 @@ public class Victim extends Person
     private String address;
     private Boolean protectCustody;
 
-    public Victim(String aReport, Case aCaseLink, String aHospital, int aPhoneNum, String anAddress, Boolean aProtectCustody)
+    public Victim(String firstName, String lastName, int age, String sex, String aReport, Case aCaseLink, String aHospital, int aPhoneNum, String anAddress, Boolean aProtectCustody)
     {
+        super(firstName, lastName, age, sex);
         report= aReport;
         caseLink=aCaseLink;
         hospital=aHospital;

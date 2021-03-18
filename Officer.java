@@ -5,7 +5,8 @@ public class Officer extends Person{
     private String address;
     private String city;
 
-    public Officer(Rank aRank, Case CaseLink, String aCity, int OfficeNum, String anAddress){
+    public Officer(String firstName, String lastName, int age, String sex, Rank aRank, Case CaseLink, String aCity, int OfficeNum, String anAddress){
+        super(firstName,lastName,age,sex);
         rank = aRank;
         caseLink = CaseLink;
         city = aCity;

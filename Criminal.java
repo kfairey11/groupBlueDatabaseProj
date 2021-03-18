@@ -2,16 +2,17 @@ import java.util.ArrayList;
 
 public class Criminal extends Person{
     private String nickname;
-    private Height height;
-    private Double weight;
+    private String height;
+    private double weight;
     private String race;
     private ArrayList<String> tattoos;
-    private Double shoeSize;
+    private double shoeSize;
     private ArrayList<String> piercing;
-    private boolean isUnderAge; //needs a check for this
+    private boolean isUnderAge; //this won't be part of teh constructor, just needs to check the age attribute
 
-    public Criminal(String nickName, Height aheight, double aweight, String arace,
-    ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize, boolean IsUnderAge){
+    public Criminal(String firstName, String lastName, int age, String sex, String nickName, String aheight, double aweight, String arace,
+    ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize){
+        super(firstName, lastName, age, sex);
         this.nickname = nickName;
         this.height = aheight;
         this.race = arace;
@@ -19,7 +20,6 @@ public class Criminal extends Person{
         this.tattoos = atattoos;
         this.piercing = apiercing;
         this.shoeSize = shoesize;
-        this.isUnderAge = IsUnderAge;
     }
 
     public String getNickname() {
@@ -34,12 +34,13 @@ public class Criminal extends Person{
         }
     }
 
-    public Height getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Height aHeight){
-        height = aHeight;
+    public void setHeight(int feet, int inches) {
+        Height height = new Height(feet, inches);
+        this.height = height.toString();   
     }
 
     public double getWeight() {

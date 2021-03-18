@@ -7,8 +7,9 @@ public class Witness extends Person
         private String address;
         private Case caseLink;
 
-        public Witness(String aTestimony, int aPhoneNum, String anAddress, Case aCaseLink)
+        public Witness(String firstName, String lastName, int age, String sex, String aTestimony, int aPhoneNum, String anAddress, Case aCaseLink)
         {
+            super(firstName, lastName, age, sex);
             testimony=aTestimony;
             phoneNum=aPhoneNum;
             address=anAddress;
