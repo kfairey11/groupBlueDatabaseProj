@@ -1,13 +1,24 @@
+/**
+ * A class of Users
+ * @author Kennedy
+ */
 import java.util.ArrayList;
 public class Users {
     private static Users users;
     private static ArrayList<User> userList;
 
+    /**
+     * Constructor for Users
+     */
     private Users()
     {
         userList = Database.getUsers();
     }
 
+    /**
+     * Gets an instance of Users
+     * @return Users
+     */
     public static Users getInstance()
     {
         if(users == null)
@@ -15,6 +26,11 @@ public class Users {
         return users;
     }
 
+    /**
+     * Searches userList for a certain User
+     * @param userName
+     * @return boolean
+     */
     public boolean haveUser(String userName)
     {
         for(int i=0;i<userList.size();i++)
