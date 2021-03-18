@@ -41,6 +41,7 @@ public abstract class DataConstants {
     protected final static String OFFICER_CASE_NUM = "caseNum";
     protected final static String OFFICER_OFFICE_NUM = "officeNum";
     protected final static String OFFICER_ADDRESS = "address";
+    protected final static String OFFICER_CITY = "city";
 
     protected final static String WITNESS_FILE_NAME = "src/Witness.json";
     protected final static String WITNESS_FIRST_NAME = "firstName";
