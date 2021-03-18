@@ -2,7 +2,7 @@
  * A Date Class
  * @author Casey, Kennedy
  */
-public class Date extends Case
+public class Date
 {
     /**
      * Attributes for the Date
