@@ -6,12 +6,17 @@ public class UserProfile
     
     public void createUser(User aUser)
     {
-        //empty
+        this.username = aUser.getUserName();
+        this.password = aUser.getPassword();
+        this.user = aUser;
     }
 
     public User getUser()
     {
-        //ask about validating password/username
-        return user;
+        
+        if (username == user.getUserName() && password == user.getPassword()) {
+            return user;
+        }
+
     }
 }
