@@ -5,17 +5,14 @@ public class Victim extends Person
     private String hospital;
     private int phoneNum;
     private String address;
-    private Boolean protectCustody;
 
-    public Victim(String firstName, String lastName, int age, String sex, String aReport, Case aCaseLink, String aHospital, int aPhoneNum, String anAddress, Boolean aProtectCustody)
+    public Victim(String firstName, String lastName, int age, String sex, String aReport, String aHospital, int aPhoneNum, String anAddress)
     {
         super(firstName, lastName, age, sex);
         report= aReport;
-        caseLink=aCaseLink;
         hospital=aHospital;
         phoneNum=aPhoneNum;
         address=anAddress;
-        protectCustody=aProtectCustody;
     }
 
     public String getReport()
@@ -35,15 +32,6 @@ public class Victim extends Person
         }
     }
 
-    public Case getCaseLink()
-    {
-        return caseLink;
-    }
-
-    public void setCaseLink(Case aCaseLink)
-    {
-        caseLink=aCaseLink;
-    }
 
     public String getHopsital()
     {
@@ -96,17 +84,6 @@ public class Victim extends Person
         }
     }
 
-    public Boolean isProtectCustody()
-    {
-        if(protectCustody) //not exactly sure if this is right
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
     
 }
