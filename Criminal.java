@@ -11,7 +11,7 @@ public class Criminal extends Person{
     private boolean isUnderAge; //this won't be part of teh constructor, just needs to check the age attribute
 
     public Criminal(String firstName, String lastName, int age, String sex, String nickName, String aheight, double aweight, String arace,
-    ArrayList<String> atattoos, ArrayList<String> apiercing, double shoesize){
+    ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
         super(firstName, lastName, age, sex);
         this.nickname = nickName;
         this.height = aheight;
@@ -19,7 +19,7 @@ public class Criminal extends Person{
         this.weight = aweight;
         this.tattoos = atattoos;
         this.piercing = apiercing;
-        this.shoeSize = shoesize;
+        this.shoeSize = shoeSize;
     }
 
     public String getNickname() {
