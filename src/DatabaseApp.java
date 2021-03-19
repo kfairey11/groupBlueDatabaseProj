@@ -17,9 +17,9 @@ public class DatabaseApp {
      */
     public DatabaseApp()
     {
-        people = people.getInstance();
-        cases = cases.getInstance();
-        users = users.getInstance();
+        people = People.getInstance();
+        cases = Cases.getInstance();
+        users = Users.getInstance();
     }
 
     /**
@@ -100,7 +100,8 @@ public class DatabaseApp {
      * @param description
      * @param location
      */
-    public void createCase(String crimeType, String date, String description, String location)
+    public void createCase(String crimeType, String date, String description, String location, ArrayList<String> criminals, ArrayList<String> 
+    victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
     }

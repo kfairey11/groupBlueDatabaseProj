@@ -336,6 +336,7 @@ public class DatabaseUI {
         String location = scanner.nextLine();
 
         System.out.println("Enter the full names of the criminals associated with this case (enter name, hit ENTER, then either keep entering names or type \"exit\" to stop");
+        ArrayList<String> criminals = new ArrayList<String>();
         while(true)
         {
         if(scanner.nextLine().equalsIgnoreCase("exit"))
@@ -343,7 +344,10 @@ public class DatabaseUI {
         String criminal = scanner.nextLine();
         //need to find a way to link every criminal typed to the case
         if(databaseApp.searchCriminalByName(criminal) != null)
-            System.out.println("That criminal is in the database, they have been added to the case");
+        {
+            System.out.println("That criminal is in the database, they have been added to the case. Continue adding criminals or type exit to exit.");
+            criminals.add(criminal);
+        }
         else    
             {
                 System.out.println("That criminal is not in the database, would you like to add a new one? (y/n)");
@@ -351,6 +355,7 @@ public class DatabaseUI {
                 {
                     createCriminal();
                     System.out.println("Enter the name full name of the criminal just created to add them to the case.");
+                    criminals.add(scanner.nextLine());
                 }
                 else    
                 {
@@ -358,11 +363,97 @@ public class DatabaseUI {
                     continue;
                 }
             }    
-    
-
         }
 
-        databaseApp.createCase(crimeType, date, description, location);
+        ArrayList<String> victims = new ArrayList<String>();
+        while(true)
+        {
+        if(scanner.nextLine().equalsIgnoreCase("exit"))
+            break;
+        String victim = scanner.nextLine();
+        //need to find a way to link every criminal typed to the case
+        if(databaseApp.searchVictimByName(victim) != null)
+        {
+            System.out.println("That victim is in the database, they have been added to the case. Continue adding victims or type exit to exit.");
+            victims.add(victim);
+        }
+        else    
+            {
+                System.out.println("That victim is not in the database, would you like to add a new one? (y/n)");
+                if(scanner.next().equalsIgnoreCase("y"))
+                {
+                    createVictim();
+                    System.out.println("Enter the name full name of the victim just created to add them to the case.");
+                    victims.add(scanner.nextLine());
+                }
+                else    
+                {
+                    System.out.println("Either continue entering victims, or type exit to stop");
+                    continue;
+                }
+            }    
+        }
+
+        ArrayList<String> officers = new ArrayList<String>();
+        while(true)
+        {
+        if(scanner.nextLine().equalsIgnoreCase("exit"))
+            break;
+        String officer= scanner.nextLine();
+        //need to find a way to link every criminal typed to the case
+        if(databaseApp.searchCriminalByName(officer) != null)
+        {
+            System.out.println("That officer is in the database, they have been added to the case. Continue adding officers or type exit to exit.");
+            officers.add(officer);
+        }
+        else    
+            {
+                System.out.println("That officer is not in the database, would you like to add a new one? (y/n)");
+                if(scanner.next().equalsIgnoreCase("y"))
+                {
+                    createOfficer();
+                    System.out.println("Enter the name full name of the officer just created to add them to the case.");
+                    criminals.add(scanner.nextLine());
+                }
+                else    
+                {
+                    System.out.println("Either continue entering officer, or type exit to stop");
+                    continue;
+                }
+            }    
+        }
+
+        ArrayList<String> witnesses = new ArrayList<String>();
+        while(true)
+        {
+        if(scanner.nextLine().equalsIgnoreCase("exit"))
+            break;
+        String witness = scanner.nextLine();
+        //need to find a way to link every criminal typed to the case
+        if(databaseApp.searchWitnessByName(witness) != null)
+        {
+            System.out.println("That witness is in the database, they have been added to the case. Continue adding witnesses or type exit to exit.");
+            witnesses.add(witness);
+        }
+        else    
+            {
+                System.out.println("That witness is not in the database, would you like to add a new one? (y/n)");
+                if(scanner.next().equalsIgnoreCase("y"))
+                {
+                    createWitness();
+                    System.out.println("Enter the name full name of the witness just created to add them to the case.");
+                    witnesses.add(scanner.nextLine());
+                }
+                else    
+                {
+                    System.out.println("Either continue entering witnesses, or type exit to stop");
+                    continue;
+                }
+            }    
+        }
+
+
+        databaseApp.createCase(crimeType, date, description, location, criminals, victims, officers, witnesses);
 
     }
 

@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
+java.lang.*;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -54,15 +55,15 @@ public class DataLoader extends DataConstants{
                 JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 String firstName = (String)personJSON.get(CRIMINAL_FIRST_NAME);
                 String lastName = (String)personJSON.get(CRIMINAL_LAST_NAME);
-                //cast as a long then .inValue()
-                int age = Integer.parseInt((String)personJSON.get(CRIMINAL_AGE));
+                int age = (((Long) personJSON.get(CRIMINAL_AGE)).intValue());
                 String sex = (String)personJSON.get(CRIMINAL_SEX);
                 String nickname = (String)personJSON.get(CRIMINAL_NICKNAME);
                 String height = (String)personJSON.get(CRIMINAL_HEIGHT);
-                double weight = Double.parseDouble((String)personJSON.get(CRIMINAL_WEIGHT));
+                double weight = ((Long)personJSON.get(CRIMINAL_WEIGHT)).doubleValue();
                 String race = (String)personJSON.get(CRIMINAL_RACE);
                 //need to interator
-                ArrayList<String> tattoos = (ArrayList<String>)personJSON.get(CRIMINAL_TATTOOS);
+                ArrayList<String> tattoos = new ArrayList<String>();
+                
                 double shoeSize = Double.parseDouble((String)personJSON.get(CRIMINAL_SHOE_SIZE));
                 ArrayList<String> piercings = (ArrayList<String>)personJSON.get(CRIMINAL_PIERCINGS);
                 
