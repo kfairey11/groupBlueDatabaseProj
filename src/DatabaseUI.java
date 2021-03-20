@@ -18,6 +18,7 @@ public class DatabaseUI {
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
     private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank", "Officer number", "Address", "City"};
     private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
+    private static final String[] caseOptions = {"Case Type", "Date", "Description", "Location", "Criminals", "Victims", "Officers", "Witnesses"};
     private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
     private Scanner scanner;
     private DatabaseApp databaseApp;
@@ -803,10 +804,60 @@ public class DatabaseUI {
     private void changeCase()
     {
         System.out.println("Enter the case number you would like to change");
-        //need to make searchByCaseNum method in database class
         Case caseToChange = databaseApp.searchCaseByCaseNum(scanner.nextInt());
-        //need to make changeCase in database class, needs to print options as well
-        databaseApp.changeCase(caseToChange);
+        caseToChange.print();
+        while(true)
+        {
+        System.out.println("What would you like to change? (Enter the corresponding number, then hit ENTER)");
+        for(int i=1; i<caseOptions.length + 1; i++)
+            System.out.println(i + ". " + caseOptions[i]);
+
+        int userCommand = scanner.nextInt() - 1;
+
+        if(userCommand < 1 || userCommand > caseOptions.length)
+        {
+            System.out.println("Invalid input, enter again");
+            continue;
+        }
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the new crime type");
+            caseToChange.setCrimeType(scanner.nextLine());
+            break;
+
+            case(1):
+            System.out.println("Enter the new date (Enter month number, then day, then year, hit ENTER after each input)");
+            int month = scanner.nextInt();
+            int day = scanner.nextInt();
+            int year = scanner.nextInt();
+            caseToChange.setDate(day, month, year);
+            break;
+
+            case(2):
+            System.out.println("Enter the new description");
+            caseToChange.setDescription(scanner.nextLine());
+            break;
+
+            case(3):
+            System.out.println("Enter the new location");
+            caseToChange.setLocation(scanner.nextLine());
+            break;
+
+            case(4):
+            while(true)
+            {
+                System.out.println("Enter a new criminal (enter their full name), then hit ENTER,to move on, type EXIT");
+                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                    break;
+                
+            }
+            break;
+
+        }
+
+        }
 
     }
 }
