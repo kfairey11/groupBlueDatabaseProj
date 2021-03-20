@@ -12,7 +12,6 @@ public class Case {
     private String date;
     private String description;
     private String location;
-    private boolean inJail;
     private ArrayList<String> criminals;
     private ArrayList<String> victims;
     private ArrayList<String> officers;
@@ -168,7 +167,26 @@ public class Case {
     {
         this.witnesses = witnesses;
     }
-    //need to add criminal, victim, officer, and witness array lists, all need to be of type string
-    // they will be each persons first and last name
+    
+    public void print()
+    {
+        System.out.println("Case number: " + getCaseNum());
+        System.out.println("Crime type: " + getCrimeType());
+        System.out.println("Date: " + getDate());
+        System.out.println("Description: " + getDescription());
+        System.out.println("Location: " + getLocation());
+        System.out.println("Criminal(s): ");
+        for(int i=0; i<criminals.size(); i++)
+            System.out.println(criminals.get(i) + " ");
+        System.out.println("Victims(s): ");
+        for(int j=0;j<victims.size(); j++)
+            System.out.println(victims.get(j) + " ");
+        System.out.println("Officer(s): ");
+        for(int k=0; k<officers.size(); k++)
+            System.out.println(officers.get(k) + " ");
+        System.out.println("Witness(es): ");
+        for(int l=0; ;<witnesses.size(); l++)
+            System.out.println(witnesses.get(i) + " ");
+    }
 }
 

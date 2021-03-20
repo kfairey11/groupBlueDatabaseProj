@@ -87,4 +87,16 @@ public class Officer extends Person{
     public void setOfficeAddress(String anOfficeAddress){
         address = anOfficeAddress;
     }
+
+    public void print()
+    {
+        System.out.println("First name: " +getFirstName());
+        System.out.println("Last name: " + getLastName());
+        System.out.println("Age: " + getAge());
+        System.out.printlnt("Sex: " + getSex());
+        System.out.println("Rank: " + getRank());
+        System.out.println("City: " + getCity());
+        System.out.println("Office number: " + getOfficeNum());
+        System.out.println("Office Address: " + getOfficeAddress());
+    }
 }

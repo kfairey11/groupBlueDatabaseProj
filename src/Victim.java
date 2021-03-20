@@ -131,4 +131,16 @@ public class Victim extends Person
             anAddress=anAddress;
         }
     }
+
+    public void print()
+    {
+        System.out.println("First name: " + getFirstName());
+        System.out.println("Last name: " + getLastName());
+        System.out.println("Age: " + getAge());
+        System.out.println("Sex: " + getSex());
+        System.out.println("Report: " + getReport());
+        System.out.println("Hospital: " + getHopsital());
+        System.out.println("Phone number: " + getPhoneNum());
+        System.out.println("Address: " + getAddress());
+    }
 }

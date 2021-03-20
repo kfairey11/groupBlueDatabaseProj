@@ -48,11 +48,7 @@ public class Criminal extends Person{
      * @param aNickname
      */
     public void setNickname(String aNickname) {
-        if(aNickname.equalsIgnoreCase(" ")) {
-            nickname = nickname;
-        } else {
-            nickname = aNickname;
-        }
+        this.nickname = aNickname;
     }
 
     /**
@@ -167,5 +163,28 @@ public class Criminal extends Person{
             isUnderAge = true;
         else 
             isUnderAge = false;
+    }
+
+    public void print()
+    {
+        System.out.println("First name: " + getFirstName());
+        System.out.println("Last name: " + getLastName());
+        System.out.println("Age: " + getAge());
+        System.out.println("Sex: " + getSex());
+        System.out.println("Nickname: " + getNickname());
+        System.out.println("Height: " + getHeight());
+        System.out.println("Weight: " + getWeight());
+        System.out.println("Race: " + getRace());
+        System.out.println("Tattoos: ");
+        for(int i=0; i<this.tattoos.size();i++)
+            System.out.println(tattoos.get(i) + " ");
+        System.out.println("Shoe size: " + getShoeSize());
+        System.out.println("Piercings: ");
+        for(int j=0; j< this.piercing.size(); j++)
+            System.out.println(piercing.get(j) + " ");
+        if(isUnderAge)
+            System.out.println("Underage: yes");
+        else
+            System.out.println("Underage: no");
     }
 }
