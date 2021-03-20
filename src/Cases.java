@@ -41,7 +41,17 @@ public class Cases {
         return false;
     }
 
-    public boolean addCase(String crimeType, int month, int day, int year, String description, String location, boolean inJail, ArrayList<String> criminals,
+    public Case getCase(int caseNum)
+    {
+        for(Case newCase : caseList)
+        {
+            if(newCase.getCaseNum() == caseNum)
+                return newCase;
+        }
+        return null;
+    }
+
+    public boolean addCase(String crimeType, int month, int day, int year, String description, String location, ArrayList<String> criminals,
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         caseList.add(new Case(crimeType, month, day, year, description, location,  criminals, victims, officers, witnesses));

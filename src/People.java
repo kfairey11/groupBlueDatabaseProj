@@ -26,6 +26,47 @@ public class People {
             witnessList = DataLoader.getWitnesses();
     }
 
+    public ArrayList<Criminal> getCriminalList()
+    {
+        return criminalList;
+    }
+
+    public void setCriminalList(ArrayList<Criminal> criminals)
+    {
+        this.criminalList = criminals;
+    }
+
+
+    public ArrayList<Victim> getVictimList()
+    {
+        return victimList;
+    }
+
+    public void setVictimList(ArrayList<Victim> victims)
+    {
+        this.victimList = victims;
+    }
+
+    public ArrayList<Officer> getOfficerList()
+    {
+        return officerList;
+    }
+
+    public void setOfficerList(ArrayList<Officer> officers)
+    {
+        this.officerList = officers;
+    }
+
+    public ArrayList<Witness> getWitnessList()
+    {
+        return witnessList;
+    }
+
+    public void setWitnessList(ArrayList<Witness> witnesses)
+    {
+        this.witnessList = witnesses;
+    }
+
     /**
      * Gets an instance of People()
      * @return people
@@ -118,6 +159,50 @@ public class People {
             return false;
         witnessList.add(new Witness(firstName, lastName, age, sex, testimony, phoneNum, address));
         return true;
+    }
+
+    public Criminal getCriminal(String name)
+    {
+        for(Criminal criminal : criminalList)
+        {
+            String fullName = criminal.getFirstName() + " " + criminal.getLastName();
+            if(fullName.equalsIgnoreCase(name))
+                return criminal;
+        }
+        return null;
+    }
+
+    public Victim getVictim(String name)
+    {
+        for(Victim victim : victimList)
+        {
+            String fullName = victim.getFirstName() + " " + victim.getLastName();
+            if(fullName.equalsIgnoreCase(name))
+                return victim;
+        }
+        return null;
+    }
+
+    public Officer getOfficer(String name)
+    {
+        for(Officer officer : officerList)
+        {
+            String fullName = officer.getFirstName() + " " + officer.getLastName();
+            if(fullName.equalsIgnoreCase(name))
+                return officer;
+        }
+        return null;
+    }
+
+    public Witness getWitness(String name)
+    {
+        for(Witness witness : witnessList)
+        {
+            String fullName = witness.getFirstName() + " " + witness.getLastName();
+            if(fullName.equalsIgnoreCase(name))
+                return witness;
+        }
+        return null;
     }
 
     //possibly getItem()?

@@ -13,6 +13,11 @@ public class DatabaseUI {
     private static final String[] LOGIN_OPTIONS = {"Login", "Create Profile"};
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Add to an existing Person(s) Profile", "Create a Case Profile", 
     "Add to a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
+    private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
+    "Tattoos", "Shoe size", "Piercings"};
+    private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
+    private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank", "Officer number", "Address", "City"};
+    private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
     private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
     private Scanner scanner;
     private DatabaseApp databaseApp;
@@ -372,30 +377,35 @@ public class DatabaseUI {
         {
             case(0):
             makeChanges("Criminal");
-            Person criminal = databaseApp.searchCriminalByName(scanner.next());
+            Criminal criminal = databaseApp.searchCriminalByName(scanner.next());
             System.out.println(criminal.firstName + " " + criminal.lastName + " is a criminal in the database");
-            databaseApp.changeCriminal(criminal);
+            criminal.print();
+            changesToCriminal(criminal);
             break;
 
             case(1):
             makeChanges("Victim");
-            Person victim = databaseApp.searchVictimByName(scanner.next());
+            Victim victim = databaseApp.searchVictimByName(scanner.next());
             System.out.println(victim.firstName + " " + victim.lastName + " is a victim in the database");
-            databaseApp.changeVictim(victim);
+            victim.print();
+            changesToVictim(victim);
             break;
 
             case(2):
             makeChanges("Officer");
-            Person officer = databaseApp.searchOfficerByName(scanner.next());
-            System.out.println(officer.firstName + " " + officer.lastName + " is a officer in the database");
-            databaseApp.changeOfficer(officer);
+            Officer officer = databaseApp.searchOfficerByName(scanner.next());
+            System.out.println(officer.firstName + " " + officer.lastName + " is an officer in the database");
+            officer.print();
+            changesToOfficer(officer);
+
             break;
 
             case(3):
             makeChanges("Witness");
-            Person witness = databaseApp.searchWitnessByName(scanner.next());
-            System.out.println(witness.firstName + " " + witness.lastName + " is a officer in the database");
-            databaseApp.changeWitness(witness);
+            Witness witness = databaseApp.searchWitnessByName(scanner.next());
+            System.out.println(witness.firstName + " " + witness.lastName + " is a witness in the database");
+            witness.print();
+            changesToWitness(witness);
             break;
             
             
@@ -409,6 +419,244 @@ public class DatabaseUI {
     private void makeChanges(String person)
     {
         System.out.println("Which" + person + "'s profile would you like to make changes to? Enter their full name then ENTER.");
+    }
+
+    private void changesToCriminal(Criminal criminal)
+    {
+        for(int i=1; i<criminalOptions.length + 1; i++)
+            System.out.println(i + ". " + criminalOptions[i]);
+        System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the new first name");
+            criminal.setFirstName(scanner.nextLine());
+            break;
+
+            case(1):
+            System.out.println("Enter the new last name");
+            criminal.setLastName(scanner.nextLine());
+            break;
+
+            case(2):
+            System.out.println("Enter the new age");
+            criminal.setAge(scanner.nextInt());
+            break;
+
+            case(3):
+            System.out.println("Enter the new sex");
+            criminal.setSex(scanner.nextLine());
+            break;
+
+            case(4):
+            System.out.println("Enter the new nickname");
+            criminal.setNickname(scanner.nextLine());
+            break;
+
+            case(5):
+            System.out.println("Enter the new height (Enter the feet, hit ENTER, then enter the inches, then hit ENTER");
+            int feet = scanner.nextInt();
+            int inches = scanner.nextInt();
+            criminal.setHeight(feet, inches);
+            break;
+
+            case(6):
+            System.out.println("Enter the new weight");
+            criminal.setWeight(scanner.nextDouble());
+            break;
+
+            case(7):
+            System.out.println("Enter the new race");
+            criminal.setRace(scanner.nextLine());
+            break;
+
+            case(8):
+            while(true)
+            {
+                System.out.println("Enter a new tattoo, then hit ENTER,to move on, type EXIT");
+                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                    break;
+                criminal.getTattoos().add(scanner.nextLine());
+            }
+            break;
+
+            case(9):
+            System.out.println("Enter the new shoe size");
+            criminal.setShoeSize(scanner.nextDouble());
+            break;
+
+            case(10):
+            while(true)
+            {
+            System.out.println("Enter a new piercing, then hit ENTER, to move on, type EXIT");
+            if(scanner.nextLine().equalsIgnoreCase("exit"))
+                break;
+            criminal.getPiercing().add(scanner.nextLine());
+            }
+            break;
+
+        }
+
+        databaseApp.changeCriminal(criminal);
+        System.out.println("The changes have been made successfully");
+
+    }
+
+    private void changesToVictim(Victim victim)
+    {
+        for(int i=1; i<victimOptions.length + 1; i++)
+            System.out.println(i + ". " + victimOptions[i]);
+        System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        while(true)
+        {
+            switch(userCommand)
+            {
+                case(0):
+                System.out.println("Enter new first name");
+                victim.setFirstName(scanner.nextLine());
+                break;
+
+                case(1):
+                System.out.println("Enter new last name");
+                victim.setLastName(scanner.nextLine());
+                break;
+
+                case(2):
+                System.out.println("Enter new age");
+                victim.setAge(scanner.nextInt());
+                break;
+
+                case(3):
+                System.out.println("Enter new sex");
+                victim.setSex(scanner.nextLine());
+                break;
+
+                case(4):
+                System.out.println("Enter new report");
+                victim.setReport(scanner.nextLine());
+                break;
+
+                case(5):
+                System.out.println("Enter new hospital");
+                victim.setHospital(scanner.nextLine());
+                break;
+
+                case(6):
+                System.out.println("Enter new phone number");
+                victim.setPhoneNum(scanner.nextInt());
+                break;
+
+                case(7):
+                System.out.println("Enter new address");
+                victim.setAddress(scanner.nextLine());
+                break;
+            }
+
+            databaseApp.changeVictim(victim);
+            System.out.println("The changes have been successfully made");
+        }
+    }
+
+    private void changesToOfficer(Officer officer)
+    {
+        for(int i=1; i<officerOptions.length + 1; i++)
+            System.out.println(i + ". " + officerOptions[i]);
+        System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter new first name");
+            officer.setFirstName(scanner.nextLine());
+            break;
+
+            case(1):
+            System.out.println("Enter new last name");
+            officer.setLastName(scanner.nextLine());
+            break;
+
+            case(2):
+            System.out.println("Enter new age");
+            officer.setAge(scanner.nextInt());
+            break;
+
+            case(3):
+            System.out.println("Enter new sex");
+            officer.setSex(scanner.nextLine());
+            break;
+
+            case(4):
+            System.out.println("Enter new rank");
+            officer.setRank(scanner.nextLine());
+            break;
+
+            case(5):
+            System.out.println("Enter new office number");
+            officer.setOfficeNum(scanner.nextInt());
+            break;
+
+            case(6):
+            System.out.println("Enter new address");
+            officer.setOfficeAddress(scanner.nextLine());
+            break;
+        }
+
+        databaseApp.changeOfficer(officer);
+        System.out.println("The changes have been successfully made");
+    }
+
+    private void changesToWitness(Witness witness)
+    {
+        for(int i=1; i<witnessOptions.length + 1; i++)
+            System.out.println(i + ". " + witnessOptions[i]);
+        System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter new first name");
+            witness.setFirstName(scanner.nextLine());
+            break;
+
+            case(1):
+            System.out.println("Enter new last name");
+            witness.setLastName(scanner.nextLine());
+            break;
+
+            case(2):
+            System.out.println("Enter new age");
+            witness.setAge(scanner.nextInt());
+            break;
+
+            case(3):
+            System.out.println("Enter new sex");
+            witness.setSex(scanner.nextLine());
+            break;
+
+            case(4):
+            System.out.println("Enter new testimony");
+            witness.setTestimony(scanner.nextLine());
+            break;
+
+            case(5):
+            System.out.println("Enter new phone number");
+            witness.setPhoneNum(scanner.nextInt());
+            break;
+
+            case(6):
+            System.out.println("Enter new address");
+            witness.setAddress(scanner.nextLine());
+            break;
+        }
+
+        databaseApp.changeWitness(witness);
+        System.out.println("The changes have been made successfully");
     }
 
     private void createCase()

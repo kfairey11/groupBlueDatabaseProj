@@ -131,43 +131,88 @@ public class DatabaseApp {
     victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
-        cases.addCase(crimeType, month, day, year, description, location, inJail, criminals, victims, officers, witnesses);
+        return cases.addCase(crimeType, month, day, year, description, location, criminals, victims, officers, witnesses);
     }
 
     /**
      * Changes a Criminal
      * @param criminal
      */
-    public void changeCriminal(Person criminal)
+    public void changeCriminal(Criminal criminal)
     {
-        //empty stub
+            Criminal oldCriminal = searchCriminalByName(criminal.getFirstName() + " " + criminal.getLastName());
+            String oldCriminalName = oldCriminal.getFirstName() + " " + oldCriminal.getLastName();
+            ArrayList<Criminal> criminalList = criminals.getCriminalList();
+            
+            for(int i=0; i<criminalList.size(); i++)
+            {
+                if((criminalList.get(i).getFirstName() + " " + criminalList.get(i).getLastName()).equalsIgnoreCase(oldCriminalName))
+                {
+                    criminalList.set(i, criminal);
+                }
+            }
+            criminals.setCriminalList(criminalList);
+
     }
 
     /**
      * Changes a Victim
      * @param victim
      */
-    public void changeVictim(Person victim)
+    public void changeVictim(Victim victim)
     {
-        //empty stub
+        Victim oldVictim = searchVictimByName(victim.getFirstName() + " " + victim.getLastName());
+            String oldVictimName = oldVictim.getFirstName() + " " + oldVictim.getLastName();
+            ArrayList<Victim> victimList = victims.getVictimList();
+            
+            for(int i=0; i<victimList.size(); i++)
+            {
+                if((victimList.get(i).getFirstName() + " " + victimList.get(i).getLastName()).equalsIgnoreCase(oldVictimName))
+                {
+                    victimList.set(i, victim);
+                }
+            }
+            victims.setVictimList(victimList);
     }
 
     /**
      * Changes an Officer
      * @param officer
      */
-    public void changeOfficer(Person officer)
+    public void changeOfficer(Officer officer)
     {
-        //empty stub
+            Officer oldOfficer = searchOfficerByName(officer.getFirstName() + " " + officer.getLastName());
+            String oldOfficerName  = oldOfficer.getFirstName() + " " + oldOfficer.getLastName();
+            ArrayList<Officer> officerList = officers.getOfficerList();
+            
+            for(int i=0; i<officerList.size(); i++)
+            {
+                if((officerList.get(i).getFirstName() + " " + officerList.get(i).getLastName()).equalsIgnoreCase(oldOfficerName))
+                {
+                    officerList.set(i, officer);
+                }
+            }
+            officers.setOfficerList(officerList);
     }
 
     /**
      * Changes a Witness
      * @param witness
      */
-    public void changeWitness(Person witness)
+    public void changeWitness(Witness witness)
     {
-        //empty stub
+        Witness oldWitness = searchWitnessByName(witness.getFirstName() + " " + witness.getLastName());
+        String oldWitnessName  = oldWitness.getFirstName() + " " + oldWitness.getLastName();
+        ArrayList<Witness> witnessList = witnesses.getWitnessList();
+        
+        for(int i=0; i<witnessList.size(); i++)
+        {
+            if((witnessList.get(i).getFirstName() + " " + witnessList.get(i).getLastName()).equalsIgnoreCase(oldWitnessName))
+            {
+                witnessList.set(i, witness);
+            }
+        }
+        witnesses.setWitnessList(witnessList);
     }
 
     /**
@@ -186,8 +231,7 @@ public class DatabaseApp {
      */
     public Criminal searchCriminalByName(String name)
     {
-        //empty stub
-        return null;
+        return criminals.getCriminal(name);
     }
 
     /**
@@ -197,8 +241,7 @@ public class DatabaseApp {
      */
     public Victim searchVictimByName(String name)
     {
-        //empty stub
-        return null;
+        return victims.getVictim(name);
     }
 
     /**
@@ -208,8 +251,7 @@ public class DatabaseApp {
      */
     public Officer searchOfficerByName(String name)
     {
-        //empty stub
-        return null;
+        return officers.getOfficer(name);
     }
 
     /**
@@ -219,8 +261,7 @@ public class DatabaseApp {
      */
     public Witness searchWitnessByName(String name)
     {
-        //empty stub 
-        return null;
+         return witnesses.getWitness(name);
     }
 
     /**
@@ -246,8 +287,7 @@ public class DatabaseApp {
      */
     public Case searchCaseByCaseNum(int caseNum)
     {
-        //empty stub
-        return null;
+        return cases.getCase(caseNum);
     }
 
     /**
