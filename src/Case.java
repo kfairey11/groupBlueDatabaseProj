@@ -26,16 +26,23 @@ public class Case {
      * @param date
      * @param description
      * @param location
-     * @param inJail
      * @param criminals
      * @param victims
      * @param officers
      * @param witnesses
      */
-    public Case(int caseNum, String crimeType, String date, String description, String location, boolean inJail, ArrayList<String> criminals, 
+    public Case( String crimeType, int month, int day, int year, String description, String location,  ArrayList<String> criminals, 
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //empty stub
+        setCaseNum();
+        setDate(day, month, year);
+        this.description = description;
+        this.location = location;
+        this.criminals = criminals;
+        this.victims = victims;
+        this.officers = officers;
+        this.witnesses = witnesses;
     }
 
     /**
@@ -122,12 +129,44 @@ public class Case {
         location = aLocation;
     }
 
-    /**
-     * Checks if the criminal is in jail already
-     * @return inJail
-     */
-    public boolean getInJail(){
-        return inJail;
+    public ArrayList<String> getCriminals()
+    {
+        return criminals;
+    }
+
+    public void setCriminals(ArrayList<String> criminals)
+    {
+        this.criminals = criminals;
+    }
+
+    public ArrayList<String> getVictims()
+    {
+        return victims;
+    }
+
+    public void setVictims(ArrayList<String> victims)
+    {
+        this.victims = victims;
+    }
+
+    public ArrayList<String> getOfficers()
+    {
+        return officers;
+    }
+
+    public void setOfficers(ArrayList<String> officers)
+    {
+        this.officers = officers;
+    }
+
+    public ArrayList<String> getWitnesses()
+    {
+        return witnesses;
+    }
+
+    public void setWitnesses(ArrayList<String> witnesses)
+    {
+        this.witnesses = witnesses;
     }
     //need to add criminal, victim, officer, and witness array lists, all need to be of type string
     // they will be each persons first and last name
