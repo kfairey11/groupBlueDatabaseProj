@@ -2,7 +2,7 @@
  * A Witness Class
  * @author Casey, Kennedy
  */
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.*;
 
 public class Witness extends Person
 {

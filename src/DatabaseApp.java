@@ -8,7 +8,10 @@ public class DatabaseApp {
     /**
      * Attributes for a DatabaseApp
      */
-    private People people;
+    private People criminals;
+    private People victims;
+    private People officers;
+    private People witnesses;
     private Cases cases;
     private Users users;
 
@@ -17,7 +20,10 @@ public class DatabaseApp {
      */
     public DatabaseApp()
     {
-        people = People.getInstance();
+        criminals = People.getInstance("criminal");
+        victims = People.getInstance("victim");
+        officers = People.getInstance("officer");
+        witnesses = People.getInstance("witness");
         cases = Cases.getInstance();
         users = Users.getInstance();
     }
@@ -37,12 +43,13 @@ public class DatabaseApp {
      * @param shoeSize
      * @param piercings
      */
-    public void createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
-    double weight, String race, String[] tattoos, double shoeSize, String[] piercings)
+    public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
+    double weight, String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
         //adds criminal to the database based on this info
         //need to convert height info into the height format
         //need to add all elements of string arrays into arraylists
+        return criminals.addCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
     }
 
     /**
@@ -56,10 +63,11 @@ public class DatabaseApp {
      * @param phoneNum
      * @param address
      */
-    public void createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
+    public boolean createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
     String address)
     {
         //adds victim to the database
+        return victims.addVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address);
     }
 
     /**
@@ -73,9 +81,10 @@ public class DatabaseApp {
      * @param phoneNum
      * @param address
      */
-    public void createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int phoneNum, String address)
+    public boolean createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int officeNum, String address)
     {
         //adds officer to the database
+        return officers.addOfficer(firstName, lastName, age, sex, rank, officeNum, address, city);
     }
 
     /**
@@ -88,9 +97,10 @@ public class DatabaseApp {
      * @param phoneNum
      * @param address
      */
-    public void createWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
+    public boolean createWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
     {
         //adds witness to the database
+        return witnesses.addWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
     }
 
     /**
@@ -104,6 +114,7 @@ public class DatabaseApp {
     victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
+
     }
 
     /**

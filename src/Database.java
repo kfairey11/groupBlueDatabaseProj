@@ -18,9 +18,23 @@ public class Database {
      * Gets a list of Person
      * @return ArrayList<Person>
      */
-    public static ArrayList<Person> getPeople()
+    public static ArrayList<Criminal> getCriminals()
     {
-        return new ArrayList<Person>();
+        return new ArrayList<Criminal>();
+    }
+
+    public static ArrayList<Victim> getVictims()
+    {
+        return new ArrayList<Victim>();
+    }
+
+    public static ArrayList<Officer> getOfficers()
+    {
+        return new ArrayList<Officer>();
+    }
+    public static ArrayList<Witness> getWitnesses()
+    {
+        return new ArrayList<Witness>();
     }
 
     /**

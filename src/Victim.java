@@ -8,7 +8,6 @@ public class Victim extends Person
      * Attributes of a Victim
      */
     private String report;
-    private Case caseLink;
     private String hospital;
     private int phoneNum;
     private String address;

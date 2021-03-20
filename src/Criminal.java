@@ -22,11 +22,11 @@ public class Criminal extends Person{
      * @param String nickname, Height height, double weight, String race, 
      * @param ArrayList tattoos, ArrayList piercings, double shoesize
      */
-    public Criminal(String firstName, String lastName, int age, String sex, String nickName, String aheight, double aweight, String arace,
+    public Criminal(String firstName, String lastName, int age, String sex, String nickName, int feet, int inches, double aweight, String arace,
     ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
         super(firstName, lastName, age, sex);
         this.nickname = nickName;
-        this.height = aheight;
+        setHeight(feet, inches);
         this.race = arace;
         this.weight = aweight;
         this.tattoos = atattoos;

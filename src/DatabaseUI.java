@@ -169,12 +169,15 @@ public class DatabaseUI {
 
         double weight = Double.parseDouble(enterInfo("Weight", "Criminal"));
         String race = enterInfo("Race", "Criminal");
-        String[] tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
+        ArrayList<String> tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
 
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
-        String[] piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
+        ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
-        databaseApp.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
+        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings))
+            System.out.println("Criminal has been successfully inserted into the database");
+        else   
+            System.out.println("A criminal of that name already exists in this database");
     }
 
     private void createVictim()
@@ -198,7 +201,10 @@ public class DatabaseUI {
 
         String address = enterInfo("Address", "Victim");
 
-        databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address);
+        if(databaseApp.createVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address))
+            System.out.println("The victim has been successfully inserted into the database.");
+        else    
+            System.out.println("A victim with that name already exists in this database");
     }
 
     private void createOfficer()
@@ -219,7 +225,10 @@ public class DatabaseUI {
         int phoneNum = Integer.parseInt(enterInfo("Phone number", "Officer"));
         String address = enterInfo("Address", "Officer");
 
-        databaseApp.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address);
+        if(databaseApp.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address))
+            System.out.println("The officer has been successfully inserted in the database.");
+        else    
+            System.out.println("An officer of that name already exists in the database");
     }
 
     private void createWitness()
@@ -238,7 +247,10 @@ public class DatabaseUI {
         witness.caseNum = scanner.nextInt();
         nextLine();
         */
-        databaseApp.createWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
+        if(databaseApp.createWitness(firstName, lastName, age, sex, testimony, phoneNum, address))
+            System.out.println("The witness has been successfully inserted into the database.");
+        else    
+            System.out.println("A witness of that name already exists in this database");
     }
 
     private String enterInfo(String data, String person)
@@ -247,7 +259,7 @@ public class DatabaseUI {
         return scanner.nextLine();
     }
 
-    private String[] enterInfoLoop(String data, String person)
+    private ArrayList<String> enterInfoLoop(String data, String person)
     {
         System.out.println("Enter the " + person + "'s " + data + ": ");
         ArrayList<String> elements = new ArrayList<String>();
@@ -257,10 +269,7 @@ public class DatabaseUI {
                 break;
             elements.add(scanner.nextLine());
         }
-        String[] info = new String[elements.size()];
-        for(int i=0;i<info.length;i++)
-            info[i] = elements.get(i);
-        return info;
+        return elements;
 
     }
     private void changePerson()
