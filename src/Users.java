@@ -41,5 +41,23 @@ public class Users {
         return false; 
     }
 
-    //maybe getUser?
+    public User getUser(String username)
+    {
+        for(User user : userList)
+        {
+            if(user.getUserName().equals("username"))
+                return user;
+        }
+        return null;
+    }
+    
+
+    public boolean addUser(String firstName, String lastName, String username, String password)
+    {
+        if(haveUser(username))
+            return false;
+        userList.add(new User(firstName, lastName, username, password)); 
+        return true;
+
+    }
 }

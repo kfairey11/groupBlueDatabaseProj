@@ -31,7 +31,7 @@ public class Date
      */
     public String toString()
     {
-        return "Month: " + month + " Day: " + day + " Year: " + year + "\n" + month + "/" + day + "/" + year;
+        return month + "/" + day + "/" + year;
     }
     
 }

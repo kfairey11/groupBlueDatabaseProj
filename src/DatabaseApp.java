@@ -43,6 +43,23 @@ public class DatabaseApp {
      * @param shoeSize
      * @param piercings
      */
+
+     public boolean login(String username, String password)
+     {
+         User user = users.getUser(username);
+
+         if(user == null)
+            return false;
+        if(user.getPassword().equals("password"))
+            return true;
+        else    
+            return false;
+     }
+
+     public boolean createUser(String firstName, String lastName, String userName, String password)
+     {
+         return users.addUser(firstName, lastName, userName, password);
+     }
     public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
     double weight, String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
@@ -110,11 +127,11 @@ public class DatabaseApp {
      * @param description
      * @param location
      */
-    public void createCase(String crimeType, String date, String description, String location, ArrayList<String> criminals, ArrayList<String> 
+    public boolean createCase(String crimeType, int month, int day, int year, String description, String location, ArrayList<String> criminals, ArrayList<String> 
     victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
-
+        cases.addCase(crimeType, month, day, year, description, location, inJail, criminals, victims, officers, witnesses);
     }
 
     /**

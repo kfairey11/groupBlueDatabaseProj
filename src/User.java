@@ -22,8 +22,13 @@ public class User {
      * @param userName
      * @param password
      */
-    public User(UUID userID, String firstName, String lastName, String userName, String password){
+    public User(String firstName, String lastName, String userName, String password){
         //empty stub
+        setUserID();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
     }
 
     /**
@@ -39,9 +44,9 @@ public class User {
      * Sets the userID
      * @param userID
      */
-    public void setUserID(UUID userID)
+    public void setUserID()
     {
-        this.userID = userID;
+        this.userID = UUID.randomUUID();
     }
 
     /**

@@ -3,10 +3,14 @@
  * @author Kennedy Fairey
  */
 import java.util.Scanner;
+
+import javax.lang.model.util.ElementScanner6;
+
 import java.util.ArrayList;
 public class DatabaseUI {
 
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
+    private static final String[] LOGIN_OPTIONS = {"Login", "Create Profile"};
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Add to an existing Person(s) Profile", "Create a Case Profile", 
     "Add to a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
     private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
@@ -28,6 +32,35 @@ public class DatabaseUI {
     public void run()
     {
         System.out.println(HOME_MSG);
+        while(true)
+        {
+            for(int i=1; i< LOGIN_OPTIONS.length+1; i++)
+                System.out.println(i + ". " + LOGIN_OPTIONS[i]);
+            int userCommand = getUserCommand(LOGIN_OPTIONS.length);
+
+            if(userCommand == -1)
+            {
+                System.out.println("Not a valid command");
+                continue;
+            }
+
+            else if(userCommand == -2)
+                break;
+
+            switch(userCommand){
+
+                case(0):
+                if(login())
+                    userCommand = -2;
+                break;
+
+                case(1):
+                if(createUser())
+                    userCommand = -2;
+                break;
+            }
+
+        }
 
         while(true)
         {
@@ -40,11 +73,13 @@ public class DatabaseUI {
                 System.out.println("Not a valid command");
                 continue;
             }
-            else if(userCommand == -2)
-                break;
 
-            if(userCommand == homePageOptions.length)
+            if(userCommand == homePageOptions.length - 1)
+            {
+                logout();
                 break;
+            }
+
             
             switch(userCommand){
 
@@ -73,6 +108,7 @@ public class DatabaseUI {
                 databaseApp.searchCase();
                 break;
 
+
             }
 
         }
@@ -94,12 +130,57 @@ public class DatabaseUI {
 
         int userCommand = scanner.nextInt() - 1;
 
-        if(userCommand >= 0 && userCommand < numOfCommands)
+        if(userCommand >= 0 && userCommand <= numOfCommands)
             return userCommand;
-        else if(userCommand == numOfCommands)
-            return -2;
         else    
             return -1;
+    }
+
+    private boolean login()
+    {
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter password");
+        String password = scanner.nextLine();
+
+        if(!databaseApp.login(username, password))
+        {
+            System.out.println("The username or password you entered was incorrect");
+            return false;
+        }
+        else
+            return true;
+    }
+
+    private boolean createUser()
+    {
+        System.out.println("Enter your first name: ");
+        String firstName = scanner.nextLine();
+        System.out.println("Enter your last name: ");
+        String lastName = scanner.nextLine();
+
+        System.out.println("Enter what you would like your username to be");
+        String username = scanner.nextLine();
+
+        System.out.println("Enter what you would like your password to be (password must be at least 6 characters long)");
+        String password = "";
+        while(true)
+        {
+            password = scanner.nextLine();
+            if(password.length() < 6)
+                System.out.println("The password you entered is invalid, enter a valid password");
+            else    
+                break;
+        }
+
+        if(!databaseApp.createUser(firstName, lastName, username, password))
+        {
+            System.out.println("There already exists a user with that username");
+            return false;
+        }
+        else    
+            return true;
+            
     }
 
     private void createPerson()
@@ -335,8 +416,11 @@ public class DatabaseUI {
         System.out.println("Enter the type of crime");
         String crimeType = scanner.nextLine();
 
-        System.out.println("Enter the date of the crime (MM/DD/YYYY format)");
-        String date = scanner.nextLine();
+        System.out.println("Enter the date of the crime (Enter the month in numerical form, hit ENTER, enter the day, hit ENTER, then enter the year, then hit ENTER");
+        int month = scanner.nextInt();
+        int day = scanner.nextInt();
+        int year = scanner.nextInt();
+
 
         System.out.println("Enter a description of the crime");
         String description = scanner.nextLine();
@@ -462,7 +546,8 @@ public class DatabaseUI {
         }
 
 
-        databaseApp.createCase(crimeType, date, description, location, criminals, victims, officers, witnesses);
+        if(databaseApp.createCase(crimeType, month, day, year, description, location, criminals, victims, officers, witnesses))
+            System.out.println("The case was successfully inserted into the database.");
 
     }
 
