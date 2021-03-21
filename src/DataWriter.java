@@ -189,7 +189,7 @@ public class DataWriter extends DataConstants{
     public static void saveCases()
     {
         Cases cases = Cases.getInstance();
-        ArrayList<Case> casesList= cases.getPeople();
+        ArrayList<Case> casesList= cases.getCases();
         JSONArray jsonCases = new JSONArray();
 
         for(int i=0;i<casesList.size();i++)

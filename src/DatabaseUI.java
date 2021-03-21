@@ -106,7 +106,7 @@ public class DatabaseUI {
 
                 case(4):
                 //create this method in database
-                databaseApp.searchPerson();
+                searchPerson();
                 break;
 
                 case(5):
@@ -193,19 +193,18 @@ public class DatabaseUI {
     {
         for(int i=0; i<personOptions.length; i++)
             System.out.println((i+1) + ". " + personOptions[i]);
-
+        int userCommand = 0;
         System.out.println("What kind of profile would you like to make? (Enter the corresponding number and hit ENTER)\n");
         while(true)
         {
-        int userCommand = scanner.nextInt() - 1;
-        System.out.println("\n");
-
+        userCommand = scanner.nextInt() - 1;
         if(userCommand < 0 || userCommand > personOptions.length - 1)
         {
             System.out.println("Sorry that is not a valid input");
             continue;
         }
-        
+        break;
+        }
         switch(userCommand)
         {
             case(0):
@@ -225,7 +224,6 @@ public class DatabaseUI {
             break;
 
 
-        }
         }
 
 
@@ -479,7 +477,7 @@ public class DatabaseUI {
                 System.out.println("Enter a new tattoo, then hit ENTER,to move on, type EXIT");
                 if(scanner.nextLine().equalsIgnoreCase("exit"))
                     break;
-                criminal.getTattoos().add(scanner.nextLine());
+                criminal.addToTattoos(scanner.nextLine());
             }
             break;
 
@@ -494,7 +492,7 @@ public class DatabaseUI {
             System.out.println("Enter a new piercing, then hit ENTER, to move on, type EXIT");
             if(scanner.nextLine().equalsIgnoreCase("exit"))
                 break;
-            criminal.getPiercing().add(scanner.nextLine());
+            criminal.addToPiercing(scanner.nextLine());;
             }
             break;
 
@@ -848,16 +846,303 @@ public class DatabaseUI {
             case(4):
             while(true)
             {
-                System.out.println("Enter a new criminal (enter their full name), then hit ENTER,to move on, type EXIT");
+                System.out.println("Enter a new criminal (enter their full name), then hit ENTER. To move on, type EXIT");
                 if(scanner.nextLine().equalsIgnoreCase("exit"))
                     break;
-                
+                Criminal newCriminal = databaseApp.searchCriminalByName(scanner.nextLine());
+                if(newCriminal == null)
+                {
+                    System.out.println("That criminal is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");
+                    if(scanner.next().equalsIgnoreCase("y"))
+                    {
+                        createCriminal();
+                        System.out.println("Enter the full name of the criminal you just created, then hit ENTER");
+                        newCriminal = databaseApp.searchCriminalByName(scanner.nextLine());
+                        caseToChange.addToCriminals(newCriminal.getFirstName() + " " + newCriminal.getLastName());
+                    }
+                    else
+                        continue;
+                    
+                }
+                else
+                    caseToChange.addToCriminals(newCriminal.getFirstName() + " " + newCriminal.getLastName());
+            }
+            break;
+
+            case(5):
+            while(true)
+            {
+                System.out.println("Enter a new victim (enter their full name), then hit ENTER. To move on, type EXIT");
+                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                    break;
+                Victim newVictim = databaseApp.searchVictimByName(scanner.nextLine());
+                if(newVictim == null)
+                {
+                    System.out.println("That victim is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");
+                    if(scanner.next().equalsIgnoreCase("y"))
+                    {
+                        createVictim();
+                        System.out.println("Enter the full name of the victim you just created, then hit ENTER");
+                        newVictim = databaseApp.searchVictimByName(scanner.nextLine());
+                        caseToChange.addToVictims(newVictim.getFirstName() + " " + newVictim.getLastName());
+                    }
+                    else
+                        continue;
+                    
+                }
+                else
+                    caseToChange.addToVictims(newVictim.getFirstName() + " " + newVictim.getLastName());
+            }
+            break;
+
+            case(6):
+            while(true)
+            {
+                System.out.println("Enter a new officer (enter their full name), then hit ENTER. To move on, type EXIT");
+                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                    break;
+                Officer newOfficer = databaseApp.searchOfficerByName(scanner.nextLine());
+                if(newOfficer== null)
+                {
+                    System.out.println("That officer is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");
+                    if(scanner.next().equalsIgnoreCase("y"))
+                    {
+                        createOfficer();
+                        System.out.println("Enter the full name of the officer you just created, then hit ENTER");
+                        newOfficer = databaseApp.searchOfficerByName(scanner.nextLine());
+                        caseToChange.addToOfficers(newOfficer.getFirstName() + " " + newOfficer.getLastName());
+                    }
+                    else
+                        continue;
+                    
+                }
+                else
+                    caseToChange.addToOfficers(newOfficer.getFirstName() + " " + newOfficer.getLastName());
+            }
+            break;
+
+            case(7):
+            while(true)
+            {
+                System.out.println("Enter a new witness (enter their full name), then hit ENTER. To move on, type EXIT");
+                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                    break;
+                Witness newWitness= databaseApp.searchWitnessByName(scanner.nextLine());
+                if(newWitness == null)
+                {
+                    System.out.println("That witness is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");
+                    if(scanner.next().equalsIgnoreCase("y"))
+                    {
+                        createWitness();
+                        System.out.println("Enter the full name of the witness you just created, then hit ENTER");
+                        newWitness = databaseApp.searchWitnessByName(scanner.nextLine());
+                        caseToChange.addToWitnesses(newWitness.getFirstName() + " " + newWitness.getLastName());
+                    }
+                    else
+                        continue;
+                    
+                }
+                else
+                    caseToChange.addToWitnesses(newWitness.getFirstName() + " " + newWitness.getLastName());
             }
             break;
 
         }
-
+            databaseApp.changeCase(caseToChange);
+            System.out.println("The changes have been succesfully made");
         }
 
+    }
+
+    private void searchPerson()
+    {
+        for(int i=0; i<personOptions.length; i++)
+            System.out.println((i+1) + ". " + personOptions[i]);
+        int userCommand = 0;
+        System.out.println("What kind of profile would you like to make? (Enter the corresponding number and hit ENTER)\n");
+        while(true)
+        {
+        userCommand = scanner.nextInt() - 1;
+        if(userCommand < 0 || userCommand > personOptions.length - 1)
+        {
+            System.out.println("Sorry that is not a valid input");
+            continue;
+        }
+        break;
+        }
+
+        switch(userCommand){
+
+            case(0):
+            searchCriminal();
+            break;
+
+            case(1):
+            searchVictim();
+            break;
+
+            case(2):
+            searchOfficer();
+
+            case(3):
+            searchWitness();
+            break;
+        }
+
+ 
+    }
+
+    private void searchCriminal()
+    {
+        for(int i=1; i<criminalOptions.length + 1; i++)
+            System.out.println(i + ". " + criminalOptions[i]);
+        System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the first name you would like to search by.");
+            ArrayList<Criminal> criminalMatches = databaseApp.searchCriminalByFirstName(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "first name")
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(1):
+            System.out.println("Enter the last name you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByLastName(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "last name"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(2):
+            System.out.println("Enter the age range you would like to search by. (Enter the lower age, then the higher age. If the range is one year then enter that age twice)");
+            int lowAge = scanner.nextInt();
+            int highAge = scanner.nextInt();
+            criminalMatches = databaseApp.searchCriminalByAge(lowAge, highAge);
+            if(emptyCriminalSearch(criminalMatches, "age")
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(3):
+            System.out.println("Enter the sex you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalBySex(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "sex"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(4):
+            System.out.println("Enter the nickname you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByNickname(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "nickname"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(5):
+            System.out.println("Enter the height you would like to search by. (Enter the feet and then the inches)");
+            int feet = scanner.nextInt();
+            int inches = scanner.nextInt();
+            criminalMatches = databaseApp.searchCriminalByHeight(feet, inches);
+            if(emptyCriminalSearch(criminalMatches, "height"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(6):
+            System.out.println("Enter the weight range you would like to search by. (Enter the low weight first and then the high weight)");
+            double lowWeight = scanner.nextDouble();
+            double highWeight = scanner.nextDouble();
+            criminalMatches = databaseApp.searchCriminalByWeight(lowWeight, highWeight);
+            if(emptyCriminalSearch(criminalMatches, "weight"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(7):
+            System.out.println("Enter the tattoo you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByTattoo(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "tattoo"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(8):
+            System.out.println("Enter the shoe size range you would like to search by.(Enter the low shoe size first then the high shoe size)");
+            double lowShoeSize = scanner.nextDouble();
+            double highShoeSize = scanner.nextDouble();
+            criminalMatches = databaseApp.searchCriminalByShoeSize(lowShoeSize, highShoeSize);
+            if(emptyCriminalSearch(criminalMatches, "shoe size"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(9):
+            System.out.println("Enter the piercing you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByPiercing(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "piercing"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(10):
+            criminalMatches = databaseApp.searchCriminalByUnderage();
+            if(emptyCriminalSearch(criminalMatches, "underage status"));
+                break;
+            printCriminals(criminalMatches);
+            break;
+        }
+    }
+
+    private void searchVictim()
+    {
+        for(int i=1; i<victimOptions.length + 1; i++)
+            System.out.println(i + ". " + victimOptions[i]);
+        System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the first name ")
+        }
+    }
+
+    private boolean emptyCriminalSearch(ArrayList<Criminal> criminals, String searchType)
+    {
+        if(criminals.size() == 0)
+        {
+            System.out.println("There are no criminals with that " + searchType);
+            return true;
+        }
+        else    
+        return false;
+    }
+
+    private void printCriminals(ArrayList<Criminal> criminals)
+    {
+        for(int i=0; i<criminals.size(); i++)
+            criminals.get(i).print();
+    }
+
+    private boolean emptyVictimSearch(ArrayList<Victim> victims, String searchType)
+    {
+        if(victims.size() == 0)
+        {
+            System.out.println("There are no victims with that " + searchType);
+            return true;
+        }
+        else
+        return false;
+
+    }
+    private void printVictims(ArrayList<Victim> victims)
+    {
+        for(int i=0; victims.size(); i++)
+            victims.get(i).print();
     }
 }

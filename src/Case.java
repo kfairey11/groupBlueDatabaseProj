@@ -138,6 +138,11 @@ public class Case {
         this.criminals = criminals;
     }
 
+    public void addToCriminals(String criminal)
+    {
+        this.criminals.add(criminal);
+    }
+
     public ArrayList<String> getVictims()
     {
         return victims;
@@ -146,6 +151,11 @@ public class Case {
     public void setVictims(ArrayList<String> victims)
     {
         this.victims = victims;
+    }
+
+    public void addToVictims(String victim)
+    {
+        this.victims.add(victim);
     }
 
     public ArrayList<String> getOfficers()
@@ -158,6 +168,11 @@ public class Case {
         this.officers = officers;
     }
 
+    public void addToOfficers(String officer)
+    {
+        this.officers.add(officer);
+    }
+
     public ArrayList<String> getWitnesses()
     {
         return witnesses;
@@ -166,6 +181,11 @@ public class Case {
     public void setWitnesses(ArrayList<String> witnesses)
     {
         this.witnesses = witnesses;
+    }
+
+    public void addToWitnesses(String witness)
+    {
+        this.witnesses.add(witness);
     }
     
     public void print()

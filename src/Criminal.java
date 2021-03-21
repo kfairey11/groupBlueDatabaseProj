@@ -119,8 +119,13 @@ public class Criminal extends Person{
      * Sets the list of tattoos on the criminal
      * @param aTattoos
      */
-    public void setTattos(ArrayList<String> aTattoos){
+    public void setTattoos(ArrayList<String> aTattoos){
         tattoos = aTattoos;
+    }
+
+    public void addToTattoos(String tattoo)
+    {
+        tattoos.add(tattoo);
     }
 
     /**
@@ -155,6 +160,11 @@ public class Criminal extends Person{
      */
     public void setPiercing(ArrayList<String> aPiercing) {
         piercing = aPiercing;
+    }
+
+    public void addToPiercing(String piercing)
+    {
+        this.piercing.add(piercing);
     }
 
     public void setIsUnderAge(boolean isUnderAge)
