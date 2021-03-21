@@ -199,6 +199,18 @@ public class People {
         return true;
     }
 
+    /**
+     * Adds a victim to the victimList
+     * @param firstName
+     * @param lastName
+     * @param age
+     * @param sex
+     * @param report
+     * @param hospital
+     * @param phoneNum
+     * @param address
+     * @return boolean; return false if victim is already in the list, return true if otherwise and victim is added to the list
+     */
     public boolean addVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, String address)
     {
         if(haveVictim(firstName + " " + lastName))
@@ -207,6 +219,18 @@ public class People {
         return true;
     }
 
+     /**
+     * Adds an officer to the officerList
+     * @param firstName
+     * @param lastName
+     * @param age
+     * @param sex
+     * @param rank
+     * @param phoneNum
+     * @param address
+     * @param city
+     * @return boolean; return false if officer is already in the list, return true if otherwise and officer is added to the list
+     */
     public boolean addOfficer(String firstName, String lastName, int age, String sex, String rank, int officeNum, String address, String city)
     {
         if(haveOfficer(firstName + " " + lastName))
@@ -215,6 +239,17 @@ public class People {
         return true;
     }
 
+     /**
+     * Adds a witness to the witnessList
+     * @param firstName
+     * @param lastName
+     * @param age
+     * @param sex
+     * @param testimony
+     * @param phoneNum
+     * @param address
+     * @return boolean; return false if witness is already in the list, return true if otherwise and witness is added to the list
+     */
     public boolean addWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
     {
         if(haveWitness(firstName + " " + lastName))
