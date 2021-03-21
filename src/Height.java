@@ -28,7 +28,7 @@ public class Height //check extension
      */
     public String toString()
     {
-        return feet + "\' " + inches + "\"";
+        return feet + "\'" + inches + "\"";
     }
     
 }

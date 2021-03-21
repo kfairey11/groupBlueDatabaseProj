@@ -227,9 +227,7 @@ public class DatabaseApp {
         for(int i=0; i<witnessList.size(); i++)
         {
             if((witnessList.get(i).getFirstName() + " " + witnessList.get(i).getLastName()).equalsIgnoreCase(oldWitnessName))
-            {
                 witnessList.set(i, witness);
-            }
         }
         witnesses.setWitnessList(witnessList);
     }
@@ -240,7 +238,16 @@ public class DatabaseApp {
      */
     public void changeCase(Case caseToChange)
     {
-        //empty stub
+        Case oldCase = searchCaseByCaseNum(caseToChange.getCaseNum());
+        int oldCaseNum = oldCase.getCaseNum();
+        ArrayList<Case> caseList = cases.getCaseList();
+
+        for(int i=0; i<caseList.size(); i++)
+        {
+            if(caseList.get(i).getCaseNum() == oldCaseNum)
+                caseList.set(i, caseToChange);
+        }
+        cases.setCaseList(caseList);
     }
 
     /**
@@ -286,9 +293,156 @@ public class DatabaseApp {
     /**
      * Searches for a Person
      */
-    public void searchPerson()
+    public ArrayList<Criminal> searchCriminalByFirstName(String firstName)
     {
-        //empty stub
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size();i++)
+        {
+            if(currentCriminals.get(i).getFirstName().equalsIgnoreCase(firstName))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByLastName(String lastName)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getLastName().equalsIgnoreCase(lastName))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByAge(int lowAge, int highAge)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getAge() >= lowAge && currentCriminals.get(i).getAge() <= highAge)
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalBySex(String sex)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getSex().equalsIgnoreCase(sex))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByNickname(String nickname)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getNickname().equalsIgnoreCase(nickname))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByHeight(int feet, int inches)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        String height = feet + "'" + inches + "\"";
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getHeight().equalsIgnoreCase(height))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByWeight(double lowWeight, double highWeight)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getWeight() >= lowWeight && currentCriminals.get(i).getWeight() <= highWeight)
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByTattoo(String tattoo)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            ArrayList<String> tattoos = currentCriminals.get(i).getTattoos();
+            for(int j=0; j<tattoos.size(); j++)
+            {
+                if(tattoos.get(i).equalsIgnoreCase(tattoo))
+                    criminalMatches.add(currentCriminals.get(i));
+            }
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByShoeSize(double lowShoeSize, double highShoeSize)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getShoeSize() >= lowShoeSize && currentCriminals.get(i).getShoeSize() <= highShoeSize)
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByPiercing(String piercing)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            ArrayList<String> piercings = currentCriminals.get(i).getPiercing();
+            for(int j=0; j<currentCriminals.size(); j++)
+            {
+                if(piercings.get(i).equalsIgnoreCase(piercing))
+                    criminalMatches.add(currentCriminals.get(i));
+            }
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByUnderage()
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getAge() < 18)
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
     }
 
     /**

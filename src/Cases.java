@@ -26,6 +26,16 @@ public class Cases {
         return cases;
     }
 
+    public ArrayList<Case> getCaseList()
+    {
+        return caseList;
+    }
+
+    public void setCaseList(ArrayList<Case> cases)
+    {
+        this.caseList = cases;
+    }
+
     /**
      * Searches through Cases for a certain Case
      * @param caseNum
