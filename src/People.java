@@ -258,6 +258,11 @@ public class People {
         return true;
     }
 
+    /**
+     * Searches and returns a criminal from the criminalList
+     * @param name
+     * @return Criminal, else returns null if not found
+     */
     public Criminal getCriminal(String name)
     {
         for(Criminal criminal : criminalList)
@@ -269,6 +274,11 @@ public class People {
         return null;
     }
 
+    /**
+     * Searches and returns a victim from the victimList
+     * @param name
+     * @return Victim, else returns null if not found
+     */
     public Victim getVictim(String name)
     {
         for(Victim victim : victimList)
@@ -280,6 +290,11 @@ public class People {
         return null;
     }
 
+    /**
+     * Searches and returns an officer from the officerList
+     * @param name
+     * @return Officer, else returns null if not found
+     */
     public Officer getOfficer(String name)
     {
         for(Officer officer : officerList)
@@ -291,6 +306,11 @@ public class People {
         return null;
     }
 
+    /**
+     * Searches and returns a Witness from the witnessList
+     * @param name
+     * @return Witness, else returns null if not found
+     */
     public Witness getWitness(String name)
     {
         for(Witness witness : witnessList)
