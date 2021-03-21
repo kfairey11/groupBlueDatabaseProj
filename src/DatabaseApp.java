@@ -6,7 +6,7 @@ import java.util.*;
 public class DatabaseApp {
     
     /**
-     * Attributes for a DatabaseApp
+     * Attributes for DatabaseApp
      */
     private People criminals;
     private People victims;
@@ -29,6 +29,38 @@ public class DatabaseApp {
     }
 
     /**
+     * Logs in a user
+     * @param username
+     * @param password
+     * @return boolean; true if found user's username and password match, false if otherwise
+     */
+     public boolean login(String username, String password)
+     {
+         User user = users.getUser(username);
+
+         if(user == null)
+            return false;
+        if(user.getPassword().equals("password"))
+            return true;
+        else    
+            return false;
+     }
+
+     /**
+      * Creates a user
+      * @param firstName
+      * @param lastName
+      * @param userName
+      * @param password
+      * @return boolean
+      */
+
+     public boolean createUser(String firstName, String lastName, String userName, String password)
+     {
+         return users.addUser(firstName, lastName, userName, password);
+     }
+
+      /**
      * Creates a criminal
      * @param firstName
      * @param lastName
@@ -42,24 +74,9 @@ public class DatabaseApp {
      * @param tattoos
      * @param shoeSize
      * @param piercings
+     * @return boolean
      */
 
-     public boolean login(String username, String password)
-     {
-         User user = users.getUser(username);
-
-         if(user == null)
-            return false;
-        if(user.getPassword().equals("password"))
-            return true;
-        else    
-            return false;
-     }
-
-     public boolean createUser(String firstName, String lastName, String userName, String password)
-     {
-         return users.addUser(firstName, lastName, userName, password);
-     }
     public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
     double weight, String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
@@ -79,6 +96,7 @@ public class DatabaseApp {
      * @param hospital
      * @param phoneNum
      * @param address
+     * @return boolean
      */
     public boolean createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
     String address)
@@ -97,6 +115,7 @@ public class DatabaseApp {
      * @param city
      * @param phoneNum
      * @param address
+     * @return boolean
      */
     public boolean createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int officeNum, String address)
     {

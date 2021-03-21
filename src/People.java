@@ -26,42 +26,73 @@ public class People {
             witnessList = DataLoader.getWitnesses();
     }
 
+    /**
+     * Getter method for the criminal array list
+     * @return criminal array list
+     */
     public ArrayList<Criminal> getCriminalList()
     {
         return criminalList;
     }
 
+    /**
+     * Sets the criminal array list
+     * @param criminals
+     */
     public void setCriminalList(ArrayList<Criminal> criminals)
     {
         this.criminalList = criminals;
     }
 
-
+    /**
+     * Getter method for the victim array list
+     * @return victim array list
+     */
     public ArrayList<Victim> getVictimList()
     {
         return victimList;
     }
 
+    /**
+     * Sets the victim array list
+     * @param victims
+     */
     public void setVictimList(ArrayList<Victim> victims)
     {
         this.victimList = victims;
     }
 
+    /**
+     * Getter method for the officer array list
+     * @return officer array list
+     */
     public ArrayList<Officer> getOfficerList()
     {
         return officerList;
     }
 
+    /**
+     * Sets the officer array list
+     * @param officers
+     */
     public void setOfficerList(ArrayList<Officer> officers)
     {
         this.officerList = officers;
     }
 
+    /**
+     * Getter method for the witness array list
+     * @return witness array list
+     */
     public ArrayList<Witness> getWitnessList()
     {
         return witnessList;
     }
 
+    /**
+     * Sets the witness array list
+     * @param witnesses
+     */
     public void setWitnessList(ArrayList<Witness> witnesses)
     {
         this.witnessList = witnesses;
@@ -94,6 +125,11 @@ public class People {
         return false;
     }
 
+    /**
+     * Searches through victimList to find a certain victim
+     * @param name
+     * @return boolean
+     */
     public boolean haveVictim(String name)
     {
         for(int i=0;i<victimList.size();i++)
@@ -105,6 +141,11 @@ public class People {
         return false;
     }
 
+    /**
+     * Searches through officerList to find a certain officer
+     * @param name
+     * @return boolean
+     */
     public boolean haveOfficer(String name)
     {
         for(int i=0;i<officerList.size();i++)
@@ -116,6 +157,11 @@ public class People {
         return false;
     }
 
+    /**
+     * Searches through witnessList to find a certain witness
+     * @param name
+     * @return boolean
+     */
     public boolean haveWitness(String name)
     {
         for(int i=0;i<witnessList.size();i++)
@@ -127,6 +173,22 @@ public class People {
         return false;
     }    
 
+    /**
+     * Adds a criminal to the criminalList
+     * @param firstName
+     * @param lastName
+     * @param age
+     * @param sex
+     * @param nickname
+     * @param feet
+     * @param inches
+     * @param weight
+     * @param race
+     * @param tattoos
+     * @param showSize
+     * @param piercings
+     * @return boolean; return false if criminal is already in the list, return true if otherwise and criminal is added to the list
+     */
     public boolean addCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches, double weight, 
     String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
