@@ -291,7 +291,9 @@ public class DatabaseApp {
     }
 
     /**
-     * Searches for a Person
+     * Searches for a Criminal using their first name
+     * @param firstName
+     * @return array list of possible criminals with the matching first name
      */
     public ArrayList<Criminal> searchCriminalByFirstName(String firstName)
     {
@@ -306,6 +308,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their last name
+     * @param lastName
+     * @return array list of possible criminals with the matching last name
+     */
     public ArrayList<Criminal> searchCriminalByLastName(String lastName)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -319,6 +326,12 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using an age range
+     * @param lowAge
+     * @param highAge
+     * @return array list of possible criminals within the matching age range
+     */
     public ArrayList<Criminal> searchCriminalByAge(int lowAge, int highAge)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -332,6 +345,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their sex
+     * @param sex
+     * @return array list of possible criminals with the matching sex
+     */
     public ArrayList<Criminal> searchCriminalBySex(String sex)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -345,6 +363,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their nickname
+     * @param nickname
+     * @return array list of possible criminals with the matching nickname
+     */
     public ArrayList<Criminal> searchCriminalByNickname(String nickname)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -358,6 +381,12 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their height
+     * @param feet
+     * @param inches
+     * @return array list of possible criminals with the matching height
+     */
     public ArrayList<Criminal> searchCriminalByHeight(int feet, int inches)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -372,6 +401,12 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using a weight range
+     * @param lowWeight
+     * @param highWeight
+     * @return array list of possible criminals within the matching weight range
+     */
     public ArrayList<Criminal> searchCriminalByWeight(double lowWeight, double highWeight)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -385,6 +420,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their tattoos
+     * @param tattoo
+     * @return array list of possible criminals with the matching tattoo
+     */
     public ArrayList<Criminal> searchCriminalByTattoo(String tattoo)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -402,6 +442,12 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using a their range of a shoe size
+     * @param lowShoeSize
+     * @param highShoeSize
+     * @return array list of possible criminals within the matching shoe size range
+     */
     public ArrayList<Criminal> searchCriminalByShoeSize(double lowShoeSize, double highShoeSize)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -415,6 +461,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their piercing
+     * @param piercing
+     * @return array list of possible criminals with the matching piercing
+     */
     public ArrayList<Criminal> searchCriminalByPiercing(String piercing)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -432,6 +483,10 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal based on if they're underage
+     * @return array list of possible criminals that are underage
+     */
     public ArrayList<Criminal> searchCriminalByUnderage()
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
