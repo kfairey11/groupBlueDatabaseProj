@@ -708,6 +708,181 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    public ArrayList<Witness> searchWitnessByLastName(String lastName)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getLastName().equalsIgnoreCase(lastName))
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
+    public ArrayList<Witness> searchWitnessByAge(int lowAge, int highAge)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getAge() >= lowAge && currentWitnesses.get(i).getAge() <= highAge)
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
+    public ArrayList<Witness> searchWitnessBySex(String sex)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getSex().equalsIgnoreCase(sex))
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
+    public ArrayList<Witness> searchWitnessByPhoneNum(int phoneNum)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getPhoneNum() == phoneNum)
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
+    public ArrayList<Witness> searchWitnessByAddress(String address)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getAddress().equalsIgnoreCase(address)
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
+    public ArrayList<Case> searchCaseByCrimeType(String crimeType)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            if(currentCases.get(i).getCrimeType().equalsIgnoreCase(crimeType))
+                caseMatches.add(currentCases.get(i));
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByDate(int month, int day, int year)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+        String date = month + "/" + day + "/" + year;
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            if(currentCases.get(i).getDate().equalsIgnoreCase(date))
+                caseMatches.add(currentCases.get(i));
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByLocation(String location)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            if(currentCases.get(i).getLocation().equalsIgnoreCase(location))
+                caseMatches.add(currentCases.get(i));
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByCriminal(String criminal)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            ArrayList<String> criminalList = currentCases.get(i).getCriminals();
+            for(int j=0; j<criminalList.size(); j++)
+            {
+                if(criminalList.get(i).equalsIgnoreCase(criminal))
+                    caseMatches.add(currentCases.get(i));
+            }
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByVictim(String victim)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            ArrayList<String> victimList = currentCases.get(i).getVictims();
+            for(int j=0; j<victimList.size(); j++)
+            {
+                if(victimList.get(i).equalsIgnoreCase(victim))
+                    caseMatches.add(currentCases.get(i));
+            }
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByOfficer(String officer)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            ArrayList<String> officerList = currentCases.get(i).getOfficers();
+            for(int j=0; j<officerList.size(); j++)
+            {
+                if(officerList.get(i).equalsIgnoreCase(officer))
+                    caseMatches.add(currentCases.get(i));
+            }
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByWitness(String witness)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            ArrayList<String> witnessList = currentCases.get(i).getWitnesses();
+            for(int j=0; j<witnessList.size(); j++)
+            {
+                if(witnessList.get(i).equalsIgnoreCase(witness))
+                    caseMatches.add(currentCases.get(i));
+            }
+        }
+        return caseMatches;
+    }
+    
+
+
+
     /**
      * Searches for a Case
      */

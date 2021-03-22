@@ -16,9 +16,9 @@ public class DatabaseUI {
     private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
     "Tattoos", "Shoe size", "Piercings"};
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
-    private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank", "Officer number", "Address", "City"};
+    private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank","City", "Officer number", "Address"};
     private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
-    private static final String[] caseOptions = {"Case Type", "Date", "Description", "Location", "Criminals", "Victims", "Officers", "Witnesses"};
+    private static final String[] caseOptions = {"Case Number","Case Type", "Date", "Description", "Location", "Criminals", "Victims", "Officers", "Witnesses"};
     private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
     private Scanner scanner;
     private DatabaseApp databaseApp;
@@ -111,7 +111,7 @@ public class DatabaseUI {
 
                 case(5):
                 //create this method in database
-                databaseApp.searchCase();
+                searchCase();
                 break;
 
 
@@ -1004,7 +1004,7 @@ public class DatabaseUI {
             case(0):
             System.out.println("Enter the first name you would like to search by.");
             ArrayList<Criminal> criminalMatches = databaseApp.searchCriminalByFirstName(scanner.nextLine());
-            if(emptyCriminalSearch(criminalMatches, "first name")
+            if(emptyCriminalSearch(criminalMatches, "first name"))
                 break;
             printCriminals(criminalMatches);
             break;
@@ -1022,7 +1022,7 @@ public class DatabaseUI {
             int lowAge = scanner.nextInt();
             int highAge = scanner.nextInt();
             criminalMatches = databaseApp.searchCriminalByAge(lowAge, highAge);
-            if(emptyCriminalSearch(criminalMatches, "age")
+            if(emptyCriminalSearch(criminalMatches, "age"))
                 break;
             printCriminals(criminalMatches);
             break;
@@ -1091,7 +1091,7 @@ public class DatabaseUI {
 
             case(10):
             criminalMatches = databaseApp.searchCriminalByUnderage();
-            if(emptyCriminalSearch(criminalMatches, "underage status"));
+            if(emptyCriminalSearch(criminalMatches, "underage status"))
                 break;
             printCriminals(criminalMatches);
             break;
@@ -1265,8 +1265,56 @@ public class DatabaseUI {
                 break;
             printWitnesses(witnessMatches);
             break;
+
+            case(1):
+            System.out.println("Enter the last name you would like to search by.");
+            witnessMatches = databaseApp.searchWitnessByLastName(scanner.nextLine());
+            if(emptyWitnessSearch(witnessMatches, "last name"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
+
+            case(2):
+            System.out.println("Enter the age range you would like to search by. (Enter the low age first then the high age)");
+            int lowAge = scanner.nextInt();
+            int highAge = scanner.nextInt();
+            witnessMatches = databaseApp.searchWitnessByAge(lowAge, highAge);
+            if(emptyWitnessSearch(witnessMatches, "age"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
+
+            case(3):
+            System.out.println("Enter the sex you would like to search by.");
+            witnessMatches = databaseApp.searchWitnessBySex(scanner.nextLine());
+            if(emptyWitnessSearch(witnessMatches, "sex"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
+
+            case(4):
+            System.out.println("Cannot search by testimony");
+            break;
+
+            case(5):
+            System.out.println("Enter the phone number you would like to search by.");
+            witnessMatches = databaseApp.searchWitnessByPhoneNum(scanner.nextInt());
+            if(emptyWitnessSearch(witnessMatches, "phone number"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
+
+            case(6):
+            System.out.println("Enter the address you would like to search by.");
+            witnessMatches = databaseApp.searchWitnessByAddress(scanner.nextLine());
+            if(emptyWitnessSearch(witnessMatches, "address"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
         }
     }
+
+
 
     private boolean emptyCriminalSearch(ArrayList<Criminal> criminals, String searchType)
     {
@@ -1333,5 +1381,108 @@ public class DatabaseUI {
     {
         for(int i=0; i<witnesses.size(); i++)
             witnesses.get(i).print();
+    }
+
+    private void searchCase()
+    {
+        for(int i=1; i<caseOptions.length + 1; i++)
+            System.out.println(i + ". " + caseOptions[i]);
+        System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the case number you would like to search.");
+            Case caseMatch = databaseApp.searchCaseByCaseNum(scanner.nextInt());
+            if(caseMatch == null)
+            {
+                System.out.println("There is no case with that case number.");
+                break;
+            }
+            caseMatch.print();
+            break;
+
+            case(1):
+            System.out.println("Enter the crime type you would like to search by.");
+            ArrayList<Case> caseMatches = databaseApp.searchCaseByCrimeType(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "crime type"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(2):
+            System.out.println("Enter the date you would like to search by. (Enter the month number, then the date, then the year)");
+            int month = scanner.nextInt();
+            int day = scanner.nextInt();
+            int year = scanner.nextInt();
+            caseMatches = databaseApp.searchCaseByDate(month, day, year);
+            if(emptyCaseSearch(caseMatches, "date"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(3):
+            System.out.println("Cannot search by description");
+            break;
+
+            case(4):
+            System.out.println("Enter the location you would like to search by.");
+            caseMatches = databaseApp.searchCaseByLocation(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "location"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(5):
+            System.out.println("Enter the criminal you would like to search. (Enter their full name)");
+            caseMatches = databaseApp.searchCaseByCriminal(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "criminal"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(6):
+            System.out.println("Enter the victim you would like to search. (Enter their full name)");
+            caseMatches = databaseApp.searchCaseByVictim(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "victim"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(7):
+            System.out.println("Enter the officer you would like to search. (Enter their full name)");
+            caseMatches = databaseApp.searchCaseByOfficer(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "officer"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(8):
+            System.out.println("Enter the witness you would like to search. (Enter their full name)");
+            caseMatches = databaseApp.searchCaseByWitness(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "witness"))
+                break;
+            printCases(caseMatches);
+            break;
+
+
+        }
+    }
+
+    private boolean emptyCaseSearch(ArrayList<Case> cases, String searchType)
+    {
+        if(cases.size() == 0)
+        {
+            System.out.println("There are no cases with that " + searchType);
+            return true;
+        }
+        return false;
+    }
+
+    private void printCases(ArrayList<Case> cases)
+    {
+        for(int i=0; i<cases.size(); i++)
+            cases.get(i).print();
     }
 }
