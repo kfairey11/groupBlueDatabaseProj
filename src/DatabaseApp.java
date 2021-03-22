@@ -767,7 +767,7 @@ public class DatabaseApp {
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
-            if(currentWitnesses.get(i).getAddress().equalsIgnoreCase(address)
+            if(currentWitnesses.get(i).getAddress().equalsIgnoreCase(address))
                 witnessMatches.add(currentWitnesses.get(i));
         }
         return witnessMatches;
