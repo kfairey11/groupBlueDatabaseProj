@@ -1,7 +1,7 @@
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
-java.lang.*;
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -61,11 +61,24 @@ public class DataLoader extends DataConstants{
                 String height = (String)personJSON.get(CRIMINAL_HEIGHT);
                 double weight = ((Long)personJSON.get(CRIMINAL_WEIGHT)).doubleValue();
                 String race = (String)personJSON.get(CRIMINAL_RACE);
-                //need to interator
+                JSONArray jsonTattoos = (JSONArray)personJSON.get(CRIMINAL_TATTOOS);
                 ArrayList<String> tattoos = new ArrayList<String>();
+
+                for(i=0; i < jsonTattoos.size(); i++)
+                 {
+                    String text  = (String)jsonTattoos.get(i);
+                    tattoos.add(text);
+                }
                 
                 double shoeSize = Double.parseDouble((String)personJSON.get(CRIMINAL_SHOE_SIZE));
-                ArrayList<String> piercings = (ArrayList<String>)personJSON.get(CRIMINAL_PIERCINGS);
+                JSONArray jsonPiercings = (JSONArray)personJSON.get(CRIMINAL_PIERCINGS);
+                ArrayList<String> piercings = new ArrayList<String>();
+
+                for(i=0; i < jsonPiercings.size(); i++)
+                 {
+                    String text  = (String)jsonPiercings.get(i);
+                    tattoos.add(text);
+                }
                 
                 criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings));
             }
@@ -127,9 +140,9 @@ public class DataLoader extends DataConstants{
                 int age = Integer.parseInt((String)personJSON.get(OFFICER_AGE));
                 String sex = (String)personJSON.get(OFFICER_SEX);
                 String rank = (String)personJSON.get(OFFICER_RANK);
+                String city = (String)personJSON.get(OFFICER_CITY);
                 int officeNum = Integer.parseInt((String)personJSON.get(OFFICER_OFFICE_NUM));
                 String address = (String)personJSON.get(OFFICER_ADDRESS);
-                String city = (String)personJSON.get(OFFICER_CITY);
 
                 officers.add(new Officer(firstName, lastName, age, sex, rank,city, officeNum, address));
             }
@@ -188,13 +201,40 @@ public class DataLoader extends DataConstants{
             String date = (String)personJSON.get(CASE_DATE);
             String description = (String)personJSON.get(CASE_DESCRIPTION);
             String location = (String)personJSON.get(CASE_LOCATION);
-            boolean inJail = (boolean)personJSON.get(CASE_JAIL_STATUS);
-            ArrayList<String> criminals = (ArrayList<String>)personJSON.get(CASE_CRIMINALS);
-            ArrayList<String> victims = (ArrayList<String>)personJSON.get(CASE_VICTIMS);
-            ArrayList<String> officers = (ArrayList<String>)personJSON.get(CASE_OFFICERS);
-            ArrayList<String> witnesses = (ArrayList<String>)personJSON.get(CASE_WITNESSES);
+            JSONArray jsonCriminals = (JSONArray)personJSON.get(CASE_CRIMINALS);
+                ArrayList<String> criminals = new ArrayList<String>();
 
-            cases.add(new Case(caseNum, crimeType, date, description, location, inJail, criminals, victims, officers, witnesses));
+                for(i=0; i < jsonCriminals.size(); i++)
+                 {
+                    String text  = (String)jsonCriminals.get(i);
+                    criminals.add(text);
+                }
+                JSONArray jsonVictims = (JSONArray)personJSON.get(CASE_VICTIMS);
+                ArrayList<String> victims = new ArrayList<String>();
+
+                for(i=0; i < jsonVictims.size(); i++)
+                {
+                    String text  = (String)jsonVictims.get(i);
+                    victims.add(text);
+                }
+                JSONArray jsonOfficers = (JSONArray)personJSON.get(CASE_OFFICERS);
+                ArrayList<String> officers = new ArrayList<String>();
+
+                for(i=0; i < jsonOfficers.size(); i++)
+                 {
+                    String text  = (String)jsonOfficers.get(i);
+                    officers.add(text);
+                }
+                JSONArray jsonWitnesses = (JSONArray)personJSON.get(CASE_WITNESSES);
+                ArrayList<String> witnesses = new ArrayList<String>();
+
+                for(i=0; i < jsonWitnesses.size(); i++)
+                 {
+                    String text  = (String)jsonWitnesses.get(i);
+                    witnesses.add(text);
+                }
+
+            cases.add(new Case(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses));
         }
         return cases;
         }   
