@@ -1108,7 +1108,163 @@ public class DatabaseUI {
         switch(userCommand){
 
             case(0):
-            System.out.println("Enter the first name ")
+            System.out.println("Enter the first name you would like to search by.");
+            ArrayList<Victim> victimMatches = databaseApp.searchVictimByFirstName(scanner.nextLine());
+            if(emptyVictimSearch(victimMatches, "first name"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(1):
+            System.out.println("Enter the last name you would like to search by.");
+            victimMatches = databaseApp.searchVictimByLastName(scanner.nextLine());
+            if(emptyVictimSearch(victimMatches, "last name"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(2):
+            System.out.println("Enter the age range you would like to search by. (Enter the low age first then the high age)");
+            int lowAge = scanner.nextInt();
+            int highAge = scanner.nextInt();
+            victimMatches = databaseApp.searchVictimByAge(lowAge, highAge);
+            if(emptyVictimSearch(victimMatches, "age"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(3):
+            System.out.println("Enter the sex you would like to search by.");
+            victimMatches = databaseApp.searchVictimBySex(scanner.nextLine());
+            if(emptyVictimSearch(victimMatches, "sex"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(4):
+            System.out.println("Cannot search by report");
+            break;
+
+            case(5):
+            System.out.println("Enter the hospital you would like to search by");
+            victimMatches = databaseApp.searchVictimByHospital(scanner.nextLine());
+            if(emptyVictimSearch(victimMatches, "hospital"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(6):
+            System.out.println("Enter the phone number you would like to search by");
+            victimMatches = databaseApp.searchVictimByPhoneNum(scanner.nextInt());
+            if(emptyVictimSearch(victimMatches, "phone number"))
+                break;
+            printVictims(victimMatches);
+            break;
+
+            case(7):
+            System.out.println("Enter the address you would like to search by");
+            victimMatches = databaseApp.searchVictimByAddress(scanner.nextLine());
+            if(emptyVictimSearch(victimMatches, "address"))
+                break;
+            printVictims(victimMatches);
+            break;
+        }
+    }
+
+    private void searchOfficer()
+    {
+        for(int i=1; i<officerOptions.length + 1; i++)
+            System.out.println(i + ". " + officerOptions[i]);
+        System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the first name you would like to search by.");
+            ArrayList<Officer> officerMatches = databaseApp.searchOfficerByFirstName(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "first name"))
+                break;
+            printOfficers(officerMatches);
+            break;
+
+            case(1):
+            System.out.println("Enter the last name you would like to search by.");
+            officerMatches = databaseApp.searchOfficerByLastName(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "last name"))
+                break;
+            printOfficers(officerMatches);
+            break;       
+
+
+            case(2):
+            System.out.println("Enter the age range you would like to search by. (Enter the low age first then the high age)");
+            int lowAge = scanner.nextInt();
+            int highAge = scanner.nextInt();
+            officerMatches = databaseApp.searchOfficerByAge(lowAge, highAge);
+            if(emptyOfficerSearch(officerMatches, "age"))
+                break;
+            printOfficers(officerMatches);
+            break;
+            
+            case(3):
+            System.out.println("Enter the sex you would like to search by.");
+            officerMatches = databaseApp.searchOfficerBySex(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "sex"))
+                break;
+            printOfficers(officerMatches);
+            break; 
+
+            case(4):
+            System.out.println("Enter the rank you would like to search by.");
+            officerMatches = databaseApp.searchOfficerByRank(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "rank"))
+                break;
+            printOfficers(officerMatches);
+            break;
+
+            case(5):
+            System.out.println("Enter the city you would like to search by.");
+            officerMatches = databaseApp.searchOfficerByCity(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "city"))
+                break;
+            printOfficers(officerMatches);
+            break;
+
+            case(6):
+            System.out.println("Enter the office number you would like to search by.");
+            officerMatches = databaseApp.searchOfficerByOfficeNum(scanner.nextInt());
+            if(emptyOfficerSearch(officerMatches, "office number"))
+                break;
+            printOfficers(officerMatches);
+            break;
+
+            case(7):
+            System.out.println("Enter the office address you would like to search by.");
+            officerMatches = databaseApp.searchOfficerByOfficeAddress(scanner.nextLine());
+            if(emptyOfficerSearch(officerMatches, "office address"))
+                break;
+            printOfficers(officerMatches);
+            break;
+        }
+    }
+
+    private void searchWitness()
+    {
+        for(int i=1; i<witnessOptions.length + 1; i++)
+            System.out.println(i + ". " + witnessOptions[i]);
+        System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
+        int userCommand = scanner.nextInt() - 1;
+
+        switch(userCommand){
+
+            case(0):
+            System.out.println("Enter the first name you would like to search by.");
+            ArrayList<Witness> witnessMatches = databaseApp.searchWitnessByFirstName(scanner.nextLine());
+            if(emptyWitnessSearch(witnessMatches, "first name"))
+                break;
+            printWitnesses(witnessMatches);
+            break;
         }
     }
 
@@ -1142,7 +1298,40 @@ public class DatabaseUI {
     }
     private void printVictims(ArrayList<Victim> victims)
     {
-        for(int i=0; victims.size(); i++)
+        for(int i=0; i<victims.size(); i++)
             victims.get(i).print();
+    }
+
+    private boolean emptyOfficerSearch(ArrayList<Officer> officers, String searchType)
+    {
+        if(officers.size() == 0)
+        {
+            System.out.println("There are no officers with that " + searchType);
+            return true;
+        }
+        return false;
+    }
+
+    private void printOfficers(ArrayList<Officer> officers)
+    {
+        for(int i=0; i<officers.size(); i++)
+            officers.get(i).print();
+
+    }
+
+    private boolean emptyWitnessSearch(ArrayList<Witness> witnesses, String searchType)
+    {
+        if(witnesses.size() == 0)
+        {
+            System.out.println("There are no witnesses with that " + searchType);
+            return true;
+        }
+        return false;
+    }
+
+    private void printWitnesses(ArrayList<Witness> witnesses)
+    {
+        for(int i=0; i<witnesses.size(); i++)
+            witnesses.get(i).print();
     }
 }

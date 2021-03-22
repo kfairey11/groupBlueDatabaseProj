@@ -426,6 +426,214 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    public ArrayList<Victim> searchVictimByFirstName(String firstName)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getFirstName().equalsIgnoreCase(firstName))
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimByLastName(String lastName)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getLastName().equalsIgnoreCase(lastName))
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimByAge(int lowAge, int highAge)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getAge() >= lowAge && currentVictims.get(i).getAge() <= highAge)
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimBySex(String sex)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getSex().equalsIgnoreCase(sex))
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimByHospital(String hospital)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getHopsital().equalsIgnoreCase(hospital))
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimByPhoneNum(int phoneNum)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getPhoneNum() == phoneNum)
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Victim> searchVictimByAddress(String address)
+    {
+        ArrayList<Victim> victimMatches = new ArrayList<Victim>();
+        ArrayList<Victim> currentVictims = victims.getVictimList();
+
+        for(int i=0; i<currentVictims.size(); i++)
+        {
+            if(currentVictims.get(i).getAddress().equalsIgnoreCase(address))
+                victimMatches.add(currentVictims.get(i));
+        }
+        return victimMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByFirstName(String firstName)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getFirstName().equalsIgnoreCase(firstName))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByLastName(String lastName)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getLastName().equalsIgnoreCase(lastName))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByAge(int lowAge, int highAge)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getAge() >= lowAge && currentOfficers.get(i).getAge() <= highAge)
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerBySex(String sex)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getSex().equalsIgnoreCase(sex))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByRank(String rank)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getRank().equalsIgnoreCase(rank))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByCity(String city)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getCity().equalsIgnoreCase(city))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByOfficeNum(int officeNum)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getOfficeNum() == officeNum)
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Officer> searchOfficerByOfficeAddress(String officeAddress)
+    {
+        ArrayList<Officer> officerMatches = new ArrayList<Officer>();
+        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+
+        for(int i=0; i<currentOfficers.size(); i++)
+        {
+            if(currentOfficers.get(i).getOfficeAddress().equalsIgnoreCase(officeAddress))
+                officerMatches.add(currentOfficers.get(i));
+        }
+        return officerMatches;
+    }
+
+    public ArrayList<Witness> searchWitnessByFirstName(String firstName)
+    {
+        ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
+        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+
+        for(int i=0; i<currentWitnesses.size(); i++)
+        {
+            if(currentWitnesses.get(i).getFirstName().equalsIgnoreCase(firstName))
+                witnessMatches.add(currentWitnesses.get(i));
+        }
+        return witnessMatches;
+    }
+
     /**
      * Searches for a Case
      */
