@@ -93,7 +93,7 @@ public class Officer extends Person{
         System.out.println("First name: " +getFirstName());
         System.out.println("Last name: " + getLastName());
         System.out.println("Age: " + getAge());
-        System.out.printlnt("Sex: " + getSex());
+        System.out.println("Sex: " + getSex());
         System.out.println("Rank: " + getRank());
         System.out.println("City: " + getCity());
         System.out.println("Office number: " + getOfficeNum());
