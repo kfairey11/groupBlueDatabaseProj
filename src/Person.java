@@ -69,7 +69,7 @@ public abstract class Person
      */
     public int getAge()
     {
-        if(age <= 0)
+        if(age >= 0)
         {
             return age;
         }

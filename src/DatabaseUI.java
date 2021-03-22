@@ -40,8 +40,8 @@ public class DatabaseUI {
         System.out.println(HOME_MSG);
         while(true)
         {
-            for(int i=1; i< LOGIN_OPTIONS.length+1; i++)
-                System.out.println(i + ". " + LOGIN_OPTIONS[i]);
+            for(int i=0; i< (LOGIN_OPTIONS.length); i++)
+                System.out.println((i+1 ) + ". " + LOGIN_OPTIONS[i]);
             int userCommand = getUserCommand(LOGIN_OPTIONS.length);
 
             if(userCommand == -1)
@@ -50,8 +50,6 @@ public class DatabaseUI {
                 continue;
             }
 
-            else if(userCommand == -2)
-                break;
 
             switch(userCommand){
 
@@ -62,9 +60,12 @@ public class DatabaseUI {
 
                 case(1):
                 if(createUser())
-                    userCommand = -2;
+                break;
+                else
                 break;
             }
+            if(userCommand == -2)
+                break;
 
         }
 
@@ -145,30 +146,30 @@ public class DatabaseUI {
     private boolean login()
     {
         System.out.println("Enter username: ");
+        scanner.nextLine();
         String username = scanner.nextLine();
-        System.out.println("Enter password");
+        System.out.println("Enter password: ");
         String password = scanner.nextLine();
-
+        System.out.println(username);
         if(!databaseApp.login(username, password))
         {
             System.out.println("The username or password you entered was incorrect");
             return false;
         }
         else
-            return true;
+            return databaseApp.login(username, password);
     }
 
     private boolean createUser()
     {
         UUID userID = null;
         System.out.println("Enter your first name: ");
+        scanner.nextLine();
         String firstName = scanner.nextLine();
         System.out.println("Enter your last name: ");
         String lastName = scanner.nextLine();
-
         System.out.println("Enter what you would like your username to be");
         String username = scanner.nextLine();
-
         System.out.println("Enter what you would like your password to be (password must be at least 6 characters long)");
         String password = "";
         while(true)
@@ -186,7 +187,7 @@ public class DatabaseUI {
             return false;
         }
         else    
-            return true;
+            return databaseApp.createUser(userID, firstName, lastName, username, password);
             
     }
 

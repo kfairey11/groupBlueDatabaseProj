@@ -1,7 +1,7 @@
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
-
+import java.lang.*;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -59,7 +59,7 @@ public class DataLoader extends DataConstants{
                 String sex = (String)personJSON.get(CRIMINAL_SEX);
                 String nickname = (String)personJSON.get(CRIMINAL_NICKNAME);
                 String height = (String)personJSON.get(CRIMINAL_HEIGHT);
-                double weight = ((Long)personJSON.get(CRIMINAL_WEIGHT)).doubleValue();
+                double weight = ((Number)personJSON.get(CRIMINAL_WEIGHT)).doubleValue();
                 String race = (String)personJSON.get(CRIMINAL_RACE);
                 JSONArray jsonTattoos = (JSONArray)personJSON.get(CRIMINAL_TATTOOS);
                 ArrayList<String> tattoos = new ArrayList<String>();
@@ -70,7 +70,7 @@ public class DataLoader extends DataConstants{
                     tattoos.add(text);
                 }
                 
-                double shoeSize = Double.parseDouble((String)personJSON.get(CRIMINAL_SHOE_SIZE));
+                double shoeSize = ((Number)personJSON.get(CRIMINAL_SHOE_SIZE)).doubleValue();
                 JSONArray jsonPiercings = (JSONArray)personJSON.get(CRIMINAL_PIERCINGS);
                 ArrayList<String> piercings = new ArrayList<String>();
 

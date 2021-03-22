@@ -46,7 +46,7 @@ public class Users {
     {
         for(User user : userList)
         {
-            if(user.getUserName().equals("username"))
+            if(user.getUserName().equals(username))
                 return user;
         }
         return null;

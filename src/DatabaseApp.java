@@ -40,7 +40,7 @@ public class DatabaseApp {
 
          if(user == null)
             return false;
-        if(user.getPassword().equals("password"))
+        if(user.getPassword().equals(password))
             return true;
         else    
             return false;
