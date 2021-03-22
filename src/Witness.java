@@ -2,7 +2,7 @@
  * A Witness Class
  * @author Casey, Kennedy
  */
-import java.util.*;
+
 
 public class Witness extends Person
 {
@@ -46,14 +46,7 @@ public class Witness extends Person
          */
         public void setTestimony(String aTestimony)
         {
-            if(aTestimony.equalsIgnoreCase(" "))
-            {
-                testimony=aTestimony;
-            }
-            else
-            {
-                aTestimony=aTestimony;
-            }
+            this.testimony = aTestimony;
         }
         
         /**
@@ -71,14 +64,7 @@ public class Witness extends Person
          */
         public void setPhoneNum(int aPhoneNum)
         {
-            if(aPhoneNum > 0)
-            {
-                phoneNum=aPhoneNum;
-            }
-            else
-            {
-                aPhoneNum=aPhoneNum;
-            }
+            this.phoneNum = aPhoneNum;
         }
 
         /**
@@ -96,14 +82,7 @@ public class Witness extends Person
          */
         public void setAddress(String anAddress)
         {
-            if(anAddress.equalsIgnoreCase(" "))
-            {
-                address=anAddress;
-            }
-            else
-            {
-                anAddress=anAddress;
-            }
+            this.address = anAddress;
         }
 
         public void print()

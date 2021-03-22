@@ -3,7 +3,7 @@
  * @author Kennedy Fairey
  */
 import java.util.Scanner;
-
+import java.util.UUID;
 import javax.lang.model.util.ElementScanner6;
 
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class DatabaseUI {
 
             if(userCommand == homePageOptions.length - 1)
             {
-                logout();
+                databaseApp.logout();
                 break;
             }
 
@@ -160,6 +160,7 @@ public class DatabaseUI {
 
     private boolean createUser()
     {
+        UUID userID = null;
         System.out.println("Enter your first name: ");
         String firstName = scanner.nextLine();
         System.out.println("Enter your last name: ");
@@ -179,7 +180,7 @@ public class DatabaseUI {
                 break;
         }
 
-        if(!databaseApp.createUser(firstName, lastName, username, password))
+        if(!databaseApp.createUser(userID, firstName, lastName, username, password))
         {
             System.out.println("There already exists a user with that username");
             return false;
@@ -251,6 +252,7 @@ public class DatabaseUI {
         System.out.println("Enter the Criminal's Height (Enter feet, hit ENTER, then enter inches");
         int feet = scanner.nextInt();
         int inches = scanner.nextInt();
+        String height = new Height(feet, inches).toString();
 
         double weight = Double.parseDouble(enterInfo("Weight", "Criminal"));
         String race = enterInfo("Race", "Criminal");
@@ -259,7 +261,7 @@ public class DatabaseUI {
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
-        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings))
+        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings))
             System.out.println("Criminal has been successfully inserted into the database");
         else   
             System.out.println("A criminal of that name already exists in this database");
@@ -660,6 +662,7 @@ public class DatabaseUI {
 
     private void createCase()
     {
+        int caseNum = -1;
         System.out.println("Enter the type of crime");
         String crimeType = scanner.nextLine();
 
@@ -667,6 +670,7 @@ public class DatabaseUI {
         int month = scanner.nextInt();
         int day = scanner.nextInt();
         int year = scanner.nextInt();
+        String date = new Date(month, day, year).toString();
 
 
         System.out.println("Enter a description of the crime");
@@ -793,7 +797,7 @@ public class DatabaseUI {
         }
 
 
-        if(databaseApp.createCase(crimeType, month, day, year, description, location, criminals, victims, officers, witnesses))
+        if(databaseApp.createCase(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses))
             System.out.println("The case was successfully inserted into the database.");
 
     }

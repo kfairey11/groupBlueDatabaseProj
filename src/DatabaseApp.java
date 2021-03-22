@@ -55,9 +55,9 @@ public class DatabaseApp {
       * @return boolean
       */
 
-     public boolean createUser(String firstName, String lastName, String userName, String password)
+     public boolean createUser(UUID userID, String firstName, String lastName, String userName, String password)
      {
-         return users.addUser(firstName, lastName, userName, password);
+         return users.addUser(userID, firstName, lastName, userName, password);
      }
 
       /**
@@ -77,13 +77,13 @@ public class DatabaseApp {
      * @return boolean
      */
 
-    public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches,
+    public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, String height,
     double weight, String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
         //adds criminal to the database based on this info
         //need to convert height info into the height format
         //need to add all elements of string arrays into arraylists
-        return criminals.addCriminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings);
+        return criminals.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings);
     }
 
     /**
@@ -146,11 +146,11 @@ public class DatabaseApp {
      * @param description
      * @param location
      */
-    public boolean createCase(String crimeType, int month, int day, int year, String description, String location, ArrayList<String> criminals, ArrayList<String> 
+    public boolean createCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> criminals, ArrayList<String> 
     victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
-        return cases.addCase(crimeType, month, day, year, description, location, criminals, victims, officers, witnesses);
+        return cases.addCase(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses);
     }
 
     /**
@@ -883,13 +883,7 @@ public class DatabaseApp {
 
 
 
-    /**
-     * Searches for a Case
-     */
-    public void searchCase()
-    {
-        //empty stub
-    }
+    
 
     /**
      * Searches for a Case by Case Number
@@ -901,13 +895,14 @@ public class DatabaseApp {
         return cases.getCase(caseNum);
     }
 
-    /**
-     * Add to a Case
-     * @param newCase
-     */
-    public void addToCase(Case newCase)
+    public void logout()
     {
-        //empty stub
+        users.saveUsers();
+        criminals.saveCriminals();
+        victims.saveVictims();
+        officers.saveOfficers();
+        witnesses.saveWitnesses();
+        cases.saveCases();
     }
 
 

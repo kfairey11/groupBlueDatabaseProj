@@ -189,13 +189,12 @@ public class People {
      * @param piercings
      * @return boolean; return false if criminal is already in the list, return true if otherwise and criminal is added to the list
      */
-    public boolean addCriminal(String firstName, String lastName, int age, String sex, String nickname, int feet, int inches, double weight, 
+    public boolean addCriminal(String firstName, String lastName, int age, String sex, String nickname, String height, double weight, 
     String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
         if(haveCriminal(firstName + " " + lastName))
             return false;
-        
-        criminalList.add(new Criminal(firstName, lastName, age, sex, nickname, feet, inches, weight, race, tattoos, shoeSize, piercings));
+        criminalList.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings));
         return true;
     }
 
@@ -322,5 +321,23 @@ public class People {
         return null;
     }
 
-    //possibly getItem()?
+    public void saveCriminals()
+    {
+        DataWriter.saveCriminals();
+    }
+
+    public void saveVictims()
+    {
+        DataWriter.saveVictims();
+    }
+
+    public void saveOfficers()
+    {
+        DataWriter.saveOfficers();
+    }
+
+    public void saveWitnesses()
+    {
+        DataWriter.saveWitnesses();
+    }
 }

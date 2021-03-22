@@ -47,14 +47,7 @@ public class Victim extends Person
      */
     public void setReport(String aReport)
     {
-        if(aReport.equalsIgnoreCase(" "))
-        {
-            report= aReport;
-        }
-        else
-        {
-            aReport=aReport;
-        }
+        this.report = aReport;
     }
 
     /**
@@ -72,14 +65,7 @@ public class Victim extends Person
      */
     public void setHospital(String aHospital)
     {
-        if(aHospital.equalsIgnoreCase(" "))
-        {
-            hospital=aHospital;
-        }
-        else
-        {
-            aHospital=aHospital;
-        }
+        this.hospital = aHospital;
     }
 
     /**
@@ -97,14 +83,7 @@ public class Victim extends Person
      */
     public void setPhoneNum(int aPhoneNum)
     {
-        if(phoneNum > 0)
-        {
-            phoneNum = aPhoneNum;
-        }
-        else
-        {
-            aPhoneNum = aPhoneNum;
-        }
+        this.phoneNum = aPhoneNum;
     }
 
     /**
@@ -122,14 +101,7 @@ public class Victim extends Person
      */
     public void setAddress(String anAddress)
     {
-        if(anAddress.equalsIgnoreCase(" "))
-        {
-            address=anAddress;
-        }
-        else
-        {
-            anAddress=anAddress;
-        }
+        this.address = anAddress;
     }
 
     public void print()

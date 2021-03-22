@@ -44,7 +44,7 @@ public class DataWriter extends DataConstants{
         ArrayList<Criminal> criminalList = criminals.getCriminalList();
         JSONArray jsonCriminals = new JSONArray();
 
-        for(int i=0;i<criminalsList.size();i++)
+        for(int i=0;i<criminalList.size();i++)
             jsonCriminals.add(getCriminalJSON(criminalList.get(i)));
         
             try(FileWriter file = new FileWriter(CRIMINAL_FILE_NAME))

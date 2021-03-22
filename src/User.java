@@ -22,9 +22,12 @@ public class User {
      * @param userName
      * @param password
      */
-    public User(String firstName, String lastName, String userName, String password){
+    public User(UUID userID, String firstName, String lastName, String userName, String password){
         //empty stub
-        setUserID();
+        if(userID == null)
+            setUserID();
+        else
+            this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;

@@ -30,12 +30,15 @@ public class Case {
      * @param officers
      * @param witnesses
      */
-    public Case( String crimeType, int month, int day, int year, String description, String location,  ArrayList<String> criminals, 
+    public Case(int caseNum, String crimeType, String date, String description, String location,  ArrayList<String> criminals, 
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //empty stub
-        setCaseNum();
-        setDate(day, month, year);
+        if(caseNum == -1)
+            setCaseNum();
+        else
+            this.caseNum = caseNum;
+        this.date = date;
         this.description = description;
         this.location = location;
         this.criminals = criminals;

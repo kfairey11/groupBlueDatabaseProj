@@ -3,6 +3,7 @@
  * @author Kennedy
  */
 import java.util.ArrayList;
+import java.util.UUID;
 public class Users {
     private static Users users;
     private static ArrayList<User> userList;
@@ -50,14 +51,24 @@ public class Users {
         }
         return null;
     }
+
+    public ArrayList<User> getUsers()
+    {
+        return userList;
+    }
     
 
-    public boolean addUser(String firstName, String lastName, String username, String password)
+    public boolean addUser(UUID userID, String firstName, String lastName, String username, String password)
     {
         if(haveUser(username))
             return false;
-        userList.add(new User(firstName, lastName, username, password)); 
+        userList.add(new User(userID, firstName, lastName, username, password)); 
         return true;
 
+    }
+
+    public void saveUsers()
+    {
+        DataWriter.saveUsers();
     }
 }

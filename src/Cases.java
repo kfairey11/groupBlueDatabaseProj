@@ -61,12 +61,15 @@ public class Cases {
         return null;
     }
 
-    public boolean addCase(String crimeType, int month, int day, int year, String description, String location, ArrayList<String> criminals,
+    public boolean addCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> criminals,
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
-        caseList.add(new Case(crimeType, month, day, year, description, location,  criminals, victims, officers, witnesses));
+        caseList.add(new Case(caseNum, crimeType, date, description, location,  criminals, victims, officers, witnesses));
         return true;
     }
 
-    //possibly getCase()?
+    public void saveCases()
+    {
+        DataWriter.saveCases();
+    }
 }
