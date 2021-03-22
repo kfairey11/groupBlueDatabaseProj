@@ -1,7 +1,5 @@
 [
     {
-        "id":4,
-        "caseNum":2,
         "firstName":"Evelyn",
         "lastName":"Mahrez",
         "age":43,
@@ -12,8 +10,6 @@
     },
 
     {
-        "id":5,
-        "caseNum":3,
         "firstName":"Terrence",
         "lastName":"Marshall",
         "age":56,
@@ -24,8 +20,6 @@
     },
 
     {
-        "id":6,
-        "caseNum":1,
         "firstName":"Wesley",
         "lastName":"Clark",
         "age":19,

@@ -1,21 +1,27 @@
 [
     {
-        "id": 11,
-        "caseNum": 1,
+        "firstName": "Terry",
+        "lastName": "Smalls",
+        "age": 40,
+        "sex": "Female",
         "rank": "officer",
         "city": "Columbia",
         "officeNum": 5551115555,
         "officeAddress": "123 Village Lane"
     }, {
-        "id": 12,
-        "caseNum": 2,
+        "firstName": "Jonathan",
+        "lastName": "Williams",
+        "age": 28,
+        "sex": "Male",
         "rank": "detective",
-        "city": "Spartenburg",
+        "city": "Spartanburg",
         "officeNum": 5551100011,
         "officeAddress": "312 Sandy Street"
     }, {
-        "id": 13,
-        "caseNum": 3,
+        "firstName": "Olivia",
+        "lastName": "Singletary",
+        "age": 52,
+        "sex": "Female",
         "rank": "officer",
         "city": "Spartenburg",
         "officeNum": 5558886666,
