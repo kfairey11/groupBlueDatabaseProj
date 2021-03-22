@@ -104,7 +104,7 @@ public class People {
      */
     public static People getInstance(String personType)
     {
-        if(people == null && personType.equalsIgnoreCase("criminal"))
+        if(people == null)
             people = new People(personType);
         return people;
     }

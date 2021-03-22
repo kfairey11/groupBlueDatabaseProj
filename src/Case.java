@@ -205,8 +205,8 @@ public class Case {
         for(int k=0; k<officers.size(); k++)
             System.out.println(officers.get(k) + " ");
         System.out.println("Witness(es): ");
-        for(int l=0; ;<witnesses.size(); l++)
-            System.out.println(witnesses.get(i) + " ");
+        for(int l=0; l<witnesses.size(); l++)
+            System.out.println(witnesses.get(l) + " ");
     }
 }
 
