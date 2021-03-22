@@ -128,66 +128,117 @@ public class Case {
         location = aLocation;
     }
 
+    /**
+     * Gets the list of criminals for the case
+     * @return criminals
+     */
     public ArrayList<String> getCriminals()
     {
         return criminals;
     }
 
+    /**
+     * Sets the list of criminals for the case
+     * @param criminals
+     */
     public void setCriminals(ArrayList<String> criminals)
     {
         this.criminals = criminals;
     }
 
+    /**
+     * Adds a criminal to the criminal list for the case
+     * @param criminal
+     */
     public void addToCriminals(String criminal)
     {
         this.criminals.add(criminal);
     }
 
+    /**
+     * Gets the list of victims for the case
+     * @return victims
+     */
     public ArrayList<String> getVictims()
     {
         return victims;
     }
 
+    /**
+     * Sets the list of victims for the case
+     * @param victims
+     */
     public void setVictims(ArrayList<String> victims)
     {
         this.victims = victims;
     }
 
+    /**
+     * Adds a victim to the victim list for the case
+     * @param victim
+     */
     public void addToVictims(String victim)
     {
         this.victims.add(victim);
     }
 
+    /**
+     * Gets the list of officers for the case
+     * @return officers
+     */
     public ArrayList<String> getOfficers()
     {
         return officers;
     }
 
+    /**
+     * Sets the list of officers for the case
+     * @param officers
+     */
     public void setOfficers(ArrayList<String> officers)
     {
         this.officers = officers;
     }
 
+    /**
+     * Adds an officer to the officer list for the case
+     * @param officer
+     */
     public void addToOfficers(String officer)
     {
         this.officers.add(officer);
     }
 
+    /**
+     * Gets the list of witnesses for the case
+     * @return witnesses
+     */
     public ArrayList<String> getWitnesses()
     {
         return witnesses;
     }
 
+    /**
+     * Sets the list of witnesses for the case
+     * @param witnesses
+     */
     public void setWitnesses(ArrayList<String> witnesses)
     {
         this.witnesses = witnesses;
     }
 
+    /**
+     * Adds a witness to the witness list for the case
+     * @param witness
+     */
     public void addToWitnesses(String witness)
     {
         this.witnesses.add(witness);
     }
     
+    /**
+     * prints out all the information associated with the case
+     */
     public void print()
     {
         System.out.println("Case number: " + getCaseNum());
