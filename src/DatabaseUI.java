@@ -2,6 +2,7 @@
  * user interface
  * @author Kennedy Fairey
  */
+//Ctrl + Shift + F quick search through code
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -238,6 +239,7 @@ public class DatabaseUI {
         //call setters instead of criminal.*
 
         String firstName = enterInfo("First Name", "Criminal");
+        scanner.nextLine();
         String lastName = enterInfo("Last Name", "Criminal");
         int age = Integer.parseInt(enterInfo("Age", "Criminal"));
         String sex = enterInfo("Sex", "Criminal");
@@ -1196,6 +1198,7 @@ public class DatabaseUI {
 
             case(1):
             System.out.println("Enter the last name you would like to search by.");
+            scanner.nextLine();
             officerMatches = databaseApp.searchOfficerByLastName(scanner.nextLine());
             if(emptyOfficerSearch(officerMatches, "last name"))
                 break;

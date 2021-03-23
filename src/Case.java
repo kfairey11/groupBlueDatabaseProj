@@ -61,9 +61,8 @@ public class Case {
      */
     public void setCaseNum()
     {
-        Cases cases = Cases.getInstance();
-        ArrayList<Case> caseList = cases.getCaseList();
-        this.caseNum = caseList.size() + 1;
+        Random rand = new Random();
+        this.caseNum = rand.nextInt(10000)+1;
     }
 
     /**

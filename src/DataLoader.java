@@ -10,9 +10,25 @@ public class DataLoader extends DataConstants{
     private static FileReader reader;
     private static JSONParser parser;
     private static JSONArray peopleJSON;
-    private static JSONObject personJSON;
     private static JSONArray jsonPeople;
+    private static JSONArray jsonTattoos;
+    private static JSONArray jsonPiercings;
 
+    public static void main(String[] args)
+    {
+        ArrayList<User> user = getUsers();
+        ArrayList<Criminal> criminals = getCriminals();
+        ArrayList<Victim> victims = getVictims();
+        ArrayList<Officer> officers = getOfficers();
+        ArrayList<Witness> witnesses = getWitnesses(); 
+        ArrayList<Case> cases = getCases();
+        System.out.println(user.get(0).getUserName());
+        criminals.get(0).print();
+        victims.get(0).print();
+        officers.get(0).print();
+        witnesses.get(0).print();
+        cases.get(0).print();
+    }
     public static ArrayList<User> getUsers()
     {
         ArrayList<User> users = new ArrayList<User>();
@@ -25,7 +41,7 @@ public class DataLoader extends DataConstants{
 
             for(int i=0; i< peopleJSON.size(); i++)
             {
-                personJSON = (JSONObject)peopleJSON.get(i);
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 UUID id = UUID.fromString((String)personJSON.get(USER_ID));
                 String firstName = (String)personJSON.get(USER_FIRST_NAME);
                 String lastName = (String)personJSON.get(USER_LAST_NAME);
@@ -47,12 +63,6 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
-    public static void main(String[] args)
-    {
-        ArrayList<Case> criminals = getCases();
-        criminals.get(0).print();
-    }
-
     //can make main method in this class to test
     public static ArrayList<Criminal> getCriminals()
     {
@@ -66,7 +76,7 @@ public class DataLoader extends DataConstants{
 
             for(int i=0; i<peopleJSON.size(); i++)
             {
-                personJSON = (JSONObject)peopleJSON.get(i);
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 String firstName = (String)personJSON.get(CRIMINAL_FIRST_NAME);
                 String lastName = (String)personJSON.get(CRIMINAL_LAST_NAME);
                 int age = (((Long) personJSON.get(CRIMINAL_AGE)).intValue());
@@ -77,24 +87,19 @@ public class DataLoader extends DataConstants{
                 String race = (String)personJSON.get(CRIMINAL_RACE);
                 JSONArray jsonTattoos = (JSONArray)personJSON.get(CRIMINAL_TATTOOS);
                 ArrayList<String> tattoos = new ArrayList<String>();
-                if(jsonTattoos != null)
-                {
-                for(i=0; i < jsonTattoos.size(); i++)
+                for(int j=0; j < jsonTattoos.size(); j++)
                  {
-                    String text  = (String)jsonTattoos.get(i);
+                    String text  = (String)jsonTattoos.get(j);
                     tattoos.add(text);
                 }
-                }
+
                 double shoeSize = ((Number)personJSON.get(CRIMINAL_SHOE_SIZE)).doubleValue();
-                JSONArray jsonPiercings = (JSONArray)personJSON.get(CRIMINAL_PIERCINGS);
+                jsonPiercings = (JSONArray)personJSON.get(CRIMINAL_PIERCINGS);
                 ArrayList<String> piercings = new ArrayList<String>();
-                if(jsonPiercings != null)
-                {
-                for(i=0; i < jsonPiercings.size(); i++)
+                for(int k=0; k < jsonPiercings.size(); k++)
                  {
-                    String text  = (String)jsonPiercings.get(i);
+                    String text  = (String)jsonPiercings.get(k);
                     tattoos.add(text);
-                }
                 }
                 criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings));
             }
@@ -120,7 +125,7 @@ public class DataLoader extends DataConstants{
 
             for(int i=0; i<peopleJSON.size();i++)
             {
-                personJSON = (JSONObject)peopleJSON.get(i);
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 String firstName = (String)personJSON.get(VICTIM_FIRST_NAME);
                 String lastName = (String)personJSON.get(VICTIM_LAST_NAME);
                 int age = (((Long) personJSON.get(VICTIM_AGE)).intValue());
@@ -150,7 +155,7 @@ public class DataLoader extends DataConstants{
 
             for(int i=0;i<peopleJSON.size();i++)
             {
-                personJSON = (JSONObject)peopleJSON.get(i);
+                JSONObject personJSON = (JSONObject)peopleJSON.get(i);
                 String firstName = (String)personJSON.get(OFFICER_FIRST_NAME);
                 String lastName = (String)personJSON.get(OFFICER_LAST_NAME);
                 int age = (((Long) personJSON.get(OFFICER_AGE)).intValue());
@@ -181,7 +186,7 @@ public class DataLoader extends DataConstants{
         peopleJSON = (JSONArray)parser.parse(reader);
         for(int i=0;i<peopleJSON.size();i++)
         {
-            personJSON = (JSONObject)peopleJSON.get(i);
+            JSONObject personJSON = (JSONObject)peopleJSON.get(i);
             String firstName = (String)personJSON.get(WITNESS_FIRST_NAME);
             String lastName = (String)personJSON.get(WITNESS_LAST_NAME);
             int age = (((Long) personJSON.get(WITNESS_AGE)).intValue());
@@ -211,7 +216,7 @@ public class DataLoader extends DataConstants{
 
         for(int i=0; i<peopleJSON.size();i++)
         {
-            personJSON = (JSONObject)peopleJSON.get(i);
+            JSONObject personJSON = (JSONObject)peopleJSON.get(i);
             int caseNum = (((Long) personJSON.get(CASE_CASE_NUM)).intValue());
             String crimeType = (String)personJSON.get(CASE_CRIME_TYPE);
             String date = (String)personJSON.get(CASE_DATE);
@@ -219,44 +224,32 @@ public class DataLoader extends DataConstants{
             String location = (String)personJSON.get(CASE_LOCATION);
             jsonPeople = (JSONArray)personJSON.get(CASE_CRIMINALS);
                 ArrayList<String> criminals = new ArrayList<String>();
-            if(jsonPeople != null)
-            {
-                for(i=0; i < jsonPeople.size(); i++)
+                for(int j=0; j < jsonPeople.size(); j++)
                  {
-                    String text  = (String)jsonPeople.get(i);
+                    String text  = (String)jsonPeople.get(j);
                     criminals.add(text);
                 }
-            }
                 jsonPeople = (JSONArray)personJSON.get(CASE_VICTIMS);
                 ArrayList<String> victims = new ArrayList<String>();
-            if(jsonPeople != null)
-            {
-                for(i=0; i < jsonPeople.size(); i++)
+                for(int k=0; k < jsonPeople.size(); k++)
                 {
-                    String text  = (String)jsonPeople.get(i);
+                    String text  = (String)jsonPeople.get(k);
                     victims.add(text);
                 }
-            }
                 jsonPeople = (JSONArray)personJSON.get(CASE_OFFICERS);
                 ArrayList<String> officers = new ArrayList<String>();
-            if(jsonPeople != null)
-            {
-                for(i=0; i < jsonPeople.size(); i++)
+                for(int l=0; l < jsonPeople.size(); l++)
                  {
-                    String text  = (String)jsonPeople.get(i);
+                    String text  = (String)jsonPeople.get(l);
                     officers.add(text);
                 }
-            }
                 jsonPeople = (JSONArray)personJSON.get(CASE_WITNESSES);
                 ArrayList<String> witnesses = new ArrayList<String>();
-            if(jsonPeople != null)
-            {
-                for(i=0; i < jsonPeople.size(); i++)
+                for(int m=0; m < jsonPeople.size(); m++)
                  {
-                    String text  = (String)jsonPeople.get(i);
+                    String text  = (String)jsonPeople.get(m);
                     witnesses.add(text);
                 }
-            }
 
             cases.add(new Case(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses));
         }

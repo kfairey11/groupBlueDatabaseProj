@@ -102,6 +102,7 @@ public class People {
      * Gets an instance of People()
      * @return people
      */
+    //change this to be one method for all types
     public static People getInstance(String personType)
     {
         if(people == null)
