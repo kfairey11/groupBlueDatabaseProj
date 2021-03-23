@@ -2,7 +2,8 @@
  * A Case Class
  * @author Sam, Casey, Kennedy
  */
-import java.util.*;
+import java.util.Random;
+import java.util.ArrayList;
 public class Case {
     /**
      * Attributes for a Case
@@ -60,8 +61,9 @@ public class Case {
      */
     public void setCaseNum()
     {
-        Random rand = new Random();
-        caseNum = rand.nextInt(10000) +1;
+        Cases cases = Cases.getInstance();
+        ArrayList<Case> caseList = cases.getCaseList();
+        this.caseNum = caseList.size() + 1;
     }
 
     /**

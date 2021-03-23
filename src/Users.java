@@ -13,7 +13,7 @@ public class Users {
      */
     private Users()
     {
-        userList = Database.getUsers();
+        userList = DataLoader.getUsers();
     }
 
     /**

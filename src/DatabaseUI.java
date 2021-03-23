@@ -4,7 +4,7 @@
  */
 import java.util.Scanner;
 import java.util.UUID;
-import javax.lang.model.util.ElementScanner6;
+
 
 import java.util.ArrayList;
 public class DatabaseUI {
@@ -425,8 +425,8 @@ public class DatabaseUI {
 
     private void changesToCriminal(Criminal criminal)
     {
-        for(int i=1; i<criminalOptions.length + 1; i++)
-            System.out.println(i + ". " + criminalOptions[i]);
+        for(int i=0; i<criminalOptions.length; i++)
+            System.out.println((i+1) + ". " + criminalOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -508,8 +508,8 @@ public class DatabaseUI {
 
     private void changesToVictim(Victim victim)
     {
-        for(int i=1; i<victimOptions.length + 1; i++)
-            System.out.println(i + ". " + victimOptions[i]);
+        for(int i=0; i<victimOptions.length; i++)
+            System.out.println((i+1) + ". " + victimOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -565,8 +565,8 @@ public class DatabaseUI {
 
     private void changesToOfficer(Officer officer)
     {
-        for(int i=1; i<officerOptions.length + 1; i++)
-            System.out.println(i + ". " + officerOptions[i]);
+        for(int i=0; i<officerOptions.length; i++)
+            System.out.println((i+1) + ". " + officerOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -614,8 +614,8 @@ public class DatabaseUI {
 
     private void changesToWitness(Witness witness)
     {
-        for(int i=1; i<witnessOptions.length + 1; i++)
-            System.out.println(i + ". " + witnessOptions[i]);
+        for(int i=0; i<witnessOptions.length; i++)
+            System.out.println((i+1) + ". " + witnessOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -812,8 +812,8 @@ public class DatabaseUI {
         while(true)
         {
         System.out.println("What would you like to change? (Enter the corresponding number, then hit ENTER)");
-        for(int i=1; i<caseOptions.length + 1; i++)
-            System.out.println(i + ". " + caseOptions[i]);
+        for(int i=0; i<caseOptions.length; i++)
+            System.out.println((i+1) + ". " + caseOptions[i]);
 
         int userCommand = scanner.nextInt() - 1;
 
@@ -999,8 +999,8 @@ public class DatabaseUI {
 
     private void searchCriminal()
     {
-        for(int i=1; i<criminalOptions.length + 1; i++)
-            System.out.println(i + ". " + criminalOptions[i]);
+        for(int i=0; i<criminalOptions.length ; i++)
+            System.out.println((i+1) + ". " + criminalOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -1105,8 +1105,8 @@ public class DatabaseUI {
 
     private void searchVictim()
     {
-        for(int i=1; i<victimOptions.length + 1; i++)
-            System.out.println(i + ". " + victimOptions[i]);
+        for(int i=0; i<victimOptions.length; i++)
+            System.out.println((i+1) + ". " + victimOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -1178,8 +1178,8 @@ public class DatabaseUI {
 
     private void searchOfficer()
     {
-        for(int i=1; i<officerOptions.length + 1; i++)
-            System.out.println(i + ". " + officerOptions[i]);
+        for(int i=0; i<officerOptions.length; i++)
+            System.out.println((i+1) + ". " + officerOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -1187,6 +1187,7 @@ public class DatabaseUI {
 
             case(0):
             System.out.println("Enter the first name you would like to search by.");
+            scanner.nextLine();
             ArrayList<Officer> officerMatches = databaseApp.searchOfficerByFirstName(scanner.nextLine());
             if(emptyOfficerSearch(officerMatches, "first name"))
                 break;
@@ -1256,8 +1257,8 @@ public class DatabaseUI {
 
     private void searchWitness()
     {
-        for(int i=1; i<witnessOptions.length + 1; i++)
-            System.out.println(i + ". " + witnessOptions[i]);
+        for(int i=0; i<witnessOptions.length; i++)
+            System.out.println((i+1) + ". " + witnessOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 
@@ -1390,8 +1391,8 @@ public class DatabaseUI {
 
     private void searchCase()
     {
-        for(int i=1; i<caseOptions.length + 1; i++)
-            System.out.println(i + ". " + caseOptions[i]);
+        for(int i=0; i<caseOptions.length; i++)
+            System.out.println((i+1) + ". " + caseOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
 

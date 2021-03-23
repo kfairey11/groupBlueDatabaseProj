@@ -12,7 +12,7 @@ public class Cases {
      */
     private Cases()
     {
-        caseList = Database.getCases();
+        caseList = DataLoader.getCases();
     }
 
     /**

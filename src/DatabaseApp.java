@@ -28,6 +28,12 @@ public class DatabaseApp {
         users = Users.getInstance();
     }
 
+    public static void main(String[] args)
+    {
+        DatabaseApp d = new DatabaseApp();
+        System.out.println(d.officers.getOfficerList().get(0).getFirstName() + " " + d.officers.getOfficerList().get(0).getLastName());
+    }
+
     /**
      * Logs in a user
      * @param username
