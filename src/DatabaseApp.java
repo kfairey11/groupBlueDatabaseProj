@@ -8,10 +8,7 @@ public class DatabaseApp {
     /**
      * Attributes for DatabaseApp
      */
-    private People criminals;
-    private People victims;
-    private People officers;
-    private People witnesses;
+    private People people;
     private Cases cases;
     private Users users;
 
@@ -20,18 +17,9 @@ public class DatabaseApp {
      */
     public DatabaseApp()
     {
-        criminals = People.getInstance("criminal");
-        victims = People.getInstance("victim");
-        officers = People.getInstance("officer");
-        witnesses = People.getInstance("witness");
+        people = People.getInstance();
         cases = Cases.getInstance();
         users = Users.getInstance();
-    }
-
-    public static void main(String[] args)
-    {
-        DatabaseApp d = new DatabaseApp();
-        System.out.println(d.officers.getOfficerList().get(0).getFirstName() + " " + d.officers.getOfficerList().get(0).getLastName());
     }
 
     /**
@@ -89,7 +77,7 @@ public class DatabaseApp {
         //adds criminal to the database based on this info
         //need to convert height info into the height format
         //need to add all elements of string arrays into arraylists
-        return criminals.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings);
+        return people.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings);
     }
 
     /**
@@ -108,7 +96,7 @@ public class DatabaseApp {
     String address)
     {
         //adds victim to the database
-        return victims.addVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address);
+        return people.addVictim(firstName, lastName, age, sex, report, hospital, phoneNum, address);
     }
 
     /**
@@ -126,7 +114,7 @@ public class DatabaseApp {
     public boolean createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int officeNum, String address)
     {
         //adds officer to the database
-        return officers.addOfficer(firstName, lastName, age, sex, rank, officeNum, address, city);
+        return people.addOfficer(firstName, lastName, age, sex, rank, officeNum, address, city);
     }
 
     /**
@@ -142,7 +130,7 @@ public class DatabaseApp {
     public boolean createWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
     {
         //adds witness to the database
-        return witnesses.addWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
+        return people.addWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
     }
 
     /**
@@ -167,7 +155,7 @@ public class DatabaseApp {
     {
             Criminal oldCriminal = searchCriminalByName(criminal.getFirstName() + " " + criminal.getLastName());
             String oldCriminalName = oldCriminal.getFirstName() + " " + oldCriminal.getLastName();
-            ArrayList<Criminal> criminalList = criminals.getCriminalList();
+            ArrayList<Criminal> criminalList = people.getCriminalList();
             
             for(int i=0; i<criminalList.size(); i++)
             {
@@ -176,7 +164,7 @@ public class DatabaseApp {
                     criminalList.set(i, criminal);
                 }
             }
-            criminals.setCriminalList(criminalList);
+            people.setCriminalList(criminalList);
 
     }
 
@@ -188,7 +176,7 @@ public class DatabaseApp {
     {
         Victim oldVictim = searchVictimByName(victim.getFirstName() + " " + victim.getLastName());
             String oldVictimName = oldVictim.getFirstName() + " " + oldVictim.getLastName();
-            ArrayList<Victim> victimList = victims.getVictimList();
+            ArrayList<Victim> victimList = people.getVictimList();
             
             for(int i=0; i<victimList.size(); i++)
             {
@@ -197,7 +185,7 @@ public class DatabaseApp {
                     victimList.set(i, victim);
                 }
             }
-            victims.setVictimList(victimList);
+            people.setVictimList(victimList);
     }
 
     /**
@@ -208,7 +196,7 @@ public class DatabaseApp {
     {
             Officer oldOfficer = searchOfficerByName(officer.getFirstName() + " " + officer.getLastName());
             String oldOfficerName  = oldOfficer.getFirstName() + " " + oldOfficer.getLastName();
-            ArrayList<Officer> officerList = officers.getOfficerList();
+            ArrayList<Officer> officerList = people.getOfficerList();
             
             for(int i=0; i<officerList.size(); i++)
             {
@@ -217,7 +205,7 @@ public class DatabaseApp {
                     officerList.set(i, officer);
                 }
             }
-            officers.setOfficerList(officerList);
+            people.setOfficerList(officerList);
     }
 
     /**
@@ -228,14 +216,14 @@ public class DatabaseApp {
     {
         Witness oldWitness = searchWitnessByName(witness.getFirstName() + " " + witness.getLastName());
         String oldWitnessName  = oldWitness.getFirstName() + " " + oldWitness.getLastName();
-        ArrayList<Witness> witnessList = witnesses.getWitnessList();
+        ArrayList<Witness> witnessList = people.getWitnessList();
         
         for(int i=0; i<witnessList.size(); i++)
         {
             if((witnessList.get(i).getFirstName() + " " + witnessList.get(i).getLastName()).equalsIgnoreCase(oldWitnessName))
                 witnessList.set(i, witness);
         }
-        witnesses.setWitnessList(witnessList);
+        people.setWitnessList(witnessList);
     }
 
     /**
@@ -263,7 +251,7 @@ public class DatabaseApp {
      */
     public Criminal searchCriminalByName(String name)
     {
-        return criminals.getCriminal(name);
+        return people.getCriminal(name);
     }
 
     /**
@@ -273,7 +261,7 @@ public class DatabaseApp {
      */
     public Victim searchVictimByName(String name)
     {
-        return victims.getVictim(name);
+        return people.getVictim(name);
     }
 
     /**
@@ -283,7 +271,7 @@ public class DatabaseApp {
      */
     public Officer searchOfficerByName(String name)
     {
-        return officers.getOfficer(name);
+        return people.getOfficer(name);
     }
 
     /**
@@ -293,7 +281,7 @@ public class DatabaseApp {
      */
     public Witness searchWitnessByName(String name)
     {
-         return witnesses.getWitness(name);
+         return people.getWitness(name);
     }
 
     /**
@@ -304,7 +292,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByFirstName(String firstName)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size();i++)
         {
@@ -322,7 +310,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByLastName(String lastName)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -341,7 +329,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByAge(int lowAge, int highAge)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -359,7 +347,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalBySex(String sex)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -377,7 +365,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByNickname(String nickname)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -396,7 +384,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByHeight(int feet, int inches)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
         String height = feet + "'" + inches + "\"";
 
         for(int i=0; i<currentCriminals.size(); i++)
@@ -416,7 +404,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByWeight(double lowWeight, double highWeight)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -434,7 +422,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByTattoo(String tattoo)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -457,7 +445,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByShoeSize(double lowShoeSize, double highShoeSize)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -475,7 +463,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByPiercing(String piercing)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -496,7 +484,7 @@ public class DatabaseApp {
     public ArrayList<Criminal> searchCriminalByUnderage()
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
-        ArrayList<Criminal> currentCriminals = criminals.getCriminalList();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
@@ -509,7 +497,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByFirstName(String firstName)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -522,7 +510,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByLastName(String lastName)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -535,7 +523,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByAge(int lowAge, int highAge)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -548,7 +536,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimBySex(String sex)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -561,7 +549,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByHospital(String hospital)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -574,7 +562,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByPhoneNum(int phoneNum)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -587,7 +575,7 @@ public class DatabaseApp {
     public ArrayList<Victim> searchVictimByAddress(String address)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
-        ArrayList<Victim> currentVictims = victims.getVictimList();
+        ArrayList<Victim> currentVictims = people.getVictimList();
 
         for(int i=0; i<currentVictims.size(); i++)
         {
@@ -600,7 +588,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByFirstName(String firstName)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -613,7 +601,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByLastName(String lastName)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -626,7 +614,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByAge(int lowAge, int highAge)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -639,7 +627,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerBySex(String sex)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -652,7 +640,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByRank(String rank)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -665,7 +653,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByCity(String city)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -678,7 +666,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByOfficeNum(int officeNum)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -691,7 +679,7 @@ public class DatabaseApp {
     public ArrayList<Officer> searchOfficerByOfficeAddress(String officeAddress)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
-        ArrayList<Officer> currentOfficers = officers.getOfficerList();
+        ArrayList<Officer> currentOfficers = people.getOfficerList();
 
         for(int i=0; i<currentOfficers.size(); i++)
         {
@@ -704,7 +692,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessByFirstName(String firstName)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -717,7 +705,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessByLastName(String lastName)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -730,7 +718,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessByAge(int lowAge, int highAge)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -743,7 +731,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessBySex(String sex)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -756,7 +744,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessByPhoneNum(int phoneNum)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -769,7 +757,7 @@ public class DatabaseApp {
     public ArrayList<Witness> searchWitnessByAddress(String address)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
-        ArrayList<Witness> currentWitnesses = witnesses.getWitnessList();
+        ArrayList<Witness> currentWitnesses = people.getWitnessList();
 
         for(int i=0; i<currentWitnesses.size(); i++)
         {
@@ -904,10 +892,10 @@ public class DatabaseApp {
     public void logout()
     {
         users.saveUsers();
-        criminals.saveCriminals();
-        victims.saveVictims();
-        officers.saveOfficers();
-        witnesses.saveWitnesses();
+        people.saveCriminals();
+        people.saveVictims();
+        people.saveOfficers();
+        people.saveWitnesses();
         cases.saveCases();
     }
 

@@ -14,16 +14,12 @@ public class People {
     /**
      * Constructor for People
      */
-    private People(String personType)
+    private People()
     {
-        if(personType.equalsIgnoreCase("criminal"))
-           criminalList = DataLoader.getCriminals();
-        else if(personType.equalsIgnoreCase("victim"))
-            victimList = DataLoader.getVictims();
-        else if(personType.equalsIgnoreCase("officer"))
-            officerList = DataLoader.getOfficers();
-        else if(personType.equalsIgnoreCase("witness"))
-            witnessList = DataLoader.getWitnesses();
+        criminalList = DataLoader.getCriminals();
+        victimList = DataLoader.getVictims();
+        officerList = DataLoader.getOfficers(); 
+        witnessList = DataLoader.getWitnesses();
     }
 
     /**
@@ -103,10 +99,10 @@ public class People {
      * @return people
      */
     //change this to be one method for all types
-    public static People getInstance(String personType)
+    public static People getInstance()
     {
         if(people == null)
-            people = new People(personType);
+            people = new People();
         return people;
     }
 
@@ -117,6 +113,8 @@ public class People {
      */
     public boolean haveCriminal(String name)
     {
+        if(criminalList == null)
+            return false;
         for(int i=0;i<criminalList.size();i++)
         {
             String fullName = ((criminalList.get(i)).getFirstName() + " " + (criminalList.get(i)).getLastName());
@@ -133,6 +131,8 @@ public class People {
      */
     public boolean haveVictim(String name)
     {
+        if(victimList == null)
+            return false;
         for(int i=0;i<victimList.size();i++)
         {
             String fullName = ((victimList.get(i)).getFirstName() + " " + (victimList.get(i)).getLastName());
@@ -149,6 +149,8 @@ public class People {
      */
     public boolean haveOfficer(String name)
     {
+        if(officerList == null)
+            return false;
         for(int i=0;i<officerList.size();i++)
         {
             String fullName = ((officerList.get(i)).getFirstName() + " " + (officerList.get(i)).getLastName());
@@ -165,6 +167,8 @@ public class People {
      */
     public boolean haveWitness(String name)
     {
+        if(witnessList == null)
+            return false;
         for(int i=0;i<witnessList.size();i++)
         {
             String fullName = ((witnessList.get(i)).getFirstName() + " " + (witnessList.get(i)).getLastName());

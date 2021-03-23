@@ -29,8 +29,8 @@ public class Criminal extends Person{
         this.height = height;
         this.race = arace;
         this.weight = aweight;
-        this.tattoos = atattoos;
-        this.piercing = apiercing;
+        setTattoos(atattoos);
+        setPiercing(apiercing);
         this.shoeSize = shoeSize;
         setIsUnderAge(isUnderAge);
     }
@@ -116,7 +116,10 @@ public class Criminal extends Person{
      * @param aTattoos
      */
     public void setTattoos(ArrayList<String> aTattoos){
-        tattoos = aTattoos;
+        if(aTattoos == null)
+            this.tattoos = null;
+        else    
+            this.tattoos = aTattoos;
     }
 
     public void addToTattoos(String tattoo)
@@ -155,7 +158,10 @@ public class Criminal extends Person{
      * @param aPiercing
      */
     public void setPiercing(ArrayList<String> aPiercing) {
-        piercing = aPiercing;
+        if(aPiercing == null)
+            this.piercing = null;
+        else
+            this.piercing = aPiercing;
     }
 
     public void addToPiercing(String piercing)

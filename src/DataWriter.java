@@ -4,6 +4,7 @@ import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants{
+    private static People people = People.getInstance();
     
     public static void saveUsers()
     {
@@ -40,8 +41,7 @@ public class DataWriter extends DataConstants{
 
     public static void saveCriminals()
     {
-        People criminals = People.getInstance("criminal");
-        ArrayList<Criminal> criminalList = criminals.getCriminalList();
+        ArrayList<Criminal> criminalList = people.getCriminalList();
         JSONArray jsonCriminals = new JSONArray();
 
         for(int i=0;i<criminalList.size();i++)
@@ -73,16 +73,16 @@ public class DataWriter extends DataConstants{
         for(int i=0;i<criminal.getTattoos().size();i++)
             criminalDetails.put(CRIMINAL_TATTOOS, criminal.getTattoos().get(i));
         criminalDetails.put(CRIMINAL_SHOE_SIZE, criminal.getShoeSize());
-        for(int i=0;i<criminal.getPiercing().size();i++)
-            criminalDetails.put(CRIMINAL_PIERCINGS, criminal.getPiercing().get(i));
+        for(int j=0;j<criminal.getPiercing().size();j++)
+            criminalDetails.put(CRIMINAL_PIERCINGS, criminal.getPiercing().get(j));
 
         return criminalDetails;
     }
 
     public static void saveVictims()
     {
-        People victims = People.getInstance("victim");
-        ArrayList<Victim> victimsList= victims.getVictimList();
+        
+        ArrayList<Victim> victimsList= people.getVictimList();
         JSONArray jsonVictims = new JSONArray();
 
         for(int i=0;i<victimsList.size();i++)
@@ -117,8 +117,7 @@ public class DataWriter extends DataConstants{
 
     public static void saveOfficers()
     {
-        People officers = People.getInstance("officer");
-        ArrayList<Officer> officersList= officers.getOfficerList();
+        ArrayList<Officer> officersList= people.getOfficerList();
         JSONArray jsonOfficers = new JSONArray();
 
         for(int i=0;i<officersList.size();i++)
@@ -153,8 +152,7 @@ public class DataWriter extends DataConstants{
 
     public static void saveWitnesses()
     {
-        People witnesses = People.getInstance("witnesses");
-        ArrayList<Witness> witnessesList= witnesses.getWitnessList();
+        ArrayList<Witness> witnessesList= people.getWitnessList();
         JSONArray jsonWitnesses = new JSONArray();
 
         for(int i=0;i<witnessesList.size();i++)
@@ -217,12 +215,12 @@ public class DataWriter extends DataConstants{
         caseDetails.put(CASE_LOCATION, cases.getLocation());
         for(int i=0;i<cases.getCriminals().size();i++)
             caseDetails.put(CASE_CRIMINALS, cases.getCriminals().get(i));
-        for(int i=0;i<cases.getVictims().size();i++)
-            caseDetails.put(CASE_VICTIMS, cases.getVictims().get(i));
-        for(int i=0;i<cases.getOfficers().size();i++)
-            caseDetails.put(CASE_OFFICERS, cases.getOfficers().get(i));
-        for(int i=0;i<cases.getWitnesses().size();i++)
-            caseDetails.put(CASE_WITNESSES, cases.getWitnesses().get(i));
+        for(int j=0;j<cases.getVictims().size();j++)
+            caseDetails.put(CASE_VICTIMS, cases.getVictims().get(j));
+        for(int k=0;k<cases.getOfficers().size();k++)
+            caseDetails.put(CASE_OFFICERS, cases.getOfficers().get(k));
+        for(int l=0;l<cases.getWitnesses().size();l++)
+            caseDetails.put(CASE_WITNESSES, cases.getWitnesses().get(l));
 
         return caseDetails;
     }

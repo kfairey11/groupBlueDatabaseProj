@@ -238,8 +238,10 @@ public class DatabaseUI {
 
         //call setters instead of criminal.*
 
-        String firstName = enterInfo("First Name", "Criminal");
+        System.out.println("Enter the Criminal's First Name: ");
         scanner.nextLine();
+        String firstName = scanner.nextLine();
+        System.out.println(firstName);
         String lastName = enterInfo("Last Name", "Criminal");
         int age = Integer.parseInt(enterInfo("Age", "Criminal"));
         String sex = enterInfo("Sex", "Criminal");
@@ -254,13 +256,14 @@ public class DatabaseUI {
 
         System.out.println("Enter the Criminal's Height (Enter feet, hit ENTER, then enter inches");
         int feet = scanner.nextInt();
+        scanner.nextLine();
         int inches = scanner.nextInt();
         String height = new Height(feet, inches).toString();
-
+        scanner.nextLine();
         double weight = Double.parseDouble(enterInfo("Weight", "Criminal"));
         String race = enterInfo("Race", "Criminal");
         ArrayList<String> tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
-
+        scanner.nextLine();
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
@@ -272,7 +275,9 @@ public class DatabaseUI {
 
     private void createVictim()
     {
-        String firstName = enterInfo("First Name", "Victim");
+        System.out.println("Enter the Victim's First Name: ");
+        scanner.nextLine();
+        String firstName = scanner.nextLine();
         String lastName = enterInfo("Last Name", "Victim");
 
         int age = Integer.parseInt(enterInfo("Age", "Victim"));
@@ -299,7 +304,9 @@ public class DatabaseUI {
 
     private void createOfficer()
     {
-        String firstName = enterInfo("First Name", "Officer");
+        System.out.println("Enter the Officer's First Name: ");
+        scanner.nextLine();
+        String firstName = scanner.nextLine();
         String lastName = enterInfo("Last Name", "Officer");
         int age = Integer.parseInt(enterInfo("Age", "Officer"));
         String sex = enterInfo("Sex", "Officer");
@@ -324,7 +331,9 @@ public class DatabaseUI {
     private void createWitness()
     {
 
-        String firstName = enterInfo("First Name", "Witness");
+        System.out.println("Enter the Witness's First Name: ");
+        scanner.nextLine();
+        String firstName = scanner.nextLine();
         String lastName = enterInfo("Last Name", "Witness");
         int age = Integer.parseInt(enterInfo("Age", "Witness"));
         String sex = enterInfo("Sex", "Witness");
@@ -990,6 +999,7 @@ public class DatabaseUI {
 
             case(2):
             searchOfficer();
+            break;
 
             case(3):
             searchWitness();

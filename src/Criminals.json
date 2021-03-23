@@ -1,2 +1,1 @@
-[{"firstName":"John","lastName":"Smith","shoeSize":10.0,"race":"white","sex":"Male","tattoos":["none"],"nickname":"NA","weight":200.0,"age":0,"height":"6'0\"", "piercings": [null]},
-{"firstName":"Sophia","lastName":"Gonzalez","shoeSize":6.0,"race":"Latin","sex":"Female","tattoos":["two earrings in each ear"],"nickname":"Gonzo","weight":135.0,"age":0,"height":"5'2\"", "piercings": [null]}]
+[{"firstName":"Ashton","lastName":"Hal","shoeSize":8.0,"race":null,"sex":"female","tattoos":"lip ring","nickname":"Ash","weight":130.0,"age":40,"height":"5'6\""},{"firstName":"Haakim","lastName":"Waraich","shoeSize":10.5,"race":"Asian","sex":"Male","nickname":"Kimmy","weight":147.0,"age":20,"height":"5'10\""}]
