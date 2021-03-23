@@ -1,7 +1,4 @@
-/**
- * An Underage Class
- * @author Casey
- */
+
 public class Underage //check for extension
 {
     /**
@@ -10,21 +7,18 @@ public class Underage //check for extension
     public String trialStatus;
     public int parentalContactNum;
     public String parentalContact;
-    public boolean adultTrial;
 
     /**
      * Constructor for an Underage person
      * @param atrialStatus
      * @param phoneNum
      * @param aparentalContact
-     * @param anAdultTrial
      */
-    public Underage(String atrialStatus, int phoneNum, String aparentalContact, Boolean anAdultTrial)
+    public Underage(String atrialStatus, int phoneNum, String aparentalContact)
     {
         trialStatus= atrialStatus;
         parentalContactNum=phoneNum;
         parentalContact= aparentalContact;
-        adultTrial=anAdultTrial;
 
     }
 
@@ -65,24 +59,8 @@ public class Underage //check for extension
     }
 
     /**
-     * Checks if it is an Adult Trial
-     * @return boolean
-     */
-    public Boolean isAdultTrial()
-    {
-        if(Person.getAge() < 18)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    /**
-     * Gets the parent's contact of the Underage person
-     * @return parentalContact
+     * Gets the parental contact for the underage criminal
+     * @return parental contact information
      */
     public String getParentalContact()
     {

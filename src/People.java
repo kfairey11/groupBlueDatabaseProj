@@ -1,7 +1,7 @@
-/**
- * People Class
- * @Author Kennedy
- */
+/*
+    People class
+    Author: Kennedy
+*/
 import java.util.ArrayList;
 //will probably have to make 5 different classes for each type of person
 public class People {
