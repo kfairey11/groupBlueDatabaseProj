@@ -99,7 +99,7 @@ public class DataLoader extends DataConstants{
                 for(int k=0; k < jsonPiercings.size(); k++)
                  {
                     String text  = (String)jsonPiercings.get(k);
-                    tattoos.add(text);
+                    piercings.add(text);
                 }
                 criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings));
             }

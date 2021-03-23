@@ -3,6 +3,7 @@
  * @author Kennedy Fairey
  */
 //Ctrl + Shift + F quick search through code
+//must change all phone numbers to type LONG instead of INT
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -30,10 +31,13 @@ public class DatabaseUI {
         databaseApp = new DatabaseApp();
     }
 
+
+
     public static void main(String args[])
     {
         DatabaseUI ui = new DatabaseUI();
         ui.run();
+
     }
 
     public void run()

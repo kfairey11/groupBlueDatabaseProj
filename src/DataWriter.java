@@ -70,11 +70,11 @@ public class DataWriter extends DataConstants{
         criminalDetails.put(CRIMINAL_HEIGHT, criminal.getHeight());
         criminalDetails.put(CRIMINAL_WEIGHT, criminal.getWeight());
         criminalDetails.put(CRIMINAL_RACE, criminal.getRace());
-        for(int i=0;i<criminal.getTattoos().size();i++)
-            criminalDetails.put(CRIMINAL_TATTOOS, criminal.getTattoos().get(i));
+        //for(int i=0;i<criminal.getTattoos().size();i++)
+        criminalDetails.put(CRIMINAL_TATTOOS, criminal.getTattoos());
         criminalDetails.put(CRIMINAL_SHOE_SIZE, criminal.getShoeSize());
-        for(int j=0;j<criminal.getPiercing().size();j++)
-            criminalDetails.put(CRIMINAL_PIERCINGS, criminal.getPiercing().get(j));
+        //for(int j=0;j<criminal.getPiercing().size();j++)
+        criminalDetails.put(CRIMINAL_PIERCINGS, criminal.getPiercing());
 
         return criminalDetails;
     }
@@ -209,18 +209,19 @@ public class DataWriter extends DataConstants{
     {
         JSONObject caseDetails = new JSONObject();
         caseDetails.put(CASE_CASE_NUM, cases.getCaseNum());
+
         caseDetails.put(CASE_CRIME_TYPE, cases.getCrimeType());
         caseDetails.put(CASE_DATE, cases.getDate());
         caseDetails.put(CASE_DESCRIPTION, cases.getDescription());
         caseDetails.put(CASE_LOCATION, cases.getLocation());
-        for(int i=0;i<cases.getCriminals().size();i++)
-            caseDetails.put(CASE_CRIMINALS, cases.getCriminals().get(i));
-        for(int j=0;j<cases.getVictims().size();j++)
-            caseDetails.put(CASE_VICTIMS, cases.getVictims().get(j));
-        for(int k=0;k<cases.getOfficers().size();k++)
-            caseDetails.put(CASE_OFFICERS, cases.getOfficers().get(k));
-        for(int l=0;l<cases.getWitnesses().size();l++)
-            caseDetails.put(CASE_WITNESSES, cases.getWitnesses().get(l));
+        //for(int i=0;i<cases.getCriminals().size();i++)
+        caseDetails.put(CASE_CRIMINALS, cases.getCriminals());
+        //for(int j=0;j<cases.getVictims().size();j++)
+        caseDetails.put(CASE_VICTIMS, cases.getVictims());
+        //for(int k=0;k<cases.getOfficers().size();k++)
+        caseDetails.put(CASE_OFFICERS, cases.getOfficers());
+        //for(int l=0;l<cases.getWitnesses().size();l++)
+        caseDetails.put(CASE_WITNESSES, cases.getWitnesses());
 
         return caseDetails;
     }
