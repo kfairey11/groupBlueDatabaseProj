@@ -414,6 +414,19 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    public ArrayList<Criminal> searchCriminalByRace(String race)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getRace().equalsIgnoreCase(race))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
     /**
      * Searches for a Criminal using their tattoos
      * @param tattoo
@@ -816,7 +829,7 @@ public class DatabaseApp {
             ArrayList<String> criminalList = currentCases.get(i).getCriminals();
             for(int j=0; j<criminalList.size(); j++)
             {
-                if(criminalList.get(i).equalsIgnoreCase(criminal))
+                if(criminalList.get(j).equalsIgnoreCase(criminal))
                     caseMatches.add(currentCases.get(i));
             }
         }
@@ -833,7 +846,7 @@ public class DatabaseApp {
             ArrayList<String> victimList = currentCases.get(i).getVictims();
             for(int j=0; j<victimList.size(); j++)
             {
-                if(victimList.get(i).equalsIgnoreCase(victim))
+                if(victimList.get(j).equalsIgnoreCase(victim))
                     caseMatches.add(currentCases.get(i));
             }
         }
@@ -850,7 +863,7 @@ public class DatabaseApp {
             ArrayList<String> officerList = currentCases.get(i).getOfficers();
             for(int j=0; j<officerList.size(); j++)
             {
-                if(officerList.get(i).equalsIgnoreCase(officer))
+                if(officerList.get(j).equalsIgnoreCase(officer))
                     caseMatches.add(currentCases.get(i));
             }
         }
@@ -867,7 +880,7 @@ public class DatabaseApp {
             ArrayList<String> witnessList = currentCases.get(i).getWitnesses();
             for(int j=0; j<witnessList.size(); j++)
             {
-                if(witnessList.get(i).equalsIgnoreCase(witness))
+                if(witnessList.get(j).equalsIgnoreCase(witness))
                     caseMatches.add(currentCases.get(i));
             }
         }
