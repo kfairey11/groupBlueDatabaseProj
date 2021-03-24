@@ -7,7 +7,7 @@ public class Officer extends Person{
      * Attributes of an Officer
      */
     private String rank;
-    private int officeNum;
+    private long officeNum;
     private String address;
     private String city;
 
@@ -22,7 +22,7 @@ public class Officer extends Person{
      * @param OfficeNum
      * @param anAddress
      */
-    public Officer(String firstName, String lastName, int age, String sex, String aRank,  String aCity, int OfficeNum, String anAddress){
+    public Officer(String firstName, String lastName, int age, String sex, String aRank,  String aCity, long OfficeNum, String anAddress){
         super(firstName,lastName,age,sex);
         rank = aRank;
         city = aCity;
@@ -60,7 +60,7 @@ public class Officer extends Person{
      * Gets the officer number of the officer
      * @return office number
      */
-    public int getOfficeNum() {
+    public long getOfficeNum() {
         return officeNum;
     }
 
@@ -68,7 +68,7 @@ public class Officer extends Person{
      * Sets the office number of the officer
      * @param anOfficeNum
      */
-    public void setOfficeNum(int anOfficeNum){
+    public void setOfficeNum(long anOfficeNum){
         officeNum = anOfficeNum;
     }
 

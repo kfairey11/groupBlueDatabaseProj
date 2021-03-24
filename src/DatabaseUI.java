@@ -296,7 +296,7 @@ public class DatabaseUI {
         nextLine();
         */
         String hospital = enterInfo("Hospital", "Victim");
-        int phoneNum = Integer.parseInt(enterInfo("Phone Number", "Victim"));
+        long phoneNum = Long.parseLong(enterInfo("Phone Number", "Victim"));
 
         String address = enterInfo("Address", "Victim");
 
@@ -323,7 +323,7 @@ public class DatabaseUI {
         nextLine();
         */
         String city = enterInfo("City", "Officer");
-        int phoneNum = Integer.parseInt(enterInfo("Phone number", "Officer"));
+        long phoneNum = Long.parseLong(enterInfo("Phone number", "Officer"));
         String address = enterInfo("Address", "Officer");
 
         if(databaseApp.createOfficer(firstName, lastName, age, sex, rank, city, phoneNum, address))
@@ -342,7 +342,7 @@ public class DatabaseUI {
         int age = Integer.parseInt(enterInfo("Age", "Witness"));
         String sex = enterInfo("Sex", "Witness");
         String testimony = enterInfo("Testimony", "Witness");
-        int phoneNum = Integer.parseInt(enterInfo("Phone number", "Witness"));
+        long phoneNum = Long.parseLong(enterInfo("Phone number", "Witness"));
         String address = enterInfo("Address", "Witness");
        //may be replaced with UUID
         /*
@@ -564,7 +564,7 @@ public class DatabaseUI {
 
                 case(6):
                 System.out.println("Enter new phone number");
-                victim.setPhoneNum(scanner.nextInt());
+                victim.setPhoneNum(scanner.nextLong());
                 break;
 
                 case(7):
@@ -614,7 +614,7 @@ public class DatabaseUI {
 
             case(5):
             System.out.println("Enter new office number");
-            officer.setOfficeNum(scanner.nextInt());
+            officer.setOfficeNum(scanner.nextLong());
             break;
 
             case(6):
@@ -663,7 +663,7 @@ public class DatabaseUI {
 
             case(5):
             System.out.println("Enter new phone number");
-            witness.setPhoneNum(scanner.nextInt());
+            witness.setPhoneNum(scanner.nextLong());
             break;
 
             case(6):
@@ -1176,7 +1176,7 @@ public class DatabaseUI {
 
             case(6):
             System.out.println("Enter the phone number you would like to search by");
-            victimMatches = databaseApp.searchVictimByPhoneNum(scanner.nextInt());
+            victimMatches = databaseApp.searchVictimByPhoneNum(scanner.nextLong());
             if(emptyVictimSearch(victimMatches, "phone number"))
                 break;
             printVictims(victimMatches);
@@ -1256,7 +1256,7 @@ public class DatabaseUI {
 
             case(6):
             System.out.println("Enter the office number you would like to search by.");
-            officerMatches = databaseApp.searchOfficerByOfficeNum(scanner.nextInt());
+            officerMatches = databaseApp.searchOfficerByOfficeNum(scanner.nextLong());
             if(emptyOfficerSearch(officerMatches, "office number"))
                 break;
             printOfficers(officerMatches);
@@ -1321,7 +1321,7 @@ public class DatabaseUI {
 
             case(5):
             System.out.println("Enter the phone number you would like to search by.");
-            witnessMatches = databaseApp.searchWitnessByPhoneNum(scanner.nextInt());
+            witnessMatches = databaseApp.searchWitnessByPhoneNum(scanner.nextLong());
             if(emptyWitnessSearch(witnessMatches, "phone number"))
                 break;
             printWitnesses(witnessMatches);

@@ -92,7 +92,7 @@ public class DatabaseApp {
      * @param address
      * @return boolean
      */
-    public boolean createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, int phoneNum, 
+    public boolean createVictim(String firstName, String lastName, int age, String sex, String report, String hospital, long phoneNum, 
     String address)
     {
         //adds victim to the database
@@ -111,7 +111,7 @@ public class DatabaseApp {
      * @param address
      * @return boolean
      */
-    public boolean createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, int officeNum, String address)
+    public boolean createOfficer(String firstName, String lastName, int age, String sex, String rank,String city, long officeNum, String address)
     {
         //adds officer to the database
         return people.addOfficer(firstName, lastName, age, sex, rank, officeNum, address, city);
@@ -127,7 +127,7 @@ public class DatabaseApp {
      * @param phoneNum
      * @param address
      */
-    public boolean createWitness(String firstName, String lastName, int age, String sex, String testimony, int phoneNum, String address)
+    public boolean createWitness(String firstName, String lastName, int age, String sex, String testimony, long phoneNum, String address)
     {
         //adds witness to the database
         return people.addWitness(firstName, lastName, age, sex, testimony, phoneNum, address);
@@ -559,7 +559,7 @@ public class DatabaseApp {
         return victimMatches;
     }
 
-    public ArrayList<Victim> searchVictimByPhoneNum(int phoneNum)
+    public ArrayList<Victim> searchVictimByPhoneNum(long phoneNum)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
         ArrayList<Victim> currentVictims = people.getVictimList();
@@ -663,7 +663,7 @@ public class DatabaseApp {
         return officerMatches;
     }
 
-    public ArrayList<Officer> searchOfficerByOfficeNum(int officeNum)
+    public ArrayList<Officer> searchOfficerByOfficeNum(long officeNum)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
         ArrayList<Officer> currentOfficers = people.getOfficerList();
@@ -741,7 +741,7 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
-    public ArrayList<Witness> searchWitnessByPhoneNum(int phoneNum)
+    public ArrayList<Witness> searchWitnessByPhoneNum(long phoneNum)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
         ArrayList<Witness> currentWitnesses = people.getWitnessList();

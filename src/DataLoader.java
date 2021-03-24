@@ -132,7 +132,7 @@ public class DataLoader extends DataConstants{
                 String sex = (String)personJSON.get(VICTIM_SEX);
                 String report = (String)personJSON.get(VICTIM_REPORT);
                 String hospital = (String)personJSON.get(VICTIM_HOSPITAL);
-                int phoneNum = (((Long) personJSON.get(VICTIM_PHONE_NUM)).intValue());
+                long phoneNum = ((Long) personJSON.get(VICTIM_PHONE_NUM));
                 String address = (String)personJSON.get(VICTIM_ADDRESS);
                 
                 victims.add(new Victim(firstName, lastName, age, sex, report, hospital, phoneNum, address));
@@ -162,7 +162,7 @@ public class DataLoader extends DataConstants{
                 String sex = (String)personJSON.get(OFFICER_SEX);
                 String rank = (String)personJSON.get(OFFICER_RANK);
                 String city = (String)personJSON.get(OFFICER_CITY);
-                int officeNum = (((Long) personJSON.get(OFFICER_OFFICE_NUM)).intValue());
+                long officeNum = ((Long) personJSON.get(OFFICER_OFFICE_NUM));
                 String address = (String)personJSON.get(OFFICER_ADDRESS);
 
                 officers.add(new Officer(firstName, lastName, age, sex, rank,city, officeNum, address));
@@ -192,7 +192,7 @@ public class DataLoader extends DataConstants{
             int age = (((Long) personJSON.get(WITNESS_AGE)).intValue());
             String sex = (String)personJSON.get(WITNESS_SEX);
             String testimony = (String)personJSON.get(WITNESS_TESTIMONY);
-            int phoneNum = (((Long) personJSON.get(WITNESS_PHONE_NUM)).intValue());
+            long phoneNum = ((Long) personJSON.get(WITNESS_PHONE_NUM));
             String address = (String)personJSON.get(WITNESS_ADDRESS);
 
             witnesses.add(new Witness(firstName, lastName, age, sex, testimony, phoneNum, address));

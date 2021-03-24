@@ -9,7 +9,7 @@ public class Victim extends Person
      */
     private String report;
     private String hospital;
-    private int phoneNum;
+    private long phoneNum;
     private String address;
 
     /**
@@ -23,7 +23,7 @@ public class Victim extends Person
      * @param aPhoneNum
      * @param anAddress
      */
-    public Victim(String firstName, String lastName, int age, String sex, String aReport, String aHospital, int aPhoneNum, String anAddress)
+    public Victim(String firstName, String lastName, int age, String sex, String aReport, String aHospital, long aPhoneNum, String anAddress)
     {
         super(firstName, lastName, age, sex);
         report= aReport;
@@ -72,7 +72,7 @@ public class Victim extends Person
      * Gets the phone number of the victim
      * @return phoneNum
      */
-    public int getPhoneNum()
+    public long getPhoneNum()
     {
         return phoneNum;
     }
@@ -81,7 +81,7 @@ public class Victim extends Person
      * Sets the phone number of the victim
      * @param aPhoneNum
      */
-    public void setPhoneNum(int aPhoneNum)
+    public void setPhoneNum(long aPhoneNum)
     {
         this.phoneNum = aPhoneNum;
     }

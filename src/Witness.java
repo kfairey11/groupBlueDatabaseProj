@@ -10,7 +10,7 @@ public class Witness extends Person
         * Attributes of a Witness
         */
         private String testimony;
-        private int phoneNum;
+        private long phoneNum;
         private String address;
 
         /**
@@ -23,7 +23,7 @@ public class Witness extends Person
          * @param aPhoneNum
          * @param anAddress
          */
-        public Witness(String firstName, String lastName, int age, String sex, String aTestimony, int aPhoneNum, String anAddress)
+        public Witness(String firstName, String lastName, int age, String sex, String aTestimony, long aPhoneNum, String anAddress)
         {
             super(firstName, lastName, age, sex);
             testimony=aTestimony;
@@ -53,7 +53,7 @@ public class Witness extends Person
          * Gets the phone number of the Witness
          * @return phone number
          */
-        public int getPhoneNum()
+        public long getPhoneNum()
         {
             return phoneNum;
         }
@@ -62,7 +62,7 @@ public class Witness extends Person
          * Sets the phone number of the Witness
          * @param aPhoneNum
          */
-        public void setPhoneNum(int aPhoneNum)
+        public void setPhoneNum(long aPhoneNum)
         {
             this.phoneNum = aPhoneNum;
         }
