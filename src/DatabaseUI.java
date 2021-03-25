@@ -455,7 +455,6 @@ public class DatabaseUI {
     private void makeChanges(String person)
     {
         System.out.println("Which " + person + "'s profile would you like to make changes to? Enter their full name then ENTER.");
-        scanner.nextLine();
     }
 
     private void changesToCriminal(Criminal criminal)
@@ -514,9 +513,10 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new tattoo, then hit ENTER,to move on, type EXIT");
-                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                String tattoo = scanner.nextLine();
+                if(tattoo.equalsIgnoreCase("exit"))
                     break;
-                criminal.addToTattoos(scanner.nextLine());
+                criminal.addToTattoos(tattoo);
             }
             break;
 
@@ -529,9 +529,10 @@ public class DatabaseUI {
             while(true)
             {
             System.out.println("Enter a new piercing, then hit ENTER, to move on, type EXIT");
-            if(scanner.nextLine().equalsIgnoreCase("exit"))
+            String piercing = scanner.nextLine();
+            if(piercing.equalsIgnoreCase("exit"))
                 break;
-            criminal.addToPiercing(scanner.nextLine());;
+            criminal.addToPiercing(piercing);
             }
             break;
 
@@ -737,7 +738,7 @@ public class DatabaseUI {
         else    
             {
                 System.out.println("That criminal is not in the database, would you like to add a new one? (y/n)");
-                if(scanner.next().equalsIgnoreCase("y"))
+                if(scanner.nextLine().equalsIgnoreCase("y"))
                 {
                     createCriminal();
                     System.out.println("Enter the name full name of the criminal just created to add them to the case.");
@@ -766,7 +767,7 @@ public class DatabaseUI {
         else    
             {
                 System.out.println("That victim is not in the database, would you like to add a new one? (y/n)");
-                if(scanner.next().equalsIgnoreCase("y"))
+                if(scanner.nextLine().equalsIgnoreCase("y"))
                 {
                     createVictim();
                     System.out.println("Enter the name full name of the victim just created to add them to the case.");
@@ -796,7 +797,7 @@ public class DatabaseUI {
         else    
             {
                 System.out.println("That officer is not in the database, would you like to add a new one? (y/n)");
-                if(scanner.next().equalsIgnoreCase("y"))
+                if(scanner.nextLine().equalsIgnoreCase("y"))
                 {
                     createOfficer();
                     System.out.println("Enter the name full name of the officer just created to add them to the case.");
@@ -826,7 +827,7 @@ public class DatabaseUI {
         else    
             {
                 System.out.println("That witness is not in the database, would you like to add a new one? (y/n)");
-                if(scanner.next().equalsIgnoreCase("y"))
+                if(scanner.nextLine().equalsIgnoreCase("y"))
                 {
                     createWitness();
                     System.out.println("Enter the name full name of the witness just created to add them to the case.");
@@ -863,6 +864,7 @@ public class DatabaseUI {
             System.out.println((i) + ". " + caseOptions[i]);
 
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         if(userCommand < 1 || userCommand > caseOptions.length)
         {
@@ -1175,6 +1177,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + victimOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -1248,6 +1251,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + officerOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -1328,6 +1332,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + witnessOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -1462,12 +1467,14 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + caseOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
             case(0):
             System.out.println("Enter the case number you would like to search.");
             Case caseMatch = databaseApp.searchCaseByCaseNum(scanner.nextInt());
+            scanner.nextLine();
             if(caseMatch == null)
             {
                 System.out.println("There is no case with that case number.");
