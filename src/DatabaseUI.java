@@ -382,6 +382,7 @@ public class DatabaseUI {
         System.out.println("Which type of person would you like to make a change to?(Type the corresponding number then hit ENTER)");
 
         int userInput = scanner.nextInt() - 1;
+        scanner.nextLine();
         if(userInput < 0 || userInput > personOptions.length)
         {
             System.out.println("That is not a valid input");
@@ -463,6 +464,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + criminalOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -546,6 +548,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + victimOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         while(true)
         {
@@ -603,6 +606,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + officerOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -652,6 +656,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + witnessOptions[i]);
         System.out.println("What would you like to make changes to? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
