@@ -70,6 +70,9 @@ public class DataWriter extends DataConstants{
         criminalDetails.put(CRIMINAL_HEIGHT, criminal.getHeight());
         criminalDetails.put(CRIMINAL_WEIGHT, criminal.getWeight());
         criminalDetails.put(CRIMINAL_RACE, criminal.getRace());
+        criminalDetails.put(CRIMINAL_HAIR_COLOR, criminal.getHairColor());
+        criminalDetails.put(CRIMINAL_EYE_COLOR, criminal.getEyeColor());
+        criminalDetails.put(CRIMINAL_DESCRIPTION, criminal.getDescription());
         //for(int i=0;i<criminal.getTattoos().size();i++)
         criminalDetails.put(CRIMINAL_TATTOOS, criminal.getTattoos());
         criminalDetails.put(CRIMINAL_SHOE_SIZE, criminal.getShoeSize());

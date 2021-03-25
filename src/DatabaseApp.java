@@ -72,12 +72,12 @@ public class DatabaseApp {
      */
 
     public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, String height,
-    double weight, String race, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
+    double weight, String race, String hairColor, String eyeColor, String description, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
     {
         //adds criminal to the database based on this info
         //need to convert height info into the height format
         //need to add all elements of string arrays into arraylists
-        return people.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings);
+        return people.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings);
     }
 
     /**
@@ -426,6 +426,33 @@ public class DatabaseApp {
         }
         return criminalMatches;
     }
+
+    public ArrayList<Criminal> searchCriminalByHairColor(String hairColor)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getHairColor().equalsIgnoreCase(hairColor))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
+    public ArrayList<Criminal> searchCriminalByEyeColor(String eyeColor)
+    {
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getEyeColor().equalsIgnoreCase(eyeColor))
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
+    }
+
 
     /**
      * Searches for a Criminal using their tattoos

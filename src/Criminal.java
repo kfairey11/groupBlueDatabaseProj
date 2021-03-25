@@ -12,6 +12,9 @@ public class Criminal extends Person{
     private String height;
     private double weight;
     private String race;
+    private String hairColor;
+    private String eyeColor;
+    private String description;
     private ArrayList<String> tattoos;
     private double shoeSize;
     private ArrayList<String> piercing;
@@ -22,12 +25,15 @@ public class Criminal extends Person{
      * @param String nickname, Height height, double weight, String race, 
      * @param ArrayList tattoos, ArrayList piercings, double shoesize
      */
-    public Criminal(String firstName, String lastName, int age, String sex, String nickName, String height, double aweight, String arace,
-    ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
+    public Criminal(String firstName, String lastName, int age, String sex, String nickName, String height, double aweight, String arace, String hairColor,
+     String eyeColor, String description, ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
         super(firstName, lastName, age, sex);
         this.nickname = nickName;
         this.height = height;
         this.race = arace;
+        this.hairColor = hairColor;
+        this.eyeColor = eyeColor;
+        this.description = description;
         this.weight = aweight;
         setTattoos(atattoos);
         setPiercing(apiercing);
@@ -101,6 +107,37 @@ public class Criminal extends Person{
      */
     public void setRace(String aRace) {
         this.race = aRace;
+    }
+
+    public String getHairColor()
+    {
+        return this.hairColor;
+    }
+
+    public void setHairColor(String hairColor)
+    {
+        this.hairColor = hairColor;
+    }
+
+
+    public String getEyeColor()
+    {
+        return this.eyeColor;
+    }
+
+    public void setEyeColor(String eyeColor)
+    {
+        this.eyeColor = eyeColor;
+    }
+
+    public String getDescription()
+    {
+        return this.description;
+    }
+
+    public void setDescription(String description)
+    {
+        this.description = description;
     }
 
     /**

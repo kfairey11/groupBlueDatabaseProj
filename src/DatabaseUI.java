@@ -16,7 +16,7 @@ public class DatabaseUI {
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Change an existing Person(s) Profile", "Create a Case Profile", 
     "Change a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
     private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
-    "Tattoos", "Shoe size", "Piercings"};
+    "Hair Color", "Eye Color", "Description", "Tattoos", "Shoe size", "Piercings"};
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
     private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank","City", "Officer number", "Address"};
     private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
@@ -264,12 +264,15 @@ public class DatabaseUI {
         scanner.nextLine();
         double weight = Double.parseDouble(enterInfo("Weight", "Criminal"));
         String race = enterInfo("Race", "Criminal");
+        String hairColor = enterInfo("Hair Color", "Criminal");
+        String eyeColor = enterInfo("Eye Color", "Criminal");
+        String description = enterInfo("Description", "Criminal");
         ArrayList<String> tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
         scanner.nextLine();
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
 
-        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings))
+        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings))
             System.out.println("Criminal has been successfully inserted into the database");
         else   
             System.out.println("A criminal of that name already exists in this database");
@@ -510,6 +513,21 @@ public class DatabaseUI {
             break;
 
             case(8):
+            System.out.println("Enter the new hair color");
+            criminal.setHairColor(scanner.nextLine());
+            break;
+
+            case(9):
+            System.out.println("Enter the new eye color");
+            criminal.setEyeColor(scanner.nextLine());
+            break;
+
+            case(10):
+            System.out.println("Enter the new description");
+            criminal.setDescription(scanner.nextLine());
+            break;
+
+            case(11):
             while(true)
             {
                 System.out.println("Enter a new tattoo, then hit ENTER,to move on, type EXIT");
@@ -520,12 +538,12 @@ public class DatabaseUI {
             }
             break;
 
-            case(9):
+            case(12):
             System.out.println("Enter the new shoe size");
             criminal.setShoeSize(scanner.nextDouble());
             break;
 
-            case(10):
+            case(13):
             while(true)
             {
             System.out.println("Enter a new piercing, then hit ENTER, to move on, type EXIT");
@@ -1135,6 +1153,26 @@ public class DatabaseUI {
             break;
 
             case(8):
+            System.out.println("Enter the hair color you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByHairColor(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "hair color"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(9):
+            System.out.println("Enter the eye color you would like to search by.");
+            criminalMatches = databaseApp.searchCriminalByEyeColor(scanner.nextLine());
+            if(emptyCriminalSearch(criminalMatches, "eye color"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+
+            case(10): 
+            System.out.println("Cannot search by description");
+            break;
+
+            case(11):
             System.out.println("Enter the tattoo you would like to search by.");
             scanner.nextLine();
             criminalMatches = databaseApp.searchCriminalByTattoo(scanner.nextLine());
@@ -1143,7 +1181,7 @@ public class DatabaseUI {
             printCriminals(criminalMatches);
             break;
 
-            case(9):
+            case(12):
             System.out.println("Enter the shoe size range you would like to search by.(Enter the low shoe size first then the high shoe size)");
             double lowShoeSize = scanner.nextDouble();
             double highShoeSize = scanner.nextDouble();
@@ -1153,7 +1191,7 @@ public class DatabaseUI {
             printCriminals(criminalMatches);
             break;
 
-            case(10):
+            case(13):
             System.out.println("Enter the piercing you would like to search by.");
             String piercing = scanner.nextLine();
             criminalMatches = databaseApp.searchCriminalByPiercing(piercing);
@@ -1162,7 +1200,7 @@ public class DatabaseUI {
             printCriminals(criminalMatches);
             break;
 
-            case(11):
+            case(14):
             criminalMatches = databaseApp.searchCriminalByUnderage();
             if(emptyCriminalSearch(criminalMatches, "underage status"))
                 break;

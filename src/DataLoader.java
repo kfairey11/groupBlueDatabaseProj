@@ -70,6 +70,9 @@ public class DataLoader extends DataConstants{
                 String height = (String)personJSON.get(CRIMINAL_HEIGHT);
                 double weight = ((Number)personJSON.get(CRIMINAL_WEIGHT)).doubleValue();
                 String race = (String)personJSON.get(CRIMINAL_RACE);
+                String hairColor = (String)personJSON.get(CRIMINAL_HAIR_COLOR);
+                String eyeColor = (String)personJSON.get(CRIMINAL_EYE_COLOR);
+                String description = (String)personJSON.get(CRIMINAL_DESCRIPTION);
                 JSONArray jsonTattoos = (JSONArray)personJSON.get(CRIMINAL_TATTOOS);
                 ArrayList<String> tattoos = new ArrayList<String>();
                 for(int j=0; j < jsonTattoos.size(); j++)
@@ -86,7 +89,7 @@ public class DataLoader extends DataConstants{
                     String text  = (String)jsonPiercings.get(k);
                     piercings.add(text);
                 }
-                criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, tattoos, shoeSize, piercings));
+                criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings));
             }
             return criminals;
         }

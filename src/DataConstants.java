@@ -19,6 +19,9 @@ public abstract class DataConstants {
     protected final static String CRIMINAL_HEIGHT = "height";
     protected final static String CRIMINAL_WEIGHT = "weight";
     protected final static String CRIMINAL_RACE = "race";
+    protected final static String CRIMINAL_HAIR_COLOR = "hairColor";
+    protected final static String CRIMINAL_EYE_COLOR = "eyeColor";
+    protected final static String CRIMINAL_DESCRIPTION = "description";
     protected final static String CRIMINAL_TATTOOS = "tattoos";
     protected final static String CRIMINAL_SHOE_SIZE = "shoeSize";
     protected final static String CRIMINAL_PIERCINGS = "piercings";
