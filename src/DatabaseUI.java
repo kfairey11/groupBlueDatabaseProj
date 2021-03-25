@@ -13,8 +13,8 @@ public class DatabaseUI {
 
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
     private static final String[] LOGIN_OPTIONS = {"Login", "Create Profile"};
-    private static final String[] homePageOptions = {"Create a Person(s) Profile", "Add to an existing Person(s) Profile", "Create a Case Profile", 
-    "Add to a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
+    private static final String[] homePageOptions = {"Create a Person(s) Profile", "Change an existing Person(s) Profile", "Create a Case Profile", 
+    "Change a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
     private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
     "Tattoos", "Shoe size", "Piercings"};
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
@@ -244,7 +244,6 @@ public class DatabaseUI {
         System.out.println("Enter the Criminal's First Name: ");
         scanner.nextLine();
         String firstName = scanner.nextLine();
-        System.out.println(firstName);
         String lastName = enterInfo("Last Name", "Criminal");
         int age = Integer.parseInt(enterInfo("Age", "Criminal"));
         String sex = enterInfo("Sex", "Criminal");
@@ -1054,6 +1053,7 @@ public class DatabaseUI {
             System.out.println((i+1) + ". " + criminalOptions[i]);
         System.out.println("What would you like to search by? (Enter the corresponding number, then hit ENTER)");
         int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         switch(userCommand){
 
@@ -1129,6 +1129,7 @@ public class DatabaseUI {
 
             case(8):
             System.out.println("Enter the tattoo you would like to search by.");
+            scanner.nextLine();
             criminalMatches = databaseApp.searchCriminalByTattoo(scanner.nextLine());
             if(emptyCriminalSearch(criminalMatches, "tattoo"))
                 break;
@@ -1147,7 +1148,8 @@ public class DatabaseUI {
 
             case(10):
             System.out.println("Enter the piercing you would like to search by.");
-            criminalMatches = databaseApp.searchCriminalByPiercing(scanner.nextLine());
+            String piercing = scanner.nextLine();
+            criminalMatches = databaseApp.searchCriminalByPiercing(piercing);
             if(emptyCriminalSearch(criminalMatches, "piercing"))
                 break;
             printCriminals(criminalMatches);
@@ -1511,6 +1513,7 @@ public class DatabaseUI {
 
             case(6):
             System.out.println("Enter the victim you would like to search. (Enter their full name)");
+            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByVictim(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "victim"))
                 break;
@@ -1519,6 +1522,7 @@ public class DatabaseUI {
 
             case(7):
             System.out.println("Enter the officer you would like to search. (Enter their full name)");
+            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByOfficer(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "officer"))
                 break;
@@ -1527,6 +1531,7 @@ public class DatabaseUI {
 
             case(8):
             System.out.println("Enter the witness you would like to search. (Enter their full name)");
+            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByWitness(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "witness"))
                 break;

@@ -158,10 +158,7 @@ public class Criminal extends Person{
      * @param aPiercing
      */
     public void setPiercing(ArrayList<String> aPiercing) {
-        if(aPiercing == null)
-            this.piercing = null;
-        else
-            this.piercing = aPiercing;
+        this.piercing = aPiercing;
     }
 
     public void addToPiercing(String piercing)

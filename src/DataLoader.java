@@ -14,21 +14,6 @@ public class DataLoader extends DataConstants{
     private static JSONArray jsonTattoos;
     private static JSONArray jsonPiercings;
 
-    public static void main(String[] args)
-    {
-        ArrayList<User> user = getUsers();
-        ArrayList<Criminal> criminals = getCriminals();
-        ArrayList<Victim> victims = getVictims();
-        ArrayList<Officer> officers = getOfficers();
-        ArrayList<Witness> witnesses = getWitnesses(); 
-        ArrayList<Case> cases = getCases();
-        System.out.println(user.get(0).getUserName());
-        criminals.get(0).print();
-        victims.get(0).print();
-        officers.get(0).print();
-        witnesses.get(0).print();
-        cases.get(0).print();
-    }
     public static ArrayList<User> getUsers()
     {
         ArrayList<User> users = new ArrayList<User>();

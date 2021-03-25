@@ -442,7 +442,7 @@ public class DatabaseApp {
             ArrayList<String> tattoos = currentCriminals.get(i).getTattoos();
             for(int j=0; j<tattoos.size(); j++)
             {
-                if(tattoos.get(i).equalsIgnoreCase(tattoo))
+                if(tattoos.get(j).equalsIgnoreCase(tattoo))
                     criminalMatches.add(currentCriminals.get(i));
             }
         }
@@ -477,17 +477,26 @@ public class DatabaseApp {
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
         ArrayList<Criminal> currentCriminals = people.getCriminalList();
-
+        ArrayList<String> piercings = new ArrayList<String>();
         for(int i=0; i<currentCriminals.size(); i++)
         {
-            ArrayList<String> piercings = currentCriminals.get(i).getPiercing();
-            for(int j=0; j<currentCriminals.size(); j++)
+            piercings = currentCriminals.get(i).getPiercing();
+            
+            for(int j=0; j<piercings.size(); j++)
             {
-                if(piercings.get(i).equalsIgnoreCase(piercing))
+                if(piercings.get(j).equalsIgnoreCase(piercing))
                     criminalMatches.add(currentCriminals.get(i));
             }
+            
         }
+
         return criminalMatches;
+    }
+
+    public static void main(String[] args)
+    {
+        DatabaseApp da = new DatabaseApp();
+        da.searchCriminalByPiercing("lip ring");
     }
 
     /**
