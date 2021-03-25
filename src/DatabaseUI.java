@@ -155,7 +155,6 @@ public class DatabaseUI {
         String username = scanner.nextLine();
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
-        System.out.println(username);
         if(!databaseApp.login(username, password))
         {
             System.out.println("The username or password you entered was incorrect");
