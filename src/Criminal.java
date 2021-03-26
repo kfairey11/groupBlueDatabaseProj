@@ -18,6 +18,7 @@ public class Criminal extends Person{
     private ArrayList<String> tattoos;
     private double shoeSize;
     private ArrayList<String> piercing;
+    private boolean inJail;
     private boolean isUnderAge; //this won't be part of the constructor, just needs to check the age attribute
 
     /**
@@ -26,7 +27,7 @@ public class Criminal extends Person{
      * @param ArrayList tattoos, ArrayList piercings, double shoesize
      */
     public Criminal(String firstName, String lastName, int age, String sex, String nickName, String height, double aweight, String arace, String hairColor,
-     String eyeColor, String description, ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing){
+     String eyeColor, String description, ArrayList<String> atattoos,double shoeSize, ArrayList<String> apiercing, boolean inJail){
         super(firstName, lastName, age, sex);
         this.nickname = nickName;
         this.height = height;
@@ -39,6 +40,7 @@ public class Criminal extends Person{
         setPiercing(apiercing);
         this.shoeSize = shoeSize;
         setIsUnderAge(isUnderAge);
+        this.inJail = inJail;
     }
 
     /**
@@ -209,6 +211,16 @@ public class Criminal extends Person{
             isUnderAge = true;
         else 
             isUnderAge = false;
+    }
+
+    public boolean getInJail()
+    {
+        return inJail;
+    }
+
+    public void setInJail(boolean inJail)
+    {
+        this.inJail = inJail;
     }
 
     public void print()

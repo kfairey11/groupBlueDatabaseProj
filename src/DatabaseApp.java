@@ -72,12 +72,12 @@ public class DatabaseApp {
      */
 
     public boolean createCriminal(String firstName, String lastName, int age, String sex, String nickname, String height,
-    double weight, String race, String hairColor, String eyeColor, String description, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings)
+    double weight, String race, String hairColor, String eyeColor, String description, ArrayList<String> tattoos, double shoeSize, ArrayList<String> piercings, boolean inJail)
     {
         //adds criminal to the database based on this info
         //need to convert height info into the height format
         //need to add all elements of string arrays into arraylists
-        return people.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings);
+        return people.addCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings, inJail);
     }
 
     /**
@@ -520,10 +520,18 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
-    public static void main(String[] args)
+
+    public ArrayList<Criminal> searchCriminalInJail(boolean inJail)
     {
-        DatabaseApp da = new DatabaseApp();
-        da.searchCriminalByPiercing("lip ring");
+        ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
+        ArrayList<Criminal> currentCriminals = people.getCriminalList();
+
+        for(int i=0; i<currentCriminals.size(); i++)
+        {
+            if(currentCriminals.get(i).getInJail())
+                criminalMatches.add(currentCriminals.get(i));
+        }
+        return criminalMatches;
     }
 
     /**

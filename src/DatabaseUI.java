@@ -4,6 +4,7 @@
  */
 //Ctrl + Shift + F quick search through code
 //must change all phone numbers to type LONG instead of INT
+//line 274 for inJail insertion
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -204,6 +205,7 @@ public class DatabaseUI {
         while(true)
         {
         userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
         if(userCommand < 0 || userCommand > personOptions.length - 1)
         {
             System.out.println("Sorry that is not a valid input");
@@ -241,9 +243,7 @@ public class DatabaseUI {
 
         //call setters instead of criminal.*
 
-        System.out.println("Enter the Criminal's First Name: ");
-        scanner.nextLine();
-        String firstName = scanner.nextLine();
+        String firstName = enterInfo("First Name", "Criminal");
         String lastName = enterInfo("Last Name", "Criminal");
         int age = Integer.parseInt(enterInfo("Age", "Criminal"));
         String sex = enterInfo("Sex", "Criminal");
@@ -268,11 +268,15 @@ public class DatabaseUI {
         String eyeColor = enterInfo("Eye Color", "Criminal");
         String description = enterInfo("Description", "Criminal");
         ArrayList<String> tattoos = enterInfoLoop("Tattoos (Enter tattoo then hit ENTER, either continue to enter tattoos or enter \"exit\" to exit)", "Criminal");
-        scanner.nextLine();
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
-
-        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings))
+        String jailStatus = enterInfo("Jail Status (Enter 'y' for yes and 'n' for no)", "Criminal");
+        boolean inJail;
+        if(jailStatus.equalsIgnoreCase("y"))
+            inJail = true;
+        else if(jailStatus.equalsIgnoreCase("n"))
+            inJail = false;
+        if(databaseApp.createCriminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings, inJail))
             System.out.println("Criminal has been successfully inserted into the database");
         else   
             System.out.println("A criminal of that name already exists in this database");
@@ -280,9 +284,7 @@ public class DatabaseUI {
 
     private void createVictim()
     {
-        System.out.println("Enter the Victim's First Name: ");
-        scanner.nextLine();
-        String firstName = scanner.nextLine();
+        String firstName = enterInfo("First Name", "Victim");
         String lastName = enterInfo("Last Name", "Victim");
 
         int age = Integer.parseInt(enterInfo("Age", "Victim"));
@@ -309,9 +311,7 @@ public class DatabaseUI {
 
     private void createOfficer()
     {
-        System.out.println("Enter the Officer's First Name: ");
-        scanner.nextLine();
-        String firstName = scanner.nextLine();
+        String firstName = enterInfo("First Name", "Officer");
         String lastName = enterInfo("Last Name", "Officer");
         int age = Integer.parseInt(enterInfo("Age", "Officer"));
         String sex = enterInfo("Sex", "Officer");
@@ -336,9 +336,7 @@ public class DatabaseUI {
     private void createWitness()
     {
 
-        System.out.println("Enter the Witness's First Name: ");
-        scanner.nextLine();
-        String firstName = scanner.nextLine();
+        String firstName = enterInfo("First Name", "Witness");
         String lastName = enterInfo("Last Name", "Witness");
         int age = Integer.parseInt(enterInfo("Age", "Witness"));
         String sex = enterInfo("Sex", "Witness");
@@ -919,7 +917,6 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new criminal (enter their full name), then hit ENTER. To move on, type EXIT");
-                scanner.nextLine();
                 String criminal = scanner.nextLine();
                 if(criminal.equalsIgnoreCase("exit"))
                     break;
@@ -947,7 +944,6 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new victim (enter their full name), then hit ENTER. To move on, type EXIT");
-                scanner.nextLine();
                 String victim = scanner.nextLine();
                 if(victim.equalsIgnoreCase("exit"))
                     break;
@@ -975,7 +971,6 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new officer (enter their full name), then hit ENTER. To move on, type EXIT");
-                scanner.nextLine();
                 if(scanner.nextLine().equalsIgnoreCase("exit"))
                     break;
                 Officer newOfficer = databaseApp.searchOfficerByName(scanner.nextLine());
@@ -1002,7 +997,6 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new witness (enter their full name), then hit ENTER. To move on, type EXIT");
-                scanner.nextLine();
                 if(scanner.nextLine().equalsIgnoreCase("exit"))
                     break;
                 Witness newWitness= databaseApp.searchWitnessByName(scanner.nextLine());
