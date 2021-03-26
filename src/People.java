@@ -192,7 +192,6 @@ public class People {
      * @param tattoos
      * @param showSize
      * @param piercings
-     * @param inJail
      * @return boolean; return false if criminal is already in the list, return true if otherwise and criminal is added to the list
      */
     public boolean addCriminal(String firstName, String lastName, int age, String sex, String nickname, String height, double weight, 
@@ -200,7 +199,7 @@ public class People {
     {
         if(haveCriminal(firstName + " " + lastName))
             return false;
-        criminalList.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, hairColor, eyeColor, description, tattoos, shoeSize, piercings));
+        criminalList.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race, hairColor, eyeColor, description, tattoos, shoeSize, piercings, inJail));
         return true;
     }
 
