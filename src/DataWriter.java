@@ -78,8 +78,19 @@ public class DataWriter extends DataConstants{
         criminalDetails.put(CRIMINAL_SHOE_SIZE, criminal.getShoeSize());
         //for(int j=0;j<criminal.getPiercing().size();j++)
         criminalDetails.put(CRIMINAL_PIERCINGS, criminal.getPiercing());
+        criminalDetails.put(CRIMINAL_IN_JAIL, jailStatus(criminal));
 
         return criminalDetails;
+    }
+
+    private static String jailStatus(Criminal criminal)
+    {
+        String inJail = "";
+        if(criminal.getInJail())
+            inJail = "true";
+        else    
+            inJail = "false";
+        return inJail;
     }
 
     public static void saveVictims()

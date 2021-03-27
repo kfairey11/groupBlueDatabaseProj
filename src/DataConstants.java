@@ -25,6 +25,7 @@ public abstract class DataConstants {
     protected final static String CRIMINAL_TATTOOS = "tattoos";
     protected final static String CRIMINAL_SHOE_SIZE = "shoeSize";
     protected final static String CRIMINAL_PIERCINGS = "piercings";
+    protected final static String CRIMINAL_IN_JAIL = "inJail";
 
     protected final static String VICTIM_FILE_NAME = "Victim.json";
     protected final static String VICTIM_ID = "id";

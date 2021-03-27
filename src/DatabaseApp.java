@@ -528,7 +528,7 @@ public class DatabaseApp {
 
         for(int i=0; i<currentCriminals.size(); i++)
         {
-            if(currentCriminals.get(i).getInJail())
+            if(currentCriminals.get(i).getInJail() == inJail)
                 criminalMatches.add(currentCriminals.get(i));
         }
         return criminalMatches;
@@ -897,6 +897,7 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+
     public ArrayList<Case> searchCaseByOfficer(String officer)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -931,6 +932,7 @@ public class DatabaseApp {
         return caseMatches;
     }
     
+    
 
 
 
@@ -945,6 +947,7 @@ public class DatabaseApp {
     {
         return cases.getCase(caseNum);
     }
+
 
     public void logout()
     {

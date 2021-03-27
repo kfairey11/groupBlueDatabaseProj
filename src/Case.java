@@ -252,16 +252,16 @@ public class Case {
         System.out.println("Location: " + getLocation());
         System.out.println("Criminal(s): ");
         for(int i=0; i<criminals.size(); i++)
-            System.out.println(criminals.get(i) + " ");
+            System.out.println(criminals.get(i));
         System.out.println("Victims(s): ");
         for(int j=0;j<victims.size(); j++)
-            System.out.println(victims.get(j) + " ");
+            System.out.println(victims.get(j));
         System.out.println("Officer(s): ");
         for(int k=0; k<officers.size(); k++)
-            System.out.println(officers.get(k) + " ");
+            System.out.println(officers.get(k));
         System.out.println("Witness(es): ");
         for(int l=0; l<witnesses.size(); l++)
-            System.out.println(witnesses.get(l) + " ");
+            System.out.println(witnesses.get(l));
     }
 }
 

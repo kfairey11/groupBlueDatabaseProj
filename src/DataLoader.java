@@ -90,6 +90,13 @@ public class DataLoader extends DataConstants{
                     String text  = (String)jsonPiercings.get(k);
                     piercings.add(text);
                 }
+
+                String jailStatus = (String)personJSON.get(CRIMINAL_IN_JAIL);
+                boolean inJail = true;
+                if(jailStatus.equalsIgnoreCase("true"))
+                    inJail = true;
+                else if(jailStatus.equalsIgnoreCase("false"))
+                    inJail = false;
                 criminals.add(new Criminal(firstName, lastName, age, sex, nickname, height, weight, race,hairColor, eyeColor, description, tattoos, shoeSize, piercings, inJail));
             }
             return criminals;

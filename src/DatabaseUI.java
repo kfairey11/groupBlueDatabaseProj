@@ -8,6 +8,7 @@
 import java.util.Scanner;
 import java.util.UUID;
 
+import javax.lang.model.util.ElementScanner6;
 
 import java.util.ArrayList;
 public class DatabaseUI {
@@ -17,7 +18,7 @@ public class DatabaseUI {
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Change an existing Person(s) Profile", "Create a Case Profile", 
     "Change a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
     private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
-    "Hair Color", "Eye Color", "Description", "Tattoos", "Shoe size", "Piercings"};
+    "Hair Color", "Eye Color", "Description", "Tattoos", "Shoe size", "Piercings","Underage status", "Jail Status"};
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
     private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank","City", "Officer number", "Address"};
     private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
@@ -271,7 +272,7 @@ public class DatabaseUI {
         double shoeSize = Double.parseDouble(enterInfo("Shoe Size", "Criminal"));
         ArrayList<String> piercings = enterInfoLoop("Piercings (Enter piercing then hit ENTER, either continue to enter piercings or enter \"exit\" to exit)", "Criminal");
         String jailStatus = enterInfo("Jail Status (Enter 'y' for yes and 'n' for no)", "Criminal");
-        boolean inJail;
+        boolean inJail = true;
         if(jailStatus.equalsIgnoreCase("y"))
             inJail = true;
         else if(jailStatus.equalsIgnoreCase("n"))
@@ -367,7 +368,7 @@ public class DatabaseUI {
         ArrayList<String> elements = new ArrayList<String>();
         while(true)
         {
-            if(scanner.next().equalsIgnoreCase("Exit")) 
+            if(scanner.nextLine().equalsIgnoreCase("Exit")) 
                 break;
             elements.add(scanner.nextLine());
         }
@@ -552,6 +553,42 @@ public class DatabaseUI {
             }
             break;
 
+            case(14):
+            boolean jailStatus = criminal.getInJail();
+            if(jailStatus)
+            {
+                while(true)
+                {
+                System.out.println("This criminal is in prison, to change their status to not in prison, enter 'y'");
+                String inJail = scanner.nextLine();
+                if(inJail.equalsIgnoreCase("y"))
+                {
+                    criminal.setInJail(!jailStatus);
+                    break;
+                }
+                else
+                    System.out.println("That is an invalid input");
+
+                }
+                break;  
+
+            }
+            else 
+            {
+                while(true)
+                {
+                    System.out.println("This criminal is not in prison, to change their status to not in prison, enter 'y'");
+                    String inJail = scanner.nextLine();
+                    if(inJail.equalsIgnoreCase("y"))
+                    {
+                        criminal.setInJail(!jailStatus);
+                        break;
+                    }
+                    else
+                        System.out.println("That is an invalid input");
+                }
+                break;
+            }
         }
 
         databaseApp.changeCriminal(criminal);
@@ -1200,6 +1237,36 @@ public class DatabaseUI {
                 break;
             printCriminals(criminalMatches);
             break;
+
+            case(15):
+            while(true)
+            {
+            System.out.println("Enter 'y' if you'd like to search criminals in jail, or enter 'n' to search criminals not in jail");
+            String input = scanner.nextLine();
+            if(input.equalsIgnoreCase("y"))
+            {
+            criminalMatches = databaseApp.searchCriminalInJail(true);
+            if(emptyCriminalSearch(criminalMatches, "jail status"))
+                break;
+            printCriminals(criminalMatches);
+            break;
+            }
+            else if(input.equalsIgnoreCase("n"))
+            {
+                criminalMatches = databaseApp.searchCriminalInJail(false);
+                if(emptyCriminalSearch(criminalMatches, "jail status"))
+                    break;
+                printCriminals(criminalMatches);
+                break;
+            }
+            else
+            {
+                System.out.println("That is an invalid input");
+            }
+        }
+        break;
+            
+
         }
     }
 
@@ -1528,6 +1595,7 @@ public class DatabaseUI {
             int month = scanner.nextInt();
             int day = scanner.nextInt();
             int year = scanner.nextInt();
+            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByDate(month, day, year);
             if(emptyCaseSearch(caseMatches, "date"))
                 break;
@@ -1548,7 +1616,6 @@ public class DatabaseUI {
 
             case(5):
             System.out.println("Enter the criminal you would like to search. (Enter their full name)");
-            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByCriminal(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "criminal"))
                 break;
@@ -1557,7 +1624,6 @@ public class DatabaseUI {
 
             case(6):
             System.out.println("Enter the victim you would like to search. (Enter their full name)");
-            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByVictim(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "victim"))
                 break;
@@ -1566,7 +1632,6 @@ public class DatabaseUI {
 
             case(7):
             System.out.println("Enter the officer you would like to search. (Enter their full name)");
-            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByOfficer(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "officer"))
                 break;
@@ -1575,7 +1640,6 @@ public class DatabaseUI {
 
             case(8):
             System.out.println("Enter the witness you would like to search. (Enter their full name)");
-            scanner.nextLine();
             caseMatches = databaseApp.searchCaseByWitness(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "witness"))
                 break;

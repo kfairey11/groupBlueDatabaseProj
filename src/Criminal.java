@@ -244,5 +244,9 @@ public class Criminal extends Person{
             System.out.println("Underage: yes");
         else
             System.out.println("Underage: no");
+        if(inJail)
+            System.out.println("Jail Status: in prison");
+        else    
+            System.out.println("Jail status: not in prison");
     }
 }
