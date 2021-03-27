@@ -26,11 +26,19 @@ public class Cases {
         return cases;
     }
 
+    /**
+     * Returns the list of cases
+     * @return list of cases
+     */
     public ArrayList<Case> getCaseList()
     {
         return caseList;
     }
 
+    /**
+     * Sets the list of cases
+     * @param cases
+     */
     public void setCaseList(ArrayList<Case> cases)
     {
         this.caseList = cases;
@@ -51,6 +59,11 @@ public class Cases {
         return false;
     }
 
+    /**
+     * Gets a case from the list based on its case number
+     * @param caseNum
+     * @return Case
+     */
     public Case getCase(int caseNum)
     {
         for(Case newCase : caseList)
@@ -61,6 +74,19 @@ public class Cases {
         return null;
     }
 
+    /**
+     * Adds a Case to the case list
+     * @param caseNum
+     * @param crimeType
+     * @param date
+     * @param description
+     * @param location
+     * @param criminals
+     * @param victims
+     * @param officers
+     * @param witnesses
+     * @return true if successful
+     */
     public boolean addCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> criminals,
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
@@ -68,6 +94,9 @@ public class Cases {
         return true;
     }
 
+    /**
+     * Saves the list of cases to the DataWriter
+     */
     public void saveCases()
     {
         DataWriter.saveCases();
