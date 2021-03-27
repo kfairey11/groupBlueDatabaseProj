@@ -104,6 +104,9 @@ public class Victim extends Person
         this.address = anAddress;
     }
 
+    /**
+     * Prints out all the information related to the Victim
+     */
     public void print()
     {
         System.out.println("First name: " + getFirstName());
