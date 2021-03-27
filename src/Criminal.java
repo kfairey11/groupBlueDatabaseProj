@@ -111,32 +111,55 @@ public class Criminal extends Person{
         this.race = aRace;
     }
 
+    /**
+     * Gets the hair color
+     * @return hair color
+     */
     public String getHairColor()
     {
         return this.hairColor;
     }
 
+    /**
+     * Sets the hair color
+     * @param hairColor
+     */
     public void setHairColor(String hairColor)
     {
         this.hairColor = hairColor;
     }
 
-
+    /**
+     * Gets the eye color
+     * @return eye color
+     */
     public String getEyeColor()
     {
         return this.eyeColor;
     }
 
+    /**
+     * Sets the eye color
+     * @param eyeColor
+     */
     public void setEyeColor(String eyeColor)
     {
         this.eyeColor = eyeColor;
     }
 
+    /**
+     * Gets the description
+     * @return description
+     */
     public String getDescription()
     {
         return this.description;
     }
 
+    /**
+     * Sets the description
+     * @param description
+     */
     public void setDescription(String description)
     {
         this.description = description;
@@ -161,6 +184,10 @@ public class Criminal extends Person{
             this.tattoos = aTattoos;
     }
 
+    /**
+     * Adds a tattoo to the list of tattoos
+     * @param tattoo
+     */
     public void addToTattoos(String tattoo)
     {
         tattoos.add(tattoo);
@@ -200,11 +227,19 @@ public class Criminal extends Person{
         this.piercing = aPiercing;
     }
 
+    /**
+     * Adds a piercing to the list of piercings
+     * @param piercing
+     */
     public void addToPiercing(String piercing)
     {
         this.piercing.add(piercing);
     }
 
+    /**
+     * Sets the truth value for if the criminal is underage
+     * @param isUnderAge
+     */
     public void setIsUnderAge(boolean isUnderAge)
     {
         if(this.age < 18)
@@ -213,16 +248,27 @@ public class Criminal extends Person{
             isUnderAge = false;
     }
 
+    /**
+     * Gets the truth value of if the criminal is in jail
+     * @return in jail
+     */
     public boolean getInJail()
     {
         return inJail;
     }
 
+    /**
+     * Sets the truth value for if the criminal is in jail
+     * @param inJail
+     */
     public void setInJail(boolean inJail)
     {
         this.inJail = inJail;
     }
 
+    /**
+     * Prints out all the information for the criminal
+     */
     public void print()
     {
         System.out.println("First name: " + getFirstName());
