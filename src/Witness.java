@@ -85,6 +85,9 @@ public class Witness extends Person
             this.address = anAddress;
         }
 
+        /**
+         * Prints out all the information related to the Witness
+         */
         public void print()
         {
             System.out.println("First name: " + getFirstName());
