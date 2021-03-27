@@ -326,21 +326,33 @@ public class People {
         return null;
     }
 
+    /**
+     * Saves the criminals to the datawriter
+     */
     public void saveCriminals()
     {
         DataWriter.saveCriminals();
     }
 
+    /**
+     * Saves the victims to the datawriter
+     */
     public void saveVictims()
     {
         DataWriter.saveVictims();
     }
 
+    /**
+     * Saves the officers to the datawriter
+     */
     public void saveOfficers()
     {
         DataWriter.saveOfficers();
     }
 
+    /**
+     * Saves the witnesses to the datawriter
+     */
     public void saveWitnesses()
     {
         DataWriter.saveWitnesses();
