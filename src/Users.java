@@ -42,6 +42,11 @@ public class Users {
         return false; 
     }
 
+    /**
+     * Gets the User using the username
+     * @param username
+     * @return user
+     */
     public User getUser(String username)
     {
         for(User user : userList)
@@ -52,12 +57,24 @@ public class Users {
         return null;
     }
 
+    /**
+     * Gets the list of users
+     * @return userList
+     */
     public ArrayList<User> getUsers()
     {
         return userList;
     }
     
-
+    /**
+     * Adds a user to the list of users
+     * @param userID
+     * @param firstName
+     * @param lastName
+     * @param username
+     * @param password
+     * @return true if successful
+     */
     public boolean addUser(UUID userID, String firstName, String lastName, String username, String password)
     {
         if(haveUser(username))
@@ -67,6 +84,9 @@ public class Users {
 
     }
 
+    /**
+     * Saves the list of users to the DataWriter
+     */
     public void saveUsers()
     {
         DataWriter.saveUsers();
