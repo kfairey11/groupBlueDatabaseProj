@@ -38,11 +38,19 @@ public class Officer extends Person{
         return city;
     }
 
+    /**
+     * Gets the rank of the officer
+     * @return rank
+     */
     public String getRank()
     {
         return rank;
     }
 
+    /**
+     * Sets the rank of the officer
+     * @param rank
+     */
     public void setRank(String rank)
     {
         this.rank = rank;
@@ -88,6 +96,9 @@ public class Officer extends Person{
         address = anOfficeAddress;
     }
 
+    /**
+     * Prints out all the information related to the officer
+     */
     public void print()
     {
         System.out.println("First name: " +getFirstName());
