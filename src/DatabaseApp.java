@@ -414,6 +414,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their race
+     * @param race
+     * @return array list of possible criminals that match the race
+     */
     public ArrayList<Criminal> searchCriminalByRace(String race)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -427,6 +432,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their hair color
+     * @param hairColor
+     * @return array list of possible criminals that match the hair color
+     */
     public ArrayList<Criminal> searchCriminalByHairColor(String hairColor)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -440,6 +450,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Criminal using their eye color
+     * @param eyeColor
+     * @return array list of possible criminals that match the eye color
+     */
     public ArrayList<Criminal> searchCriminalByEyeColor(String eyeColor)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -520,7 +535,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
-
+    /**
+     * Searches for a Criminal based on if they're in jail
+     * @param inJail
+     * @return array list of possible criminals that are in jail
+     */
     public ArrayList<Criminal> searchCriminalInJail(boolean inJail)
     {
         ArrayList<Criminal> criminalMatches = new ArrayList<Criminal>();
@@ -551,6 +570,11 @@ public class DatabaseApp {
         return criminalMatches;
     }
 
+    /**
+     * Searches for a Victim using their first name
+     * @param firstName
+     * @return array list of possible victims that match the first name
+     */
     public ArrayList<Victim> searchVictimByFirstName(String firstName)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -564,6 +588,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim using their last name
+     * @param lastName
+     * @return array list of possible victims that match the last name
+     */
     public ArrayList<Victim> searchVictimByLastName(String lastName)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -577,6 +606,12 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim using the age range
+     * @param lowAge
+     * @param highAge 
+     * @return array list of possible victims that match the age range
+     */
     public ArrayList<Victim> searchVictimByAge(int lowAge, int highAge)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -590,6 +625,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim using their sex
+     * @param sex
+     * @return array list of possible victims that match the sex
+     */
     public ArrayList<Victim> searchVictimBySex(String sex)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -603,6 +643,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim based on their hospital
+     * @param hospital
+     * @return array list of possible victims that match the hospital
+     */
     public ArrayList<Victim> searchVictimByHospital(String hospital)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -616,6 +661,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim using their phone number
+     * @param phoneNum
+     * @return array list of possible victims that match the phone number
+     */
     public ArrayList<Victim> searchVictimByPhoneNum(long phoneNum)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -629,6 +679,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for a Victim based on their address
+     * @param address
+     * @return array list of possible victims that match the address
+     */
     public ArrayList<Victim> searchVictimByAddress(String address)
     {
         ArrayList<Victim> victimMatches = new ArrayList<Victim>();
@@ -642,6 +697,11 @@ public class DatabaseApp {
         return victimMatches;
     }
 
+    /**
+     * Searches for an Officer using their first name
+     * @param firstName
+     * @return array list of possible Officers that match the first name
+     */
     public ArrayList<Officer> searchOfficerByFirstName(String firstName)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -655,6 +715,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using their last name
+     * @param lastName
+     * @return array list of possible Officers that match the last name
+     */
     public ArrayList<Officer> searchOfficerByLastName(String lastName)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -668,6 +733,12 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using an age range
+     * @param lowAge
+     * @param highAge
+     * @return array list of possible Officers that match the age range
+     */
     public ArrayList<Officer> searchOfficerByAge(int lowAge, int highAge)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -681,6 +752,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using their sex
+     * @param sex
+     * @return array list of possible Officers that match the sex
+     */
     public ArrayList<Officer> searchOfficerBySex(String sex)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -694,6 +770,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using their rank
+     * @param rank
+     * @return array list of possible Officers that match the rank
+     */
     public ArrayList<Officer> searchOfficerByRank(String rank)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -707,6 +788,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using a city
+     * @param city
+     * @return array list of possible Officers that match the city
+     */
     public ArrayList<Officer> searchOfficerByCity(String city)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -720,6 +806,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using their office number
+     * @param officeNum
+     * @return array list of possible Officers that match the office number
+     */
     public ArrayList<Officer> searchOfficerByOfficeNum(long officeNum)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -733,6 +824,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for an Officer using their office address
+     * @param officeAddress
+     * @return array list of possible Officers that match the office address
+     */
     public ArrayList<Officer> searchOfficerByOfficeAddress(String officeAddress)
     {
         ArrayList<Officer> officerMatches = new ArrayList<Officer>();
@@ -746,6 +842,11 @@ public class DatabaseApp {
         return officerMatches;
     }
 
+    /**
+     * Searches for a Witness using their first name
+     * @param firstName
+     * @return array list of possible witnesses that match the first name
+     */
     public ArrayList<Witness> searchWitnessByFirstName(String firstName)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -759,6 +860,11 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Witness using their last name
+     * @param lastName
+     * @return array list of possible witnesses that match the last name
+     */
     public ArrayList<Witness> searchWitnessByLastName(String lastName)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -772,6 +878,12 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Witness using an age range
+     * @param lowAge
+     * @param highAge
+     * @return array list of possible witnesses that match the age range
+     */
     public ArrayList<Witness> searchWitnessByAge(int lowAge, int highAge)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -785,6 +897,11 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Witness using their sex
+     * @param sex
+     * @return array list of possible Witnesses that match the sex
+     */
     public ArrayList<Witness> searchWitnessBySex(String sex)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -798,6 +915,11 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Witness using their phone number
+     * @param phoneNum
+     * @return array list of possible witnesses that match the phone number
+     */
     public ArrayList<Witness> searchWitnessByPhoneNum(long phoneNum)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -811,6 +933,11 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Witness based on their address
+     * @param address
+     * @return array list of possible witnesses that match the address
+     */
     public ArrayList<Witness> searchWitnessByAddress(String address)
     {
         ArrayList<Witness> witnessMatches = new ArrayList<Witness>();
@@ -824,6 +951,11 @@ public class DatabaseApp {
         return witnessMatches;
     }
 
+    /**
+     * Searches for a Case using its crime type
+     * @param crimeType
+     * @return array list of possible cases that match the crime type
+     */ 
     public ArrayList<Case> searchCaseByCrimeType(String crimeType)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -837,6 +969,13 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+    /**
+     * Searches for a Case using its date
+     * @param month
+     * @param day
+     * @param year
+     * @return array list of possible cases that match the date
+     */
     public ArrayList<Case> searchCaseByDate(int month, int day, int year)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -850,6 +989,11 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+    /**
+     * Searches for a Case based of the location
+     * @param location
+     * @return array list of possible cases that match the location
+     */
     public ArrayList<Case> searchCaseByLocation(String location)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -863,6 +1007,11 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+    /**
+     * Searches for a Case based of the Criminal
+     * @param criminal
+     * @return array list of possible cases that match the Criminal
+     */
     public ArrayList<Case> searchCaseByCriminal(String criminal)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -880,6 +1029,11 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+    /**
+     * Searches for a Case based on the Victim
+     * @param victim
+     * @return array list of possible cases that match the victim
+     */
     public ArrayList<Case> searchCaseByVictim(String victim)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -897,7 +1051,11 @@ public class DatabaseApp {
         return caseMatches;
     }
 
-
+    /**
+     * Searches for a Case based on the Officer
+     * @param officer
+     * @return array list of possible cases that match the Officer
+     */
     public ArrayList<Case> searchCaseByOfficer(String officer)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -915,6 +1073,11 @@ public class DatabaseApp {
         return caseMatches;
     }
 
+    /**
+     * Searches for a Case based on the Witness
+     * @param witness
+     * @return array list of possible cases that match the Witness
+     */
     public ArrayList<Case> searchCaseByWitness(String witness)
     {
         ArrayList<Case> caseMatches = new ArrayList<Case>();
@@ -931,12 +1094,6 @@ public class DatabaseApp {
         }
         return caseMatches;
     }
-    
-    
-
-
-
-    
 
     /**
      * Searches for a Case by Case Number
@@ -948,7 +1105,9 @@ public class DatabaseApp {
         return cases.getCase(caseNum);
     }
 
-
+    /**
+     * Logs out the user
+     */
     public void logout()
     {
         users.saveUsers();
