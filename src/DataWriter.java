@@ -6,6 +6,9 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants{
     private static People people = People.getInstance();
     
+    /**
+     * Creating an Json array to save users when creating a profile
+     */
     public static void saveUsers()
     {
         Users users = Users.getInstance();
@@ -27,6 +30,11 @@ public class DataWriter extends DataConstants{
         }
     }
 
+    /**
+     * a method to put user details within a json file
+     * @param user user profile from log in
+     * @return user details
+     */
     public static JSONObject getUserJSON(User user)
     {
         JSONObject userDetails = new JSONObject();
@@ -39,6 +47,9 @@ public class DataWriter extends DataConstants{
         return userDetails;
     }
 
+    /**
+     * creates array list of people for criminal data
+     */
     public static void saveCriminals()
     {
         ArrayList<Criminal> criminalList = people.getCriminalList();
@@ -59,6 +70,11 @@ public class DataWriter extends DataConstants{
             }
     }
 
+    /**
+     * creation of json object full of criminal details, such as name, age, and sex
+     * @param criminal criminal attributes
+     * @return criminal detail variable
+     */
     public static JSONObject getCriminalJSON(Criminal criminal)
     {
         JSONObject criminalDetails = new JSONObject();
@@ -83,6 +99,11 @@ public class DataWriter extends DataConstants{
         return criminalDetails;
     }
 
+    /**
+     * checks for if the criminal is in jail
+     * @param criminal criminal variable
+     * @return boolean inJail status
+     */
     private static String jailStatus(Criminal criminal)
     {
         String inJail = "";
@@ -93,6 +114,9 @@ public class DataWriter extends DataConstants{
         return inJail;
     }
 
+    /**
+     * creates a person array list for victims
+     */
     public static void saveVictims()
     {
         
@@ -114,6 +138,11 @@ public class DataWriter extends DataConstants{
             }
     }
 
+    /**
+     *  creates a json object to fill with information about the victim
+     * @param victim victim variable attributes
+     * @return victim details
+     */
     public static JSONObject getVictimJSON(Victim victim)
     {
         JSONObject victimDetails = new JSONObject();
@@ -129,6 +158,9 @@ public class DataWriter extends DataConstants{
         return victimDetails;
     }
 
+    /**
+     * Creates array list of people to save officers 
+     */
     public static void saveOfficers()
     {
         ArrayList<Officer> officersList= people.getOfficerList();
@@ -149,6 +181,11 @@ public class DataWriter extends DataConstants{
             }
     }
 
+    /**
+     * Creates a json object to fill with officer information
+     * @param officer officer variable
+     * @return officer details
+     */
     public static JSONObject getOfficerJSON(Officer officer)
     {
         JSONObject officerDetails = new JSONObject();
@@ -164,6 +201,9 @@ public class DataWriter extends DataConstants{
         return officerDetails;
     }
 
+    /**
+     * Creates array list of people type for witness
+     */
     public static void saveWitnesses()
     {
         ArrayList<Witness> witnessesList= people.getWitnessList();
@@ -184,6 +224,11 @@ public class DataWriter extends DataConstants{
             }
     }
 
+    /**
+     * creates witness json object to hold information on witness
+     * @param witness witness variable
+     * @return witness detail
+     */
     public static JSONObject getWitnessJSON(Witness witness)
     {
         JSONObject witnessDetails = new JSONObject();
@@ -198,6 +243,9 @@ public class DataWriter extends DataConstants{
         return witnessDetails;
     }
 
+    /**
+     * Creates case file to hold case link information
+     */
     public static void saveCases()
     {
         Cases cases = Cases.getInstance();
@@ -219,6 +267,10 @@ public class DataWriter extends DataConstants{
             }
     }
 
+    /**
+     * Creates json object for cases
+     * @return case details
+     */
     public static JSONObject getCaseJSON(Case cases)
     {
         JSONObject caseDetails = new JSONObject();
