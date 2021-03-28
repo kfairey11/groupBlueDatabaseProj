@@ -4,6 +4,9 @@ import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants{
+    /**
+     * instance call for people of class people
+     */
     private static People people = People.getInstance();
     
     /**
