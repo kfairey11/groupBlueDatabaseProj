@@ -1,4 +1,7 @@
-
+/*
+    Underage class
+    author: Casey Blue
+*/
 public class Underage //check for extension
 {
     /**

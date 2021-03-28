@@ -1,3 +1,7 @@
+/**
+ *       Data loader
+ *       Author: Kennedy F
+ */
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -14,6 +18,11 @@ public class DataLoader extends DataConstants{
     private static JSONArray jsonTattoos;
     private static JSONArray jsonPiercings;
 
+    /**
+     * Arryaylist parsing, loads through the json file to collect the
+     * names of users within the system.
+     * @return an addition of users or a null pointer
+     */
     public static ArrayList<User> getUsers()
     {
         ArrayList<User> users = new ArrayList<User>();
@@ -48,7 +57,11 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
-    //can make main method in this class to test
+    /**
+     * Array list parsing, loads and reads through the json file
+     * and adds to a criminal file for attributes, such as name, age, and sex
+     * @return addition of criminal or null pointer
+     */
     public static ArrayList<Criminal> getCriminals()
     {
         ArrayList<Criminal> criminals = new ArrayList<Criminal>();
@@ -109,6 +122,11 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
+    /**
+     * Array list method, loads and reads through a file of victim information
+     * and fills an arraylist of attributes
+     * @return added victim or null pointer
+     */
     public static ArrayList<Victim> getVictims()
     {
         ArrayList<Victim> victims = new ArrayList<Victim>();
@@ -141,6 +159,12 @@ public class DataLoader extends DataConstants{
         }
         return null;
     }
+
+    /**
+     * An Array list method for officers on cases,
+     * loads and reads through a file to collect officer attributes
+     * @return added officer or null pointer
+     */
     public static ArrayList<Officer> getOfficers(){
         ArrayList<Officer> officers = new ArrayList<Officer>();
 
@@ -172,6 +196,12 @@ public class DataLoader extends DataConstants{
         }
         return null;
     }
+
+    /**
+     * Witness array list method, loads and reads through a witness file
+     * and adds attributes to the witness
+     * @return added witness or null pointer
+     */
     public static ArrayList<Witness> getWitnesses()
     {
         ArrayList<Witness> witnesses = new ArrayList<Witness>();
@@ -201,6 +231,12 @@ public class DataLoader extends DataConstants{
         }
         return null;
     }
+
+    /**
+     * Array list for cases, reads through the file/json to create a list
+     * of case files. Adds attributes to cases like officers and a case number
+     * @return case added or null pointer
+     */
     public static ArrayList<Case> getCases()
     {
         ArrayList<Case> cases = new ArrayList<Case>();
