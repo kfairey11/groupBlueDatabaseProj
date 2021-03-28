@@ -13,6 +13,9 @@ import javax.lang.model.util.ElementScanner6;
 import java.util.ArrayList;
 public class DatabaseUI {
 
+    /**
+     * collection of intial comments for the interface of application
+     */
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
     private static final String[] LOGIN_OPTIONS = {"Login", "Create Profile"};
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Change an existing Person(s) Profile", "Create a Case Profile", 
@@ -27,6 +30,9 @@ public class DatabaseUI {
     private Scanner scanner;
     private DatabaseApp databaseApp;
 
+    /**
+     * creation of input scanner
+     */
     public DatabaseUI()
     {
         scanner = new Scanner(System.in);
@@ -34,7 +40,10 @@ public class DatabaseUI {
     }
 
 
-
+    /**
+     * main method to start calling to the rest of code
+     * @param args
+     */
     public static void main(String args[])
     {
         DatabaseUI ui = new DatabaseUI();
@@ -42,6 +51,9 @@ public class DatabaseUI {
 
     }
 
+    /**
+     * prints out menu and states a switch case for options to do within system
+     */
     public void run()
     {
         System.out.println(HOME_MSG);
@@ -130,6 +142,9 @@ public class DatabaseUI {
         System.out.println("You've been successfully logged out of your account");
     }
 
+    /**
+     * displays homepage to terminal
+     */
     private void displayHomePage()
     {
         System.out.println("*****Home Page*****");
@@ -139,6 +154,11 @@ public class DatabaseUI {
         System.out.println("");
     }
 
+    /**
+     * asks for user input for next step of action
+     * @param numOfCommands variable to make sure an option is chosen
+     * @return userCommand
+     */
     private int getUserCommand(int numOfCommands)
     {
         System.out.println("What would you like to do? (Enter the corresponding number then hit ENTER)");
@@ -150,6 +170,10 @@ public class DatabaseUI {
             return -1;
     }
 
+    /**
+     * login mehtod to check username and password
+     * @return a login status or a false due to no account/ incorrect info
+     */
     private boolean login()
     {
         System.out.println("Enter username: ");
@@ -166,6 +190,10 @@ public class DatabaseUI {
             return databaseApp.login(username, password);
     }
 
+    /**
+     * creation of user profile
+     * @return instance of user with name, username, and passsword
+     */
     private boolean createUser()
     {
         UUID userID = null;
@@ -197,6 +225,9 @@ public class DatabaseUI {
             
     }
 
+    /**
+     * Creation of person, and options to what kind of person to create
+     */
     private void createPerson()
     {
         for(int i=0; i<personOptions.length; i++)
@@ -239,6 +270,9 @@ public class DatabaseUI {
     }
 
 
+    /**
+     * collection of criminal information and checking if this criminal exists
+     */
     private void createCriminal()
     {
 
@@ -283,6 +317,9 @@ public class DatabaseUI {
             System.out.println("A criminal of that name already exists in this database");
     }
 
+    /**
+     * creation of a victim and collection of information
+     */
     private void createVictim()
     {
         String firstName = enterInfo("First Name", "Victim");
@@ -310,6 +347,9 @@ public class DatabaseUI {
             System.out.println("A victim with that name already exists in this database");
     }
 
+    /**
+     * creation of officer and collection of officer information
+     */
     private void createOfficer()
     {
         String firstName = enterInfo("First Name", "Officer");
@@ -334,6 +374,9 @@ public class DatabaseUI {
             System.out.println("An officer of that name already exists in the database");
     }
 
+    /**
+     * creation of witness and collection of witness information
+     */
     private void createWitness()
     {
 
@@ -356,12 +399,24 @@ public class DatabaseUI {
             System.out.println("A witness of that name already exists in this database");
     }
 
+    /**
+     * collection of person information
+     * @param data
+     * @param person
+     * @return user input on scanner
+     */
     private String enterInfo(String data, String person)
     {
         System.out.println("Enter the "+ person + "'s " + data + ": ");
         return scanner.nextLine();
     }
 
+    /**
+     * collection person's information via loop and scanner input from user
+     * @param data
+     * @param person
+     * @return elements
+     */
     private ArrayList<String> enterInfoLoop(String data, String person)
     {
         System.out.println("Enter the " + person + "'s " + data + ": ");
@@ -375,6 +430,10 @@ public class DatabaseUI {
         return elements;
 
     }
+
+    /**
+     * changing the information on a person based on user input
+     */
     private void changePerson()
     {
         while(true)
@@ -454,11 +513,20 @@ public class DatabaseUI {
     
     }
     }
+    
+    /**
+     * print function for asking for user input
+     * @param person
+     */
     private void makeChanges(String person)
     {
         System.out.println("Which " + person + "'s profile would you like to make changes to? Enter their full name then ENTER.");
     }
 
+    /**
+     * asks what user would like to make changes to criminal, and corresponds with a switch case
+     * @param criminal
+     */
     private void changesToCriminal(Criminal criminal)
     {
         for(int i=0; i<criminalOptions.length; i++)
@@ -596,6 +664,10 @@ public class DatabaseUI {
 
     }
 
+    /**
+     * asks what changes to the victim the user would like to make
+     * @param victim
+     */
     private void changesToVictim(Victim victim)
     {
         for(int i=0; i<victimOptions.length; i++)
@@ -654,6 +726,10 @@ public class DatabaseUI {
         }
     }
 
+    /**
+     * asks the user what changes to officer would like to be made
+     * @param officer
+     */
     private void changesToOfficer(Officer officer)
     {
         for(int i=0; i<officerOptions.length; i++)
@@ -704,6 +780,10 @@ public class DatabaseUI {
         System.out.println("The changes have been successfully made");
     }
 
+    /**
+     * asks user what changes to witness they would like to be made
+     * @param witness
+     */
     private void changesToWitness(Witness witness)
     {
         for(int i=0; i<witnessOptions.length; i++)
@@ -754,6 +834,9 @@ public class DatabaseUI {
         System.out.println("The changes have been made successfully");
     }
 
+    /**
+     * creation of a case, and filling of case information, including criminal, victim, officer, etc.
+     */
     private void createCase()
     {
         int caseNum = -1;
@@ -901,6 +984,9 @@ public class DatabaseUI {
     }
 
 
+    /**
+     * asks user what case they would like to change, and how they would like to change it
+     */
     private void changeCase()
     {
         System.out.println("Enter the case number you would like to change");
@@ -1064,6 +1150,9 @@ public class DatabaseUI {
 
     }
 
+    /**
+     *  Searching through system for a match to search parameters
+     */
     private void searchPerson()
     {
         for(int i=0; i<personOptions.length; i++)
@@ -1103,6 +1192,9 @@ public class DatabaseUI {
  
     }
 
+    /**
+     * Search method for criminal, searches based on parameters entered by user
+     */
     private void searchCriminal()
     {
         for(int i=0; i<criminalOptions.length ; i++)
@@ -1270,6 +1362,10 @@ public class DatabaseUI {
         }
     }
 
+    /**
+     * searching for victim method
+     * Search via parameters asked for by user input
+     */
     private void searchVictim()
     {
         for(int i=0; i<victimOptions.length; i++)
@@ -1344,6 +1440,10 @@ public class DatabaseUI {
         }
     }
 
+    /**
+     * search function for officers
+     * Searches officers by parameters by user input
+     */
     private void searchOfficer()
     {
         for(int i=0; i<officerOptions.length; i++)
@@ -1425,6 +1525,10 @@ public class DatabaseUI {
         }
     }
 
+    /**
+     * Witness search function
+     * searches through witnesses based on user input parameter
+     */
     private void searchWitness()
     {
         for(int i=0; i<witnessOptions.length; i++)
@@ -1493,6 +1597,12 @@ public class DatabaseUI {
 
 
 
+    /**
+     * Checks if there was a criminal within the search parameters
+     * @param criminals
+     * @param searchType
+     * @return true or false based on search
+     */
     private boolean emptyCriminalSearch(ArrayList<Criminal> criminals, String searchType)
     {
         if(criminals.size() == 0)
@@ -1504,12 +1614,24 @@ public class DatabaseUI {
         return false;
     }
 
+    /**
+     * print function
+     * that will loop through the array list to print all criminals
+     * @param criminals
+     */
     private void printCriminals(ArrayList<Criminal> criminals)
     {
         for(int i=0; i<criminals.size(); i++)
             criminals.get(i).print();
     }
 
+    /**
+     * Victim search result
+     * Checks if the search turned up empty
+     * @param victims
+     * @param searchType
+     * @return true or false based on search
+     */
     private boolean emptyVictimSearch(ArrayList<Victim> victims, String searchType)
     {
         if(victims.size() == 0)
@@ -1521,12 +1643,25 @@ public class DatabaseUI {
         return false;
 
     }
+
+    /**
+     * Print function
+     * Loops through Array list to print all victims
+     * @param victims
+     */
     private void printVictims(ArrayList<Victim> victims)
     {
         for(int i=0; i<victims.size(); i++)
             victims.get(i).print();
     }
 
+    /**
+     * Officer search results
+     * checks if the officer exists within search parameters
+     * @param officers
+     * @param searchType
+     * @return true or false if the officer exists
+     */
     private boolean emptyOfficerSearch(ArrayList<Officer> officers, String searchType)
     {
         if(officers.size() == 0)
@@ -1537,6 +1672,11 @@ public class DatabaseUI {
         return false;
     }
 
+    /**
+     * print function
+     * loops through array list to print all officers
+     * @param officers
+     */
     private void printOfficers(ArrayList<Officer> officers)
     {
         for(int i=0; i<officers.size(); i++)
@@ -1544,6 +1684,13 @@ public class DatabaseUI {
 
     }
 
+    /**
+     * Witness search function results
+     * Checks if there is a witness based on search parameters
+     * @param witnesses
+     * @param searchType
+     * @return true or false if a witness exists
+     */
     private boolean emptyWitnessSearch(ArrayList<Witness> witnesses, String searchType)
     {
         if(witnesses.size() == 0)
@@ -1554,12 +1701,21 @@ public class DatabaseUI {
         return false;
     }
 
+    /**
+     * print function
+     * loops through witness array to print all witnesses
+     * @param witnesses
+     */
     private void printWitnesses(ArrayList<Witness> witnesses)
     {
         for(int i=0; i<witnesses.size(); i++)
             witnesses.get(i).print();
     }
 
+    /**
+     * search case function
+     * searches based on user input parameters
+     */
     private void searchCase()
     {
         for(int i=0; i<caseOptions.length; i++)
@@ -1650,6 +1806,13 @@ public class DatabaseUI {
         }
     }
 
+    /**
+     * Case search results
+     * Checks if the case search is empty based on parameters
+     * @param cases
+     * @param searchType
+     * @return true or false based on if a case exists
+     */
     private boolean emptyCaseSearch(ArrayList<Case> cases, String searchType)
     {
         if(cases.size() == 0)
@@ -1660,6 +1823,11 @@ public class DatabaseUI {
         return false;
     }
 
+    /**
+     * print function
+     * loops through array list to print all cases
+     * @param cases
+     */
     private void printCases(ArrayList<Case> cases)
     {
         for(int i=0; i<cases.size(); i++)
