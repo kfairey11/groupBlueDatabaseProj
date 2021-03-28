@@ -1118,5 +1118,10 @@ public class DatabaseApp {
         cases.saveCases();
     }
 
+    public static String generateFile()
+    {
+
+        return "";
+    }
 
 }
