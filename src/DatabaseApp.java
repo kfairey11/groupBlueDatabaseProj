@@ -1135,5 +1135,14 @@ public class DatabaseApp {
         cases.saveCases();
     }
 
+    /**
+     * Mehtod to collect details for case and print to txt file
+     * @return text file to display
+     */
+    public static String generateFile()
+    {
+
+        return "";
+    }
 
 }
