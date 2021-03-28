@@ -2,6 +2,9 @@
  * A DatabaseApp Class
  * @author Kennedy
  */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.*;
 public class DatabaseApp {
     
@@ -1125,6 +1128,11 @@ public class DatabaseApp {
     public static String generateFile()
     {
 
+        FileWriter output = new FileWriter("./output.txt");
+        BufferedWriter writer = new BufferedWriter(output);
+        writer.write(); //insert the name of the string to write out
+
+        writer.close();
         return "";
     }
 
