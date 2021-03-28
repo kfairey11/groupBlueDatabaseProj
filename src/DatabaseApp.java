@@ -2,10 +2,8 @@
  * A DatabaseApp Class
  * @author Kennedy
  */
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.*;
+import java.io.*;
 public class DatabaseApp {
     
     /**
@@ -1142,12 +1140,12 @@ public class DatabaseApp {
      * Mehtod to collect details for case and print to txt file
      * @return text file to display
      */
-    public static String generateFile()
+    public static String generateCaseFile(Case caseToPrint)
     {
 
         FileWriter output = new FileWriter("./output.txt");
         BufferedWriter writer = new BufferedWriter(output);
-        writer.write(); //insert the name of the string to write out
+        writer.write(caseToPrint.print()); //insert the name of the string to write out
 
         writer.close();
         return "";
