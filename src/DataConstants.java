@@ -67,7 +67,7 @@ public abstract class DataConstants {
     protected final static String CASE_DATE = "date";
     protected final static String CASE_DESCRIPTION = "description";
     protected final static String CASE_LOCATION = "location";
-    protected final static String CASE_JAIL_STATUS = "jailStatus";
+    protected final static String CASE_EVIDENCE = "evidence";
     protected final static String CASE_CRIMINALS = "criminals";
     protected final static String CASE_VICTIMS = "victims";
     protected final static String CASE_OFFICERS = "officers";

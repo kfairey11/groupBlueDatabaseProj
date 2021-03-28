@@ -283,6 +283,7 @@ public class DataWriter extends DataConstants{
         caseDetails.put(CASE_DATE, cases.getDate());
         caseDetails.put(CASE_DESCRIPTION, cases.getDescription());
         caseDetails.put(CASE_LOCATION, cases.getLocation());
+        caseDetails.put(CASE_EVIDENCE, cases.getEvidence());
         //for(int i=0;i<cases.getCriminals().size();i++)
         caseDetails.put(CASE_CRIMINALS, cases.getCriminals());
         //for(int j=0;j<cases.getVictims().size();j++)

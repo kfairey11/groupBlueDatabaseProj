@@ -143,11 +143,11 @@ public class DatabaseApp {
      * @param description
      * @param location
      */
-    public boolean createCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> criminals, ArrayList<String> 
+    public boolean createCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> evidence, ArrayList<String> criminals, ArrayList<String> 
     victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //adds a case to the database
-        return cases.addCase(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses);
+        return cases.addCase(caseNum, crimeType, date, description, location, evidence,  criminals, victims, officers, witnesses);
     }
 
     /**
@@ -1006,6 +1006,23 @@ public class DatabaseApp {
         {
             if(currentCases.get(i).getLocation().equalsIgnoreCase(location))
                 caseMatches.add(currentCases.get(i));
+        }
+        return caseMatches;
+    }
+
+    public ArrayList<Case> searchCaseByEvidence(String evidence)
+    {
+        ArrayList<Case> caseMatches = new ArrayList<Case>();
+        ArrayList<Case> currentCases = cases.getCaseList();
+
+        for(int i=0; i<currentCases.size(); i++)
+        {
+            ArrayList<String> evidenceList = currentCases.get(i).getEvidence();
+            for(int j=0; j<evidenceList.size(); j++)
+            {
+                if(evidenceList.get(j).equalsIgnoreCase(evidence))
+                    caseMatches.add(currentCases.get(i));
+            }
         }
         return caseMatches;
     }

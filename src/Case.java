@@ -40,6 +40,7 @@ public class Case {
             setCaseNum();
         else
             this.caseNum = caseNum;
+        this.crimeType = crimeType;
         this.date = date;
         this.description = description;
         this.location = location;
