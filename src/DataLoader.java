@@ -258,7 +258,16 @@ public class DataLoader extends DataConstants{
             String date = (String)personJSON.get(CASE_DATE);
             String description = (String)personJSON.get(CASE_DESCRIPTION);
             String location = (String)personJSON.get(CASE_LOCATION);
-            jsonPeople = (JSONArray)personJSON.get(CASE_CRIMINALS);
+
+            jsonPeople = (JSONArray)personJSON.get(CASE_EVIDENCE);
+                ArrayList<String> evidence = new ArrayList<String>();
+                for(int h=0; h < jsonPeople.size(); h++)
+                 {
+                    String text  = (String)jsonPeople.get(h);
+                    evidence.add(text);
+                }
+
+                jsonPeople = (JSONArray)personJSON.get(CASE_CRIMINALS);
                 ArrayList<String> criminals = new ArrayList<String>();
                 for(int j=0; j < jsonPeople.size(); j++)
                  {
@@ -287,7 +296,7 @@ public class DataLoader extends DataConstants{
                     witnesses.add(text);
                 }
 
-            cases.add(new Case(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses));
+            cases.add(new Case(caseNum, crimeType, date, description, location, evidence, criminals, victims, officers, witnesses));
         }
         return cases;
         }   

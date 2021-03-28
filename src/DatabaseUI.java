@@ -23,7 +23,7 @@ public class DatabaseUI {
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
     private static final String[] officerOptions = {"First name", "Last name", "Age", "Sex", "Rank","City", "Officer number", "Address"};
     private static final String[] witnessOptions = {"First name", "Last name", "Age", "Sex", "Testimony", "Phone number", "Address"};
-    private static final String[] caseOptions = {"Case Number","Crime Type", "Date", "Description", "Location", "Criminals", "Victims", "Officers", "Witnesses"};
+    private static final String[] caseOptions = {"Case Number","Crime Type", "Date", "Description", "Location","Evidence", "Criminals", "Victims", "Officers", "Witnesses"};
     private static final String[] personOptions = {"Criminal", "Victim", "Police Officer", "Witness"};
     private Scanner scanner;
     private DatabaseApp databaseApp;
@@ -160,7 +160,8 @@ public class DatabaseUI {
     private int getUserCommand(int numOfCommands)
     {
         System.out.println("What would you like to do? (Enter the corresponding number then hit ENTER)");
-        int userCommand = scanner.nextInt() - 1; 
+        int userCommand = scanner.nextInt() - 1;
+        scanner.nextLine();
 
         if(userCommand >= 0 && userCommand <= numOfCommands)
             return userCommand;
@@ -175,7 +176,6 @@ public class DatabaseUI {
     private boolean login()
     {
         System.out.println("Enter username: ");
-        scanner.nextLine();
         String username = scanner.nextLine();
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
@@ -196,7 +196,6 @@ public class DatabaseUI {
     {
         UUID userID = null;
         System.out.println("Enter your first name: ");
-        scanner.nextLine();
         String firstName = scanner.nextLine();
         System.out.println("Enter your last name: ");
         String lastName = scanner.nextLine();
@@ -839,22 +838,34 @@ public class DatabaseUI {
     {
         int caseNum = -1;
         System.out.println("Enter the type of crime");
-        scanner.nextLine();
         String crimeType = scanner.nextLine();
 
         System.out.println("Enter the date of the crime (Enter the month in numerical form, hit ENTER, enter the day, hit ENTER, then enter the year, then hit ENTER");
         int month = scanner.nextInt();
         int day = scanner.nextInt();
         int year = scanner.nextInt();
+        scanner.nextLine();
         String date = new Date(month, day, year).toString();
 
 
         System.out.println("Enter a description of the crime");
-        scanner.nextLine();
         String description = scanner.nextLine();
 
         System.out.println("Enter the location of the crime");
         String location = scanner.nextLine();
+
+        System.out.println("Enter the pieces of evidence from the crime. (enter one then hit ENTER, type exit to stop)");
+        ArrayList<String> evidence = new ArrayList<String>();
+        while(true)
+        {
+            String pieceOfEvidence = scanner.nextLine();
+            if(pieceOfEvidence.equalsIgnoreCase("exit"))
+                break;
+            else
+            {
+                evidence.add(pieceOfEvidence);
+            }
+        }
 
         System.out.println("Enter the full names of the criminals associated with this case (enter name, hit ENTER, then either keep entering names or type \"exit\" to stop");
         ArrayList<String> criminals = new ArrayList<String>();
@@ -976,7 +987,7 @@ public class DatabaseUI {
         }
 
 
-        if(databaseApp.createCase(caseNum, crimeType, date, description, location, criminals, victims, officers, witnesses))
+        if(databaseApp.createCase(caseNum, crimeType, date, description, location, evidence,  criminals, victims, officers, witnesses))
             System.out.println("The case was successfully inserted into the database.");
 
     }
@@ -1035,6 +1046,17 @@ public class DatabaseUI {
             break;
 
             case(4):
+            System.out.println("Enter new pieces of evidence or type EXIT to stop");
+            while(true)
+            {
+                String evidence = scanner.nextLine();
+                if(evidence.equalsIgnoreCase("exit"))
+                    break;
+                caseToChange.addToEvidence(evidence);
+            }
+            break;
+
+            case(5):
             while(true)
             {
                 System.out.println("Enter a new criminal (enter their full name), then hit ENTER. To move on, type EXIT");
@@ -1061,7 +1083,7 @@ public class DatabaseUI {
             }
             break;
 
-            case(5):
+            case(6):
             while(true)
             {
                 System.out.println("Enter a new victim (enter their full name), then hit ENTER. To move on, type EXIT");
@@ -1088,7 +1110,7 @@ public class DatabaseUI {
             }
             break;
 
-            case(6):
+            case(7):
             while(true)
             {
                 System.out.println("Enter a new officer (enter their full name), then hit ENTER. To move on, type EXIT");
@@ -1114,7 +1136,7 @@ public class DatabaseUI {
             }
             break;
 
-            case(7):
+            case(8):
             while(true)
             {
                 System.out.println("Enter a new witness (enter their full name), then hit ENTER. To move on, type EXIT");
@@ -1738,7 +1760,8 @@ public class DatabaseUI {
 
             case(1):
             System.out.println("Enter the crime type you would like to search by.");
-            ArrayList<Case> caseMatches = databaseApp.searchCaseByCrimeType(scanner.nextLine());
+            String crimeType = scanner.nextLine();
+            ArrayList<Case> caseMatches = databaseApp.searchCaseByCrimeType(crimeType);
             if(emptyCaseSearch(caseMatches, "crime type"))
                 break;
             printCases(caseMatches);
@@ -1769,6 +1792,14 @@ public class DatabaseUI {
             break;
 
             case(5):
+            System.out.println("Enter the piece of evidence you would like to search by");
+            caseMatches = databaseApp.searchCaseByEvidence(scanner.nextLine());
+            if(emptyCaseSearch(caseMatches, "evidence"))
+                break;
+            printCases(caseMatches);
+            break;
+
+            case(6):
             System.out.println("Enter the criminal you would like to search. (Enter their full name)");
             caseMatches = databaseApp.searchCaseByCriminal(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "criminal"))
@@ -1776,7 +1807,7 @@ public class DatabaseUI {
             printCases(caseMatches);
             break;
 
-            case(6):
+            case(7):
             System.out.println("Enter the victim you would like to search. (Enter their full name)");
             caseMatches = databaseApp.searchCaseByVictim(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "victim"))
@@ -1784,7 +1815,7 @@ public class DatabaseUI {
             printCases(caseMatches);
             break;
 
-            case(7):
+            case(8):
             System.out.println("Enter the officer you would like to search. (Enter their full name)");
             caseMatches = databaseApp.searchCaseByOfficer(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "officer"))
@@ -1792,7 +1823,7 @@ public class DatabaseUI {
             printCases(caseMatches);
             break;
 
-            case(8):
+            case(9):
             System.out.println("Enter the witness you would like to search. (Enter their full name)");
             caseMatches = databaseApp.searchCaseByWitness(scanner.nextLine());
             if(emptyCaseSearch(caseMatches, "witness"))
