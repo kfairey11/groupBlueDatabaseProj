@@ -87,10 +87,10 @@ public class Cases {
      * @param witnesses
      * @return true if successful
      */
-    public boolean addCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> criminals,
+    public boolean addCase(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> evidence, ArrayList<String> criminals,
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
-        caseList.add(new Case(caseNum, crimeType, date, description, location,  criminals, victims, officers, witnesses));
+        caseList.add(new Case(caseNum, crimeType, date, description, location, evidence,  criminals, victims, officers, witnesses));
         return true;
     }
 

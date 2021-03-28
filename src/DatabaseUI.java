@@ -2,13 +2,11 @@
  * user interface
  * @author Kennedy Fairey
  */
-//Ctrl + Shift + F quick search through code
-//must change all phone numbers to type LONG instead of INT
-//line 274 for inJail insertion
+
 import java.util.Scanner;
 import java.util.UUID;
 
-import javax.lang.model.util.ElementScanner6;
+
 
 import java.util.ArrayList;
 public class DatabaseUI {

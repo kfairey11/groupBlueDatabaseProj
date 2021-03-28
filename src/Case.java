@@ -13,6 +13,7 @@ public class Case {
     private String date;
     private String description;
     private String location;
+    private ArrayList<String> evidence;
     private ArrayList<String> criminals;
     private ArrayList<String> victims;
     private ArrayList<String> officers;
@@ -31,7 +32,7 @@ public class Case {
      * @param officers
      * @param witnesses
      */
-    public Case(int caseNum, String crimeType, String date, String description, String location,  ArrayList<String> criminals, 
+    public Case(int caseNum, String crimeType, String date, String description, String location, ArrayList<String> evidence, ArrayList<String> criminals, 
     ArrayList<String> victims, ArrayList<String> officers, ArrayList<String> witnesses)
     {
         //empty stub
@@ -42,6 +43,7 @@ public class Case {
         this.date = date;
         this.description = description;
         this.location = location;
+        this.evidence = evidence;
         this.criminals = criminals;
         this.victims = victims;
         this.officers = officers;
@@ -130,6 +132,21 @@ public class Case {
      */
     public void setLocation(String aLocation){
         location = aLocation;
+    }
+
+    public ArrayList<String> getEvidence()
+    {
+        return this.evidence;
+    }
+
+    public void setEvidence(ArrayList<String> evidence)
+    {
+        this.evidence = evidence;
+    }
+
+    public void addToEvidence(String evidence)
+    {
+        this.evidence.add(evidence);
     }
 
     /**
