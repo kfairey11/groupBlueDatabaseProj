@@ -1142,6 +1142,7 @@ public class DatabaseApp {
        { 
         File file = new File(fileName + ".txt");
         PrintStream stream = new PrintStream(file);
+        PrintStream stdout = System.out;
 
         System.setOut(stream);
 
@@ -1170,8 +1171,9 @@ public class DatabaseApp {
         else    
             System.out.println("Jail status: not in prison");
 
-        System.setOut(System.out);
+        stream.flush();
         stream.close();
+        System.setOut(stdout);
 
        }
        catch(Exception e)
@@ -1190,6 +1192,7 @@ public class DatabaseApp {
        { 
         File file = new File(fileName + ".txt");
         PrintStream stream = new PrintStream(file);
+        PrintStream stdout = System.out;
 
         System.setOut(stream);
 
@@ -1214,9 +1217,10 @@ public class DatabaseApp {
         for(int l=0; l<caseToPrint.getWitnesses().size(); l++)
             System.out.println(caseToPrint.getWitnesses().get(l));
 
-        System.setOut(System.out);
-        stream.close();
 
+        stream.flush();
+        stream.close();
+        System.setOut(stdout);
        }
 
        catch(Exception e)
@@ -1236,6 +1240,7 @@ public class DatabaseApp {
         {
             File file = new File(fileName +".txt");
             PrintStream stream = new PrintStream(file);
+            PrintStream stdout = System.out;
 
             System.setOut(stream);
 
@@ -1248,8 +1253,10 @@ public class DatabaseApp {
             System.out.println("Phone number: " + victim.getPhoneNum());
             System.out.println("Address: " + victim.getAddress());
 
-            System.setOut(System.out);
+            stream.flush();
             stream.close();
+            System.setOut(stdout);
+           
         }
         catch(Exception e)
         {
@@ -1270,6 +1277,7 @@ public class DatabaseApp {
         {
             File file = new File(fileName +".txt");
             PrintStream stream = new PrintStream(file);
+            PrintStream stdout = System.out;
 
             System.setOut(stream);
 
@@ -1282,8 +1290,9 @@ public class DatabaseApp {
             System.out.println("Address: " + witness.getAddress());
            
 
-            System.setOut(System.out);
+            stream.flush();
             stream.close();
+            System.setOut(stdout);
         }
         catch(Exception e)
         {
@@ -1303,6 +1312,7 @@ public class DatabaseApp {
         {
             File file = new File(fileName +".txt");
             PrintStream stream = new PrintStream(file);
+            PrintStream stdout = System.out;
 
             System.setOut(stream);
 
@@ -1315,8 +1325,9 @@ public class DatabaseApp {
             System.out.println("Office number: " + officer.getOfficeNum());
             System.out.println("Office Address: " + officer.getOfficeAddress());
 
-            System.setOut(System.out);
+            stream.flush();
             stream.close();
+            System.setOut(stdout);
         }
         catch(Exception e)
         {
