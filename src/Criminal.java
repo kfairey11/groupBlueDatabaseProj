@@ -300,5 +300,8 @@ public class Criminal extends Person{
             System.out.println("Jail Status: in prison");
         else    
             System.out.println("Jail status: not in prison");
+            System.out.println("");
+            System.out.println("**************");
+            System.out.println("");
     }
 }

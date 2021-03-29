@@ -119,5 +119,8 @@ public class Victim extends Person
         System.out.println("Hospital: " + getHopsital());
         System.out.println("Phone number: " + getPhoneNum());
         System.out.println("Address: " + getAddress());
+        System.out.println("");
+        System.out.println("**************");
+        System.out.println("");
     }
 }

@@ -283,6 +283,9 @@ public class Case {
         System.out.println("Witness(es): ");
         for(int l=0; l<witnesses.size(); l++)
             System.out.println(witnesses.get(l));
+        System.out.println("");
+        System.out.println("**************");
+        System.out.println("");
     }
 
 }

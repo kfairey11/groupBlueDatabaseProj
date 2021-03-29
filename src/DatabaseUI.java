@@ -1122,9 +1122,10 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new officer (enter their full name), then hit ENTER. To move on, type EXIT");
-                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                String input = scanner.nextLine();
+                if(input.equalsIgnoreCase("exit"))
                     break;
-                Officer newOfficer = databaseApp.searchOfficerByName(scanner.nextLine());
+                Officer newOfficer = databaseApp.searchOfficerByName(input);
                 if(newOfficer== null)
                 {
                     System.out.println("That officer is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");
@@ -1148,9 +1149,10 @@ public class DatabaseUI {
             while(true)
             {
                 System.out.println("Enter a new witness (enter their full name), then hit ENTER. To move on, type EXIT");
-                if(scanner.nextLine().equalsIgnoreCase("exit"))
+                String input = scanner.nextLine();
+                if(input.equalsIgnoreCase("exit"))
                     break;
-                Witness newWitness= databaseApp.searchWitnessByName(scanner.nextLine());
+                Witness newWitness= databaseApp.searchWitnessByName(input);
                 if(newWitness == null)
                 {
                     System.out.println("That witness is not in the database. Would you like to add a new one? (enter y/n then hit ENTER)");

@@ -110,6 +110,9 @@ public class Officer extends Person{
         System.out.println("City: " + getCity());
         System.out.println("Office number: " + getOfficeNum());
         System.out.println("Office Address: " + getOfficeAddress());
+        System.out.println("");
+        System.out.println("**************");
+        System.out.println("");
     }
 
 }

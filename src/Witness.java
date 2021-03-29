@@ -97,6 +97,9 @@ public class Witness extends Person
             System.out.println("Testimony: " + getTestimony());
             System.out.println("Phone number: " + getPhoneNum());
             System.out.println("Address: " + getAddress());
+            System.out.println("");
+        System.out.println("**************");
+        System.out.println("");
         }
 
 }
