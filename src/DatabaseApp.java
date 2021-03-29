@@ -1225,4 +1225,104 @@ public class DatabaseApp {
        }
     }
 
+    /**
+     * Method to collect details and print
+     * @param victim
+     * @param fileName
+     */
+    public static void generateVictimFile(Victim victim, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.setOut(stream);
+
+            System.out.println("First name: " + victim.getFirstName());
+            System.out.println("Last name: " + victim.getLastName());
+            System.out.println("Age: " + victim.getAge());
+            System.out.println("Sex: " + victim.getSex());
+            System.out.println("Report: " + victim.getReport());
+            System.out.println("Hospital: " + victim.getHopsital());
+            System.out.println("Phone number: " + victim.getPhoneNum());
+            System.out.println("Address: " + victim.getAddress());
+
+            System.setOut(System.out);
+            stream.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    
+}
+
+/**
+     * Method to collect details and print
+     * @param witness
+     * @param fileName
+     */
+    public static void generateWitnessFile(Witness witness, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.setOut(stream);
+
+            System.out.println("First name: " + witness.getFirstName());
+            System.out.println("Last name: " + witness.getLastName());
+            System.out.println("Age: " + witness.getAge());
+            System.out.println("Sex: " + witness.getSex());
+            System.out.println("Testimony: " + witness.getTestimony());
+            System.out.println("Phone number: " + witness.getPhoneNum());
+            System.out.println("Address: " + witness.getAddress());
+           
+
+            System.setOut(System.out);
+            stream.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Method to collect details and print
+     * @param officer
+     * @param fileName
+     */
+    public void generateOfficerFile(Officer officer, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.setOut(stream);
+
+            System.out.println("First name: " + officer.getFirstName());
+            System.out.println("Last name: " + officer.getLastName());
+            System.out.println("Age: " + officer.getAge());
+            System.out.println("Sex: " + officer.getSex());
+            System.out.println("Rank: " + officer.getRank());
+            System.out.println("City: " + officer.getCity());
+            System.out.println("Office number: " + officer.getOfficeNum());
+            System.out.println("Office Address: " + officer.getOfficeAddress());
+
+            System.setOut(System.out);
+            stream.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
 }
