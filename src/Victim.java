@@ -2,6 +2,8 @@
  * A Victim Class
  * @author Casey, Kennedy
  */
+
+ import java.io.*;
 public class Victim extends Person
 {
     /**
@@ -117,5 +119,26 @@ public class Victim extends Person
         System.out.println("Hospital: " + getHopsital());
         System.out.println("Phone number: " + getPhoneNum());
         System.out.println("Address: " + getAddress());
+    }
+
+    /**
+     * Method to collect details and print
+     * @param caseToPrint
+     * @param fileName
+     */
+    public static void generateOfficerFile(Case caseToPrint, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.out.println("Case Number: " + caseToPrint.getCaseNum());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
     }
 }
