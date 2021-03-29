@@ -1230,7 +1230,7 @@ public class DatabaseApp {
      * @param victim
      * @param fileName
      */
-    public static void generateVictimFile(Victim victim, String fileName)
+    public void generateVictimFile(Victim victim, String fileName)
     {
         try
         {
@@ -1264,7 +1264,7 @@ public class DatabaseApp {
      * @param witness
      * @param fileName
      */
-    public static void generateWitnessFile(Witness witness, String fileName)
+    public void generateWitnessFile(Witness witness, String fileName)
     {
         try
         {
