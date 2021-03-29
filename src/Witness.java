@@ -104,7 +104,7 @@ public class Witness extends Person
      * @param witness
      * @param fileName
      */
-    public static void generateOfficerFile(Witness witness, String fileName)
+    public static void generateWitnessFile(Witness witness, String fileName)
     {
         try
         {
