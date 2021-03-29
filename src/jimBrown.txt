@@ -1,0 +1,17 @@
+First name: Jim
+Last name: Brown
+Age: 21
+Sex: Male
+Nickname: NA
+Height: 0'0"
+Weight: 0.0
+Race: NA
+Hair color: NA
+Eye color: NA
+Description: convicted of robbing a bar and stealing liquor
+Tattoos: 
+dove 
+Shoe size: 0.0
+Piercings: 
+Underage: no
+Jail Status: in prison

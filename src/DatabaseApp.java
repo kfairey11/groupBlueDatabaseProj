@@ -1154,6 +1154,9 @@ public class DatabaseApp {
         System.out.println("Height: " + criminal.getHeight());
         System.out.println("Weight: " + criminal.getWeight());
         System.out.println("Race: " + criminal.getRace());
+        System.out.println("Hair color: " + criminal.getHairColor());
+        System.out.println("Eye color: " + criminal.getEyeColor());
+        System.out.println("Description: " + criminal.getDescription());
         System.out.println("Tattoos: ");
         for(int i=0; i<criminal.getTattoos().size();i++)
             System.out.println(criminal.getTattoos().get(i) + " ");

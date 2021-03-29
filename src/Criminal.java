@@ -285,6 +285,9 @@ public class Criminal extends Person{
         System.out.println("Height: " + getHeight());
         System.out.println("Weight: " + getWeight());
         System.out.println("Race: " + getRace());
+        System.out.println("Hair color: " + getHairColor());
+        System.out.println("Eye color: " + getEyeColor());
+        System.out.println("Description: " + getDescription());
         System.out.println("Tattoos: ");
         for(int i=0; i<this.tattoos.size();i++)
             System.out.println(tattoos.get(i) + " ");

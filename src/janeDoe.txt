@@ -1,0 +1,17 @@
+First name: Jane
+Last name: Doe
+Age: 44
+Sex: Female
+Nickname: NA
+Height: 0'0"
+Weight: 0.0
+Race: NA
+Hair color: NA
+Eye color: NA
+Description: convicted of murdering her watermelon
+Tattoos: 
+dove 
+Shoe size: 0.0
+Piercings: 
+Underage: no
+Jail status: not in prison

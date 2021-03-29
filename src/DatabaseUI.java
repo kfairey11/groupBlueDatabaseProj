@@ -1327,7 +1327,6 @@ public class DatabaseUI {
 
             case(11):
             System.out.println("Enter the tattoo you would like to search by.");
-            scanner.nextLine();
             criminalMatches = databaseApp.searchCriminalByTattoo(scanner.nextLine());
             if(emptyCriminalSearch(criminalMatches, "tattoo"))
                 break;
