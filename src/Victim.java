@@ -123,7 +123,7 @@ public class Victim extends Person
 
     /**
      * Method to collect details and print
-     * @param caseToPrint
+     * @param victim
      * @param fileName
      */
     public static void generateOfficerFile(Victim victim, String fileName)

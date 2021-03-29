@@ -3,7 +3,7 @@
  * @author Casey, Kennedy
  */
 
-
+import java.io.*;
 public class Witness extends Person
 {
         /**
@@ -98,4 +98,37 @@ public class Witness extends Person
             System.out.println("Phone number: " + getPhoneNum());
             System.out.println("Address: " + getAddress());
         }
+
+        /**
+     * Method to collect details and print
+     * @param witness
+     * @param fileName
+     */
+    public static void generateOfficerFile(Witness witness, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.setOut(stream);
+
+            System.out.println("First name: " + witness.getFirstName());
+            System.out.println("Last name: " + witness.getLastName());
+            System.out.println("Age: " + witness.getAge());
+            System.out.println("Sex: " + witness.getSex());
+            System.out.println("Testimony: " + witness.getTestimony());
+            System.out.println("Phone number: " + witness.getPhoneNum());
+            System.out.println("Address: " + witness.getAddress());
+           
+
+            System.setOut(System.out);
+            stream.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
 }

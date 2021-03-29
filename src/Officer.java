@@ -114,7 +114,7 @@ public class Officer extends Person{
 
     /**
      * Method to collect details and print
-     * @param caseToPrint
+     * @param officer
      * @param fileName
      */
     public void generateOfficerFile(Officer officer, String fileName)
