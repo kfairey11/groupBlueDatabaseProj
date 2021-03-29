@@ -1136,7 +1136,7 @@ public class DatabaseApp {
         cases.saveCases();
     }
 
-    public static void generateCriminalFile(Criminal criminal, String fileName)
+    public void generateCriminalFile(Criminal criminal, String fileName)
     {
        try
        { 
@@ -1184,7 +1184,7 @@ public class DatabaseApp {
      * Mehtod to collect details for case and print to txt file
      * @return text file to display
      */
-    public static void generateCaseFile(Case caseToPrint, String fileName)
+    public void generateCaseFile(Case caseToPrint, String fileName)
     {
        try
        { 
