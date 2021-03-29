@@ -117,14 +117,26 @@ public class Officer extends Person{
      * @param caseToPrint
      * @param fileName
      */
-    public static void generateOfficerFile(Case caseToPrint, String fileName)
+    public void generateOfficerFile(Officer officer, String fileName)
     {
         try
         {
             File file = new File(fileName +".txt");
             PrintStream stream = new PrintStream(file);
 
-            System.out.println("Case Number: " + caseToPrint.getCaseNum());
+            System.setOut(stream);
+
+            System.out.println("First name: " + officer.getFirstName());
+            System.out.println("Last name: " + officer.getLastName());
+            System.out.println("Age: " + officer.getAge());
+            System.out.println("Sex: " + officer.getSex());
+            System.out.println("Rank: " + officer.getRank());
+            System.out.println("City: " + officer.getCity());
+            System.out.println("Office number: " + officer.getOfficeNum());
+            System.out.println("Office Address: " + officer.getOfficeAddress());
+
+            System.setOut(System.out);
+            stream.close();
         }
         catch(Exception e)
         {

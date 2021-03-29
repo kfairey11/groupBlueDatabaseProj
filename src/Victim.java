@@ -126,14 +126,26 @@ public class Victim extends Person
      * @param caseToPrint
      * @param fileName
      */
-    public static void generateOfficerFile(Case caseToPrint, String fileName)
+    public static void generateOfficerFile(Victim victim, String fileName)
     {
         try
         {
             File file = new File(fileName +".txt");
             PrintStream stream = new PrintStream(file);
 
-            System.out.println("Case Number: " + caseToPrint.getCaseNum());
+            System.setOut(stream);
+
+            System.out.println("First name: " + victim.getFirstName());
+            System.out.println("Last name: " + victim.getLastName());
+            System.out.println("Age: " + victim.getAge());
+            System.out.println("Sex: " + victim.getSex());
+            System.out.println("Report: " + victim.getReport());
+            System.out.println("Hospital: " + victim.getHopsital());
+            System.out.println("Phone number: " + victim.getPhoneNum());
+            System.out.println("Address: " + victim.getAddress());
+
+            System.setOut(System.out);
+            stream.close();
         }
         catch(Exception e)
         {
