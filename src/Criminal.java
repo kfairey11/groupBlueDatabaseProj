@@ -253,6 +253,11 @@ public class Criminal extends Person{
      * Gets the truth value of if the criminal is in jail
      * @return in jail
      */
+
+     public boolean getUnderAge()
+     {
+         return this.isUnderAge;
+     }
     public boolean getInJail()
     {
         return inJail;

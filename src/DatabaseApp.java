@@ -1136,11 +1136,55 @@ public class DatabaseApp {
         cases.saveCases();
     }
 
+    public void generateCriminalFile(Criminal criminal, String fileName)
+    {
+       try
+       { 
+        File file = new File(fileName + ".txt");
+        PrintStream stream = new PrintStream(file);
+
+        System.setOut(stream);
+
+        System.out.println("First name: " + criminal.getFirstName());
+        System.out.println("Last name: " + criminal.getLastName());
+        System.out.println("Age: " + criminal.getAge());
+        System.out.println("Sex: " + criminal.getSex());
+        System.out.println("Nickname: " + criminal.getNickname());
+        System.out.println("Height: " + criminal.getHeight());
+        System.out.println("Weight: " + criminal.getWeight());
+        System.out.println("Race: " + criminal.getRace());
+        System.out.println("Tattoos: ");
+        for(int i=0; i<criminal.getTattoos().size();i++)
+            System.out.println(criminal.getTattoos().get(i) + " ");
+        System.out.println("Shoe size: " + criminal.getShoeSize());
+        System.out.println("Piercings: ");
+        for(int j=0; j< criminal.getPiercing().size(); j++)
+            System.out.println(criminal.getPiercing().get(j) + " ");
+        if(criminal.getUnderAge())
+
+            System.out.println("Underage: yes");
+        else
+            System.out.println("Underage: no");
+        if(criminal.getInJail())
+            System.out.println("Jail Status: in prison");
+        else    
+            System.out.println("Jail status: not in prison");
+
+        System.setOut(System.out);
+        stream.close();
+
+       }
+       catch(Exception e)
+       {
+           e.printStackTrace();
+       }
+    }
+
     /**
      * Mehtod to collect details for case and print to txt file
      * @return text file to display
      */
-    public static void generateCaseFile(Case caseToPrint, String fileName)
+    public void generateCaseFile(Case caseToPrint, String fileName)
     {
        try
        { 
@@ -1158,17 +1202,20 @@ public class DatabaseApp {
         for(int h=0; h<caseToPrint.getEvidence().size(); h++)
             System.out.println(caseToPrint.getEvidence().get(h));
         System.out.println("Criminal(s): ");
-        for(int i=0; i<criminals.size(); i++)
-            System.out.println(criminals.get(i));
+        for(int i=0; i<caseToPrint.getCriminals().size(); i++)
+            System.out.println(caseToPrint.getCriminals().get(i));
         System.out.println("Victims(s): ");
-        for(int j=0;j<victims.size(); j++)
-            System.out.println(victims.get(j));
+        for(int j=0;j<caseToPrint.getVictims().size(); j++)
+            System.out.println(caseToPrint.getVictims().get(j));
         System.out.println("Officer(s): ");
-        for(int k=0; k<officers.size(); k++)
-            System.out.println(officers.get(k));
+        for(int k=0; k<caseToPrint.getOfficers().size(); k++)
+            System.out.println(caseToPrint.getOfficers().get(k));
         System.out.println("Witness(es): ");
-        for(int l=0; l<witnesses.size(); l++)
-            System.out.println(witnesses.get(l));
+        for(int l=0; l<caseToPrint.getWitnesses().size(); l++)
+            System.out.println(caseToPrint.getWitnesses().get(l));
+
+        System.setOut(System.out);
+        stream.close();
 
        }
 

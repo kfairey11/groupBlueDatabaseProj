@@ -17,7 +17,7 @@ public class DatabaseUI {
     private static final String HOME_MSG = "Welcome to the Criminal Investigation Database";
     private static final String[] LOGIN_OPTIONS = {"Login", "Create Profile"};
     private static final String[] homePageOptions = {"Create a Person(s) Profile", "Change an existing Person(s) Profile", "Create a Case Profile", 
-    "Change a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Logout"};
+    "Change a Case Profile", "Search a Person(s) Profile", "Search a Case Profile", "Print Person to a Text File", "Print Case to a text file", "Logout"};
     private static final String[] criminalOptions = {"First name", "Last name", "Age", "Sex", "Nickname", "Height", "Weight", "Race",
     "Hair Color", "Eye Color", "Description", "Tattoos", "Shoe size", "Piercings","Underage status", "Jail Status"};
     private static final String[] victimOptions = {"First name", "Last name", "Age", "Sex", "Report", "Hospital", "Phone number", "Address"};
@@ -131,6 +131,14 @@ public class DatabaseUI {
                 case(5):
                 //create this method in database
                 searchCase();
+                break;
+
+                case(6):
+                printPerson();
+                break;
+
+                case(7):
+                printCase();
                 break;
 
 
@@ -1862,4 +1870,61 @@ public class DatabaseUI {
         for(int i=0; i<cases.size(); i++)
             cases.get(i).print();
     }
+
+    private void printPerson()
+    {
+        while(true)
+        {
+        for(int i=0; i<personOptions.length; i++)
+            System.out.println((i+1) + ". " + personOptions[i]);
+        System.out.println("Which type of person would you like to print to a text file?(Type the corresponding number then hit ENTER)");
+
+        int userInput = scanner.nextInt() - 1;
+        scanner.nextLine();
+        if(userInput < 0 || userInput > personOptions.length)
+        {
+            System.out.println("That is not a valid input");
+            continue;
+        }
+
+        switch(userInput){
+
+            case(0):
+            printCriminal();
+            break;
+
+            case(1):
+            printVictim();
+            break;
+
+            case(2):
+            printOfficer();
+            break;
+
+            case(3):
+            printWitness();
+            break;
+        }
+        break;
+    }
+    }
+
+    private void printCriminal()
+    {
+        System.out.println("Enter the full name of the criminal you would like to print");
+        String input = scanner.nextLine();
+        Criminal newCriminal = databaseApp.searchCriminalByName(input);
+                if(newCriminal == null)
+                    System.out.println("That criminal is not in the database.");
+                else
+                {
+                    System.out.println("What would you like the text file to be named (omit the .txt)");
+                    String textInput = scanner.nextLine();
+                    databaseApp.generateCriminalFile(newCriminal, textInput);
+                }
+                   
+
+    }
+
+
 }
