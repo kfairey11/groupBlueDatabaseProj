@@ -1907,6 +1907,23 @@ public class DatabaseUI {
         }
         break;
     }
+   }
+    private void printCase()
+    {
+        System.out.println("Enter the case number of the case you would like to print");
+        int input = scanner.nextInt();
+        scanner.nextLine();
+        Case newCase = databaseApp.searchCaseByCaseNum(input);
+        if(newCase == null)
+            System.out.println("That case is not in the database");
+        
+            else
+            {
+                System.out.println("What would you like the text file to be named (omit the .txt)");
+                String textInput = scanner.nextLine();
+                databaseApp.generateCaseFile(newCase, textInput);
+                System.out.println("The file was successfully created");
+            }
     }
 
     private void printCriminal()
@@ -1921,9 +1938,60 @@ public class DatabaseUI {
                     System.out.println("What would you like the text file to be named (omit the .txt)");
                     String textInput = scanner.nextLine();
                     databaseApp.generateCriminalFile(newCriminal, textInput);
+                    System.out.println("The file was successfully created");
                 }
                    
+    }
 
+    private void printVictim()
+    {
+        System.out.println("Enter the full name of the victim you would like to print");
+        String input = scanner.nextLine();
+       Victim newVictim = databaseApp.searchVictimByName(input);
+                if(newVictim == null)
+                    System.out.println("That victim is not in the database.");
+                else
+                {
+                    System.out.println("What would you like the text file to be named (omit the .txt)");
+                    String textInput = scanner.nextLine();
+                    databaseApp.generateVictimFile(newVictim, textInput);
+                    System.out.println("The file was successfully created");
+                }
+                   
+    }
+
+    private void printOfficer()
+    {
+        System.out.println("Enter the full name of the officer you would like to print");
+        String input = scanner.nextLine();
+        Officer newOfficer = databaseApp.searchOfficerByName(input);
+                if(newOfficer == null)
+                    System.out.println("That officer is not in the database.");
+                else
+                {
+                    System.out.println("What would you like the text file to be named (omit the .txt)");
+                    String textInput = scanner.nextLine();
+                    databaseApp.generateOfficerFile(newOfficer, textInput);
+                    System.out.println("The file was successfully created");
+                }
+                   
+    }
+
+    private void printWitness()
+    {
+        System.out.println("Enter the full name of the witness you would like to print");
+        String input = scanner.nextLine();
+        Witness newWitness = databaseApp.searchWitnessByName(input);
+                if(newWitness == null)
+                    System.out.println("That witness is not in the database.");
+                else
+                {
+                    System.out.println("What would you like the text file to be named (omit the .txt)");
+                    String textInput = scanner.nextLine();
+                    databaseApp.generateWitnessFile(newWitness, textInput);
+                    System.out.println("The file was successfully created");
+                }
+                   
     }
 
 
