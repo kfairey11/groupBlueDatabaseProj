@@ -3,6 +3,7 @@
  * @author Sam, Casey, Kennedy
  */
 import java.util.ArrayList;
+import java.io.*;
 
 public class Criminal extends Person{
     /**

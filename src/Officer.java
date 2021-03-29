@@ -2,6 +2,7 @@
  * An Officer Class
  * @Author Sam, Kennedy, Casey
  */
+import java.io.*;
 public class Officer extends Person{
     /**
      * Attributes of an Officer
@@ -109,5 +110,38 @@ public class Officer extends Person{
         System.out.println("City: " + getCity());
         System.out.println("Office number: " + getOfficeNum());
         System.out.println("Office Address: " + getOfficeAddress());
+    }
+
+    /**
+     * Method to collect details and print
+     * @param officer
+     * @param fileName
+     */
+    public void generateOfficerFile(Officer officer, String fileName)
+    {
+        try
+        {
+            File file = new File(fileName +".txt");
+            PrintStream stream = new PrintStream(file);
+
+            System.setOut(stream);
+
+            System.out.println("First name: " + officer.getFirstName());
+            System.out.println("Last name: " + officer.getLastName());
+            System.out.println("Age: " + officer.getAge());
+            System.out.println("Sex: " + officer.getSex());
+            System.out.println("Rank: " + officer.getRank());
+            System.out.println("City: " + officer.getCity());
+            System.out.println("Office number: " + officer.getOfficeNum());
+            System.out.println("Office Address: " + officer.getOfficeAddress());
+
+            System.setOut(System.out);
+            stream.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+
     }
 }
