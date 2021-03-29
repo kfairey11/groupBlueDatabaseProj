@@ -268,6 +268,9 @@ public class Case {
         System.out.println("Date: " + getDate());
         System.out.println("Description: " + getDescription());
         System.out.println("Location: " + getLocation());
+        System.out.println("Evidence: ");
+        for(int h=0; h<evidence.size(); h++)
+            System.out.println(evidence.get(h));
         System.out.println("Criminal(s): ");
         for(int i=0; i<criminals.size(); i++)
             System.out.println(criminals.get(i));
@@ -281,5 +284,6 @@ public class Case {
         for(int l=0; l<witnesses.size(); l++)
             System.out.println(witnesses.get(l));
     }
+
 }
 

@@ -1140,15 +1140,42 @@ public class DatabaseApp {
      * Mehtod to collect details for case and print to txt file
      * @return text file to display
      */
-    public static String generateCaseFile(Case caseToPrint)
+    public static void generateCaseFile(Case caseToPrint, String fileName)
     {
+       try
+       { 
+        File file = new File(fileName + ".txt");
+        PrintStream stream = new PrintStream(file);
 
-        FileWriter output = new FileWriter("./output.txt");
-        BufferedWriter writer = new BufferedWriter(output);
-        writer.write(caseToPrint.print()); //insert the name of the string to write out
+        System.setOut(stream);
 
-        writer.close();
-        return "";
+        System.out.println("Case number: " + caseToPrint.getCaseNum());
+        System.out.println("Crime type: " + caseToPrint.getCrimeType());
+        System.out.println("Date: " + caseToPrint.getDate());
+        System.out.println("Description: " + caseToPrint.getDescription());
+        System.out.println("Location: " + caseToPrint.getLocation());
+        System.out.println("Evidence: ");
+        for(int h=0; h<caseToPrint.getEvidence().size(); h++)
+            System.out.println(caseToPrint.getEvidence().get(h));
+        System.out.println("Criminal(s): ");
+        for(int i=0; i<criminals.size(); i++)
+            System.out.println(criminals.get(i));
+        System.out.println("Victims(s): ");
+        for(int j=0;j<victims.size(); j++)
+            System.out.println(victims.get(j));
+        System.out.println("Officer(s): ");
+        for(int k=0; k<officers.size(); k++)
+            System.out.println(officers.get(k));
+        System.out.println("Witness(es): ");
+        for(int l=0; l<witnesses.size(); l++)
+            System.out.println(witnesses.get(l));
+
+       }
+
+       catch(Exception e)
+       {
+           e.printStackTrace();
+       }
     }
 
 }
