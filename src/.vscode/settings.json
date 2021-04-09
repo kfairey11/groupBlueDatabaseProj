@@ -4,5 +4,9 @@
         "c:\\Users\\kgfai\\Downloads\\json-simple-1.1.1.jar",
         "/Users/lmao/Downloads/json-simple-1.1.1 2.jar",
         "c:\\Users\\kgfai\\Downloads\\junit-platform-console-standalone-1.7.0.jar"
+    ],
+
+    "java.test.config": [
+        
     ]
 }
