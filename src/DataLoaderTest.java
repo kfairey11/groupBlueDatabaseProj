@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.UUID;
-import java.io.*;
+
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -114,6 +114,60 @@ class DataLoaderTest {
     void testGetWitnessSize()
     {
         assertEquals(2, this.witnessList.size());
+    }
+
+    @Test
+    void testGetCaseSize()
+    {
+        assertEquals(2, this.caseList.size());
+    }
+
+    @Test
+    void testGetUsersZero()
+    {
+        userList.clear();
+        DataWriter.saveUsers();
+        assertEquals(0, userList.size());
+    }
+
+    @Test
+    void testGetCriminalsZero()
+    {
+        criminalList.clear();
+        DataWriter.saveCriminals();
+        assertEquals(0, criminalList.size());
+    }
+
+    @Test
+    void testGetVictimsZero()
+    {
+        victimList.clear();
+        DataWriter.saveVictims();
+        assertEquals(0, victimList.size());
+    }
+
+    @Test
+    void testGetOfficersZero()
+    {
+        officerList.clear();
+        DataWriter.saveOfficers();
+        assertEquals(0, officerList.size());
+    }
+
+    @Test
+    void testGetWitnessesZero()
+    {
+        witnessList.clear();
+        DataWriter.saveWitnesses();
+        assertEquals(0, witnessList.size());
+    }
+
+    @Test
+    void testGetCasesZero()
+    {
+        caseList.clear();
+        DataWriter.saveCases();
+        assertEquals(0, caseList.size());
     }
 
     @Test
@@ -248,6 +302,191 @@ class DataLoaderTest {
         assertEquals("Pederson", victimList.get(0).getLastName());
     }
 
+    @Test
+    void testVictimAge()
+    {
+        assertEquals(29, victimList.get(0).getAge());
+    }
+
+    @Test
+    void testVictimSex()
+    {
+        assertEquals("Male", victimList.get(0).getSex());
+    }
+
+    @Test
+    void testVictimReport()
+    {
+        assertEquals("shot me in the left arm", victimList.get(0).getReport());
+    }
+
+    @Test
+    void testVictimHospital()
+    {
+        assertEquals("St. Francis", victimList.get(0).getHopsital());
+    }
+
+    @Test
+    void testVictimPhoneNum()
+    {
+        assertEquals(Long.parseLong("8036009988"),victimList.get(0).getPhoneNum());
+    }
+
+    @Test
+    void testVictimAddress()
+    {
+        assertEquals("543 Thoroughbred Lane", victimList.get(1).getAddress());
+    }
+
+    @Test
+    void testOfficerFirstName()
+    {
+        assertEquals("Bobbie", officerList.get(0).getFirstName());
+    }
+
+    @Test
+    void testOfficerLastName()
+    {
+        assertEquals("Smalls", officerList.get(0).getLastName());
+    }
+
+    @Test
+    void testOfficerAge()
+    {
+        assertEquals(34, officerList.get(0).getAge());
+    }
+
+    @Test
+    void testOfficerSex()
+    {
+        assertEquals("Female", officerList.get(0).getSex());
+    }
+
+    @Test
+    void testOfficerRank()
+    {
+        assertEquals("Officer", officerList.get(1).getRank());
+    }
+
+    @Test
+    void testOfficerCity()
+    {
+        assertEquals("Topeka, KS", officerList.get(1).getCity());
+    }
+
+    @Test
+    void testOfficerOfficerNum()
+    {
+        assertEquals(Long.parseLong("440908756"), officerList.get(1).getOfficeNum());
+    }
+
+    @Test
+    void testOfficerAddress()
+    {
+        assertEquals("444 Arroyo St", officerList.get(0).getOfficeAddress());
+    }
+
+    @Test
+    void testWitnessFirstName()
+    {
+        assertEquals("Terrence", witnessList.get(0).getFirstName());
+    }
+
+    @Test
+    void testWitnessLastName()
+    {
+        assertEquals("Callen", witnessList.get(0).getLastName());
+    }
+
+    @Test
+    void testWitnessAge()
+    {
+        assertEquals(22, witnessList.get(1).getAge());
+    }
+
+    @Test
+    void testWitnessSex()
+    {
+        assertEquals("Male", witnessList.get(0).getSex());
+    }
+
+    @Test
+    void testWitnessTestimony()
+    {
+        assertEquals("i saw a woman steal from the cash register", witnessList.get(0).getTestimony());
+    }
+
+    @Test
+    void testWitnessPhoneNum()
+    {
+        assertEquals(Long.parseLong("0039878855"), witnessList.get(1).getPhoneNum());
+    }
+
+    @Test
+    void testWitnessAddress()
+    {
+        assertEquals("999 Household St", witnessList.get(1).getAddress());
+    }
+
+    @Test
+    void testCaseNum()
+    {
+        assertEquals(123, caseList.get(0).getCaseNum());
+    }
+
+    @Test
+    void testCaseCrimeType()
+    {
+        assertEquals("Robbery", caseList.get(0).getCrimeType());
+    }
+
+    @Test
+    void testCaseDate()
+    {
+        assertEquals("1/1/2020", caseList.get(0).getDate());
+    }
+
+    @Test
+    void testCaseDescription()
+    {
+        assertEquals("a group of inside traders marked off false losses", caseList.get(1).getDescription());
+    }
+
+    @Test
+    void testCaseLocation()
+    {
+        assertEquals("Johnson City, TN", caseList.get(0).getLocation());
+    }
+
+    @Test
+    void testCaseEvidence()
+    {
+        assertEquals("hair", caseList.get(1).getEvidence().get(1));
+    }
+
+    @Test
+    void testCaseCriminal()
+    {
+        assertEquals("Walter White", caseList.get(0).getCriminals().get(0));
+    }
+
+    @Test
+    void testCaseVictim()
+    {
+        assertEquals("Patrick Mahomes", caseList.get(0).getVictims().get(1));
+    }
+
+    @Test
+    void testCaseOfficer()
+    {
+        assertEquals("Bob Caslen", caseList.get(1).getOfficers().get(0));
+    }
+
+    @Test
+    void testCaseWitness()
+    {
+        assertEquals("Dababy", caseList.get(0).getWitnesses().get(0));
+    }
 
 }
 
