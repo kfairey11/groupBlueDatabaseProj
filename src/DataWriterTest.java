@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,14 @@ public class DataWriterTest {
     private ArrayList<Witness> witnessList = people.getWitnessList();
     private Cases cases = Cases.getInstance();
     private ArrayList<Case> caseList = cases.getCaseList();
+
+    private ArrayList<String> arrayList(String item1, String item2)
+    {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        arrayList.add(item1);
+        arrayList.add(item2);
+        return arrayList;
+    }
 
     @BeforeEach
     public void setup()
@@ -56,42 +65,84 @@ public class DataWriterTest {
     @Test
     void testWritingZeroUsers()
     {
-        userList = DataLoader.getUsers();
         assertEquals(0, userList.size());
     }
 
     @Test
     void testWritingZeroCriminals()
     {
-        criminalList = DataLoader.getCriminals();
         assertEquals(0, criminalList.size());
     }
 
     @Test
     void testWritingZeroVictims()
     {
-        victimList = DataLoader.getVictims();
         assertEquals(0, victimList.size());
     }
 
     @Test
     void testWritingZeroOfficers()
     {
-        officerList = DataLoader.getOfficers();
         assertEquals(0, officerList.size());
     }
 
     @Test
     void testWritingZeroWitnesses()
     {
-        witnessList = DataLoader.getWitnesses();
         assertEquals(0, witnessList.size());
     }
 
     @Test
     void testWritingZeroCases()
     {
-        caseList = DataLoader.getCases();
         assertEquals(0, caseList.size());
-    }   
+    }
+    
+    @Test
+    void testWritingOneUser()
+    {
+        userList.add(new User(new UUID(128, 0), "Kennedy", "Fairey", "kfairey", "password"));
+        DataWriter.saveUsers();
+        assertEquals("Fairey", DataLoader.getUsers().get(0).getLastName());
+    }
+
+    @Test
+    void testWritingOneCriminal()
+    {
+        criminalList.add(new Criminal("Al", "Capone", 50, "Male", "Top Dog", "6'0\"", 180.0, "white", "black", "blue", "tall, wears fidoras", arrayList("fingerprint", "cross"), 12.5, arrayList("lip", "eye"), true));
+        DataWriter.saveCriminals();
+        assertEquals("Top Dog", DataLoader.getCriminals().get(0).getNickname());
+    }
+
+    @Test
+    void testWritingOneVictim()
+    {
+        victimList.add(new Victim("Joc", "Pederson", 29, "Male", "shot me in the left arm", "St. Francis", Long.parseLong("8036009988"), "123 Dogtail Lane"));
+        DataWriter.saveVictims();
+        assertEquals("St. Francis", DataLoader.getVictims().get(0).getHopsital());
+    }
+
+    @Test
+    void testWritingOneOfficer()
+    {
+        officerList.add(new Officer("Bobbie", "Smalls", 34, "Female", "Detective", "Washington D.C.", Long.parseLong("5551230044"), "444 Arroyo St"));
+        DataWriter.saveOfficers();
+        assertEquals("Detective", DataLoader.getOfficers().get(0).getRank());
+    }
+
+    @Test
+    void testWritingOneWitness()
+    {
+        witnessList.add(new Witness("Terrence", "Callen", 40, "Male", "i saw a woman steal from the cash register", Long.parseLong("1234560099"), "329 Crestwood dr"));
+        DataWriter.saveWitnesses();
+        assertEquals("Terrence", DataLoader.getWitnesses().get(0).getFirstName());
+    }
+
+    @Test
+    void testWritingOneCase()
+    {
+        caseList.add(new Case(123, "Robbery", "1/1/2020", "a group of men in masks robbed a bank", "Johnson City, TN",arrayList("fingerprints", "camera footage"), arrayList("Walter White", "Scooby Doo"),arrayList("Willy Wonka", "Patrick Mahomes"), arrayList("Eleanor Roosevelt", "Luke Skywalker"), arrayList("Dababy", "Leonardo Da Vinci")));
+        DataWriter.saveCases();
+        assertEquals("Robbery", DataLoader.getCases().get(0).getCrimeType());
+    }
 }
