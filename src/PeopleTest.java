@@ -117,9 +117,6 @@ public class PeopleTest {
         assertEquals("Bob", criminalList.get(0).getLastName());
     }
 
-    
-
-
     @Test
     void testVictimFirst() {
         assertEquals("Hanna", victimList.get(0).getFirstName());
@@ -129,8 +126,6 @@ public class PeopleTest {
     void testVictimLast() {
         assertEquals("Fini", victimList.get(0).getLastName());
     }
-
-
 
     @Test 
     void testOfficerFirst() {
@@ -142,8 +137,6 @@ public class PeopleTest {
         assertEquals("Robinson", officerList.get(0).getLastName());
     }
 
-
-
     @Test
     void testWitnessFirst() {
         assertEquals("Brady", witnessList.get(0).getFirstName());
@@ -152,5 +145,125 @@ public class PeopleTest {
     @Test
     void testWitnessLast() {
         assertEquals("McBrady", witnessList.get(0).getLastName());
+    }
+
+    @Test
+    void testHaveCriminal(){
+        boolean hasJoeBob = people.haveCriminal("Joe Bob");
+        assertTrue(hasJoeBob);
+    }
+
+    @Test
+    void testHaveVictim(){
+        boolean hasHannaFini = people.haveVictim("Hanna Fini");
+        assertTrue(hasHannaFini);
+    }
+
+    @Test
+    void testHaveOfficer(){
+        boolean hasRebeccaRobinson = people.haveOfficer("Rebecca Robinson");
+        assertTrue(hasRebeccaRobinson);
+    }
+
+    @Test
+    void testHaveWitness(){
+        boolean hasBrady = people.haveWitness("Brady McBrady");
+        assertTrue(hasBrady);
+    }
+
+    @Test
+    void testHaveCriminalEmpty(){
+        boolean empty = people.haveCriminal("");
+        assertFalse(empty);
+    }
+
+    @Test
+    void testHaveCriminalNull(){
+        boolean nulli = people.haveCriminal(null);
+        assertFalse(nulli);
+    }
+
+    @Test
+    void testHaveVictimEmpty(){
+        boolean empty = people.haveVictim("");
+        assertFalse(empty);
+    }
+
+    @Test
+    void testHaveVictimNull(){
+        boolean nulli = people.haveVictim(null);
+        assertFalse(nulli);
+    }
+
+    @Test
+    void testHaveOfficerEmpty(){
+        boolean empty = people.haveOfficer("");
+        assertFalse(empty);
+    }
+
+    @Test
+    void testHaveOfficerNull(){
+        boolean nulli = people.haveOfficer(null);
+        assertFalse(nulli);
+    }
+
+    @Test
+    void testHaveWitnessEmpty(){
+        boolean empty = people.haveWitness("");
+        assertFalse(empty);
+    }
+
+    @Test
+    void testHaveWitnessNull(){
+        boolean nulli = people.haveWitness(null);
+        assertFalse(nulli);
+    }
+
+    @Test
+    void testHaveCriminalFalse(){
+        boolean hasRick = people.haveCriminal("Rick");
+        assertFalse(hasRick);
+    }
+
+    @Test
+    void testHaveVictimFalse(){
+        boolean hasRick = people.haveVictim("Rick");
+        assertFalse(hasRick);
+    }
+
+    @Test
+    void testHaveOfficerFalse(){
+        boolean hasRick = people.haveOfficer("Rick");
+        assertFalse(hasRick);
+    }
+
+    @Test
+    void testHaveWitnessFalse(){
+        boolean hasRick = people.haveWitness("Rick");
+        assertFalse(hasRick);
+    }
+
+    @Test
+    void testAddCriminal() {
+        boolean added = people.addCriminal("Howard", "Stark", 19, "Male", "none", "5'6\"", 195.0, "white", "black", "brown", "made of iron", array("none", "none"), 12.0, array("nose", "none"), false);
+        assertTrue(added);
+    }
+
+    @Test
+    void testAddVictim() {
+        boolean added = people.addVictim("Barbara", "Long", 38, "Female", "Was robbed", "none", Long.parseLong("4725558219"), "482 Road Drive");
+        assertTrue(added);
+    }
+
+    @Test
+    void testAddOfficer() {
+        boolean added = people.addOfficer("Uie", "Smith", 67, "Male", "Officer", Long.parseLong("4815552817"), "3217 Circle Court", "Pheonix, Arizona");
+        assertTrue(added);
+    }
+
+    @Test
+    void testAddWitness() {
+        boolean added = people.addWitness("Chris", "Hemsworth", 38, "Male", "I watched my brother steal", Long.parseLong("4115559999"), "294 Asgard Way");
+        assertTrue(added);
     }
 }
