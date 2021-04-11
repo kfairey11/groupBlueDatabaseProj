@@ -26,24 +26,24 @@ public class PeopleTest {
 
     @BeforeEach
     public void setup() {
-        this.criminalList.clear();
-        this.criminalList.add(new Criminal("Joe", "Bob", 34, "Male", "Ay its Joe", "6'2\"", 110.4, "white", "brown", "brown", "very skinny", array("fairy", "umbrella"), 11.5, array("left ear", "right ear"), false));
-        this.criminalList.add(new Criminal("Bob", "Joe", 68, "Male", "Bob to the Joe", "6'0\"", 190.8, "white", "black", "blue", "very large", array("bear", "mom surrounded by heart"), 11.0, array("mouth", "nose"), false));
+        criminalList.clear();
+        criminalList.add(new Criminal("Joe", "Bob", 34, "Male", "Ay its Joe", "6'2\"", 110.4, "white", "brown", "brown", "very skinny", array("fairy", "umbrella"), 11.5, array("left ear", "right ear"), false));
+        criminalList.add(new Criminal("Bob", "Joe", 68, "Male", "Bob to the Joe", "6'0\"", 190.8, "white", "black", "blue", "very large", array("bear", "mom surrounded by heart"), 11.0, array("mouth", "nose"), false));
         DataWriter.saveCriminals();
 
-        this.victimList.clear();
-        this.victimList.add(new Victim("Hanna", "Fini", 20, "Female", "Was used as a hostage", "none", Long.parseLong("8435555911"), "45 Scottsdale Drive"));
-        this.victimList.add(new Victim("Thomas", "Bobson", 43, "Male", "Was stabbed", "Wolfsons", Long.parseLong("8035553472"), "154 Bermuda Greens Ave"));
+        victimList.clear();
+        victimList.add(new Victim("Hanna", "Fini", 20, "Female", "Was used as a hostage", "none", Long.parseLong("8435555911"), "45 Scottsdale Drive"));
+        victimList.add(new Victim("Thomas", "Bobson", 43, "Male", "Was stabbed", "Wolfsons", Long.parseLong("8035553472"), "154 Bermuda Greens Ave"));
         DataWriter.saveVictims();
 
-        this.officerList.clear();
-        this.officerList.add(new Officer("Rebecca", "Robinson", 56, "Female", "Chief", "Seattle, Washington", Long.parseLong("7435558174"), "395 Pandora Drive"));
-        this.officerList.add(new Officer("Bo", "Burnher", 30, "Male", "Detective", "Jacksonville, Florida", Long.parseLong("9045551294"), "1203 Franklin Street"));
+        officerList.clear();
+        officerList.add(new Officer("Rebecca", "Robinson", 56, "Female", "Chief", "Seattle, Washington", Long.parseLong("7435558174"), "395 Pandora Drive"));
+        officerList.add(new Officer("Bo", "Burnher", 30, "Male", "Detective", "Jacksonville, Florida", Long.parseLong("9045551294"), "1203 Franklin Street"));
         DataWriter.saveOfficers();
 
-        this.witnessList.clear();
-        this.witnessList.add(new Witness("Brady", "McBrady", 25, "Male", "I saw someone steal a purse", Long.parseLong("3825559238"), "9128 Forest Drive"));
-        this.witnessList.add(new Witness("Tom", "Roberto", 34, "Male", "I saw someone get shot", Long.parseLong("4395551935"), "34 Idaho Avenue"));
+        witnessList.clear();
+        witnessList.add(new Witness("Brady", "McBrady", 25, "Male", "I saw someone steal a purse", Long.parseLong("3825559238"), "9128 Forest Drive"));
+        witnessList.add(new Witness("Tom", "Roberto", 34, "Male", "I saw someone get shot", Long.parseLong("4395551935"), "34 Idaho Avenue"));
         DataWriter.saveWitnesses();
     }
 
@@ -60,17 +60,51 @@ public class PeopleTest {
     }
 
     @Test
-
-
-
-    @Test
-
-
+    void testGetCriminalSize() {
+        assertEquals(2, criminalList.size());
+    }
 
     @Test
-
-
+    void testGetVictimSize() {
+        assertEquals(2, victimList.size());
+    }
 
     @Test
-    
+    void testGetOfficerSize() {
+        assertEquals(2, officerList.size());
+    }
+
+    @Test
+    void testGetWitnessSize() {
+        assertEquals(2, witnessList.size());
+    }
+
+    @Test
+    void testZeroCriminals() {
+        people.getCriminalList().clear();
+        criminalList = DataLoader.getCriminals();
+        assertEquals(0, criminalList.size());
+    }
+
+    @Test
+    void testZeroVictims() {
+        people.getVictimList().clear();
+        victimList = DataLoader.getVictims();
+        assertEquals(0, victimList.size());
+    }
+
+    @Test
+    void testZeroOfficers() {
+        people.getOfficerList().clear();
+        officerList = DataLoader.getOfficers();
+        assertEquals(0, officerList.size());
+    }
+
+    @Test
+    void testZeroWitnesses() {
+        people.getWitnessList().clear();
+        witnessList = DataLoader.getWitnesses();
+        assertEquals(0, witnessList.size());
+    }
+
 }
