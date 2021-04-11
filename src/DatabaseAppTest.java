@@ -217,6 +217,242 @@ public class DatabaseAppTest {
         assertEquals("firstName", criminals.get(0).getFirstName());
     }
 
+    @Test
+    void testSearchCriminalByLastName()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByLastName("lastName");
+        assertEquals("lastName", criminals.get(0).getLastName());
+    }
+
+    @Test
+    void testSearchCriminalByAge()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByAge(19, 21);
+        assertEquals(20, criminals.get(0).getAge());
+    }
+
+    @Test
+    void testSearchCriminalBySex()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "Male", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalBySex("Male");
+        assertEquals("Male", criminals.get(0).getSex());
+    }
+
+    @Test
+    void testSearchCriminalByNickname()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByNickname("nickname");
+        assertEquals("nickname", criminals.get(0).getNickname());
+    }
+
+    @Test
+    void testSearchCriminalByHeight()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByHeight(6, 0);
+        assertEquals("6'0\"", criminals.get(0).getHeight());
+    }
+
+    @Test
+    void testSearchCriminalByWeight()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByWeight(179.0, 181.0);
+        assertEquals(180.0, criminals.get(0).getWeight());
+    }
+
+    @Test
+    void testSearchCriminalByRace()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "Black", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByRace("Black");
+        assertEquals("Black", criminals.get(0).getRace());
+    }
+
+    @Test
+    void testSearchCriminalByHairColor()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByHairColor("hairColor");
+        assertEquals("hairColor", criminals.get(0).getHairColor());
+    }
+
+    @Test
+    void testSearchCriminalByEyeColor()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByEyeColor("eyeColor");
+        assertEquals("eyeColor", criminals.get(0).getEyeColor());
+    }
+
+    @Test
+    void testSearchCriminalByTattoos()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByTattoo("tattoo2");
+        assertEquals("tattoo2", criminals.get(0).getTattoos().get(1));
+    }
+
+    @Test
+    void testSearchCriminalByShoeSize()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByShoeSize(9.5, 10.5);
+        assertEquals(10.0, criminals.get(0).getShoeSize());
+    }
+
+    @Test
+    void testSearchCriminalByPiercing()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByPiercing("item1");
+        assertEquals("item1", criminals.get(0).getPiercing().get(0));
+    }
+
+    @Test
+    void testSearchCriminalByInJail()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), true);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalInJail(true);
+        assertTrue(criminals.get(0).getInJail());
+    }
+
+    @Test
+    void testSearchCriminalByUnderage()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByUnderage();
+        assertFalse(criminals.get(0).getUnderAge());
+    }
+
+    @Test
+    void testSearchVictimByFirstName()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByFirstName("firstName");
+        assertEquals("firstName", victims.get(0).getFirstName());
+    }
+
+    @Test
+    void testSearchVictimByLastName()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByLastName("lastName");
+        assertEquals("lastName", victims.get(0).getLastName());
+    }
+
+    @Test
+    void testSearchVictimByAge()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByAge(19, 21);
+        assertEquals(20, victims.get(0).getAge());
+    }
+
+    @Test
+    void testSearchVictimBySex()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "Male", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimBySex("Male");
+        assertEquals("Male", victims.get(0).getSex());
+    }
+
+    @Test
+    void testSearchVictimByHospital()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByHospital("hospital");
+        assertEquals("hospital", victims.get(0).getHopsital());
+    }
+
+    @Test
+    void testSearchVictimByPhoneNum()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByPhoneNum(Long.parseLong("5555551234"));
+        assertEquals(Long.parseLong("5555551234"), victims.get(0).getPhoneNum());
+    }
+
+    @Test
+    void testSearchVictimByAddress()
+    {
+        databaseApp.createVictim("firstName", "lastName", 20, "sex", "report", "hospital", Long.parseLong("5555551234"), "address");
+        ArrayList<Victim> victims = databaseApp.searchVictimByAddress("address");
+        assertEquals("address", victims.get(0).getAddress());
+    }
+
+    @Test
+    void testSearchOfficerByFirstName()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByFirstName("firstName");
+        assertEquals("firstName", officers.get(0).getFirstName());
+    }
+
+    @Test
+    void testSearchOfficerByLastName()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByLastName("lastName");
+        assertEquals("lastName", officers.get(0).getLastName());
+    }
+
+    @Test
+    void testSearchOfficerByAge()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByAge(19,21);
+        assertEquals(20, officers.get(0).getAge());
+    }
+
+    @Test
+    void testSearchOfficerBySex()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerBySex("sex");
+        assertEquals("sex", officers.get(0).getSex());
+    }
+
+    @Test
+    void testSearchOfficerByRank()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByRank("rank");
+        assertEquals("rank", officers.get(0).getRank());
+    }
+
+    @Test
+    void testSearchOfficerByOfficeNum()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByOfficeNum(Long.parseLong("1231231234"));
+        assertEquals(Long.parseLong("1231231234"), officers.get(0).getOfficeNum());
+    }
+
+    @Test
+    void testSearchOfficerByOfficeAddress()
+    {
+        databaseApp.createOfficer("firstName", "lastName", 20, "sex", "rank", "city", Long.parseLong("1231231234"), "address");
+        ArrayList<Officer> officers = databaseApp.searchOfficerByOfficeAddress("address");
+        assertEquals("address", officers.get(0).getOfficeAddress());
+    }
+
+    @Test
+    void testSearchWitnessByFirstName()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessByFirstName("firstName");
+        assertEquals("firstName", witnesses.get(0).getFirstName());
+    }
+
+
+
+
+
 
 
 
