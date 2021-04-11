@@ -209,6 +209,14 @@ public class DatabaseAppTest {
         assertEquals(1000, searchCase.getCaseNum());
     }
 
+    @Test
+    void testSearchCriminalByFirstName()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        ArrayList<Criminal> criminals = databaseApp.searchCriminalByFirstName("firstName");
+        assertEquals("firstName", criminals.get(0).getFirstName());
+    }
+
 
 
 
