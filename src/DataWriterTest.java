@@ -145,4 +145,52 @@ public class DataWriterTest {
         DataWriter.saveCases();
         assertEquals("Robbery", DataLoader.getCases().get(0).getCrimeType());
     }
+
+    @Test
+    void testWritingEmptyUser()
+    {
+        userList.add(new User(new UUID(128, 0), "", "", "", ""));
+        DataWriter.saveUsers();
+        assertEquals("", DataLoader.getUsers().get(0).getUserName());
+    }
+
+    @Test
+    void testWritingEmptyCriminal()
+    {
+        criminalList.add(new Criminal("", "", 0, "", "", "", 0.0, "", "", "", "", arrayList("", ""), 0.0, arrayList("", ""), true ));
+        DataWriter.saveCriminals();
+        assertEquals("", DataLoader.getCriminals().get(0).getHairColor());
+    }
+
+    @Test
+    void testWritingEmptyVictim()
+    {
+        victimList.add(new Victim("", "", 0, "", "", "", Long.parseLong("0"), ""));
+        DataWriter.saveVictims();
+        assertEquals("", DataLoader.getVictims().get(0).getAddress());
+    }
+
+    @Test
+    void testWritingEmptyOfficer()
+    {
+        officerList.add(new Officer("", "", 0, "", "", "", Long.parseLong("0"), ""));
+        DataWriter.saveOfficers();
+        assertEquals("", DataLoader.getOfficers().get(0).getFirstName());
+    }
+
+    @Test
+    void testWritingEmptyWitness()
+    {
+        witnessList.add(new Witness("", "", 0, "", "", Long.parseLong("0"), ""));
+        DataWriter.saveWitnesses();
+        assertEquals("", DataLoader.getWitnesses().get(0).getTestimony());
+    }
+
+    @Test
+    void testWritingEmptyCase()
+    {
+        caseList.add(new Case(0, "", "", "", "", arrayList("", ""), arrayList("", ""), arrayList("", ""), arrayList("", ""), arrayList("", "")));
+        DataWriter.saveCases();
+        assertEquals("", DataLoader.getCases().get(0).getEvidence().get(0));
+    }
 }

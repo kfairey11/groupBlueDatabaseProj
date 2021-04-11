@@ -23,6 +23,21 @@ public class DatabaseApp {
         users = Users.getInstance();
     }
 
+    public People getPeople()
+    {
+        return people;
+    }
+
+    public Users getUsers()
+    {
+        return users;
+    }
+
+    public Cases getCases()
+    {
+        return cases;
+    }
+
     /**
      * Logs in a user
      * @param username
