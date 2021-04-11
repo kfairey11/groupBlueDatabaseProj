@@ -107,4 +107,50 @@ public class PeopleTest {
         assertEquals(0, witnessList.size());
     }
 
+    @Test
+    void testCriminalFirst() {
+        assertEquals("Joe", criminalList.get(0).getFirstName());
+    }
+
+    @Test
+    void testCriminalLast() {
+        assertEquals("Bob", criminalList.get(0).getLastName());
+    }
+
+    
+
+
+    @Test
+    void testVictimFirst() {
+        assertEquals("Hanna", victimList.get(0).getFirstName());
+    }
+
+    @Test 
+    void testVictimLast() {
+        assertEquals("Fini", victimList.get(0).getLastName());
+    }
+
+
+
+    @Test 
+    void testOfficerFirst() {
+        assertEquals("Rebecca", officerList.get(0).getFirstName());
+    }
+
+    @Test 
+    void testOfficerLast() {
+        assertEquals("Robinson", officerList.get(0).getLastName());
+    }
+
+
+
+    @Test
+    void testWitnessFirst() {
+        assertEquals("Brady", witnessList.get(0).getFirstName());
+    }
+
+    @Test
+    void testWitnessLast() {
+        assertEquals("McBrady", witnessList.get(0).getLastName());
+    }
 }
