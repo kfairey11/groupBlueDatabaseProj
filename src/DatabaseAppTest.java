@@ -1,3 +1,4 @@
+//created and tested by Kennedy Fairey
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -448,6 +449,119 @@ public class DatabaseAppTest {
         ArrayList<Witness> witnesses = databaseApp.searchWitnessByFirstName("firstName");
         assertEquals("firstName", witnesses.get(0).getFirstName());
     }
+
+    @Test
+    void testSearchWitnessByLastName()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessByLastName("lastName");
+        assertEquals("lastName", witnesses.get(0).getLastName());
+    }
+
+    @Test
+    void testSearchWitnessByAge()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessByAge(19,21);
+        assertEquals(20, witnesses.get(0).getAge());
+    }
+
+    @Test
+    void testSearchWitnessBySex()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessBySex("sex");
+        assertEquals("sex", witnesses.get(0).getSex());
+    }
+
+    @Test
+    void testSearchWitnessByPhoneNum()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessByPhoneNum(Long.parseLong("1231231234"));
+        assertEquals(Long.parseLong("1231231234"), witnesses.get(0).getPhoneNum());
+    }
+
+    @Test
+    void testSearchWitnessByAddress()
+    {
+        databaseApp.createWitness("firstName", "lastName", 20, "sex", "testimony", Long.parseLong("1231231234"), "address");
+        ArrayList<Witness> witnesses = databaseApp.searchWitnessByAddress("address");
+        assertEquals("address", witnesses.get(0).getAddress());
+    }
+
+    @Test
+    void testSearchCaseByCrimeType()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByCrimeType("crimeType");
+        assertEquals("crimeType", cases.get(0).getCrimeType());
+    }
+
+    @Test
+    void testSearchCaseByDate()
+    {
+        databaseApp.createCase(1000, "crimeType", "1/1/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByDate(1, 1, 2000);
+        assertEquals("1/1/2000", cases.get(0).getDate());
+    }
+
+    @Test
+    void testSearchCaseByLocation()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByLocation("location");
+        assertEquals("location", cases.get(0).getLocation());
+    }
+
+    @Test
+    void testSearchCaseByEvidence()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByEvidence("item2");
+        assertEquals("item2", cases.get(0).getEvidence().get(1));
+    }
+
+    @Test
+    void testSearchCaseByCriminals()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByCriminal("criminal1");
+        assertEquals("criminal1", cases.get(0).getCriminals().get(0));
+    }
+
+    @Test
+    void testSearchCaseByVictims()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByVictim("victim1");
+        assertEquals("victim1", cases.get(0).getVictims().get(0));
+    }
+
+    @Test
+    void testSearchCaseByOfficers()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByOfficer("officer1");
+        assertEquals("officer1", cases.get(0).getOfficers().get(0));
+    }
+
+    @Test 
+    void testSearchCaseByWitnesses()
+    {
+        databaseApp.createCase(1000, "crimeType", "01/01/2000", "description", "location", arrayList("item1", "item2"), arrayList("criminal1", "criminal2"), arrayList("victim1", "victim2"), arrayList("officer1", "officer2"), arrayList("witness1", "witness2"));
+        ArrayList<Case> cases = databaseApp.searchCaseByWitness("witness2");
+        assertEquals("witness2", cases.get(0).getWitnesses().get(1));
+    }
+
+    @Test
+    void testSuccessfulLogout()
+    {
+        databaseApp.createCriminal("firstName", "lastName", 20, "sex", "nickname", "6'0\"", 180.0, "race", "hairColor", "eyeColor", "description", arrayList("tattoo1", "tattoo2"), 10.0, arrayList("item1","item2"), false);
+        databaseApp.logout();
+        assertEquals("firstName", DataLoader.getCriminals().get(0).getFirstName());
+    }
+
 
 
 
