@@ -266,4 +266,10 @@ public class PeopleTest {
         boolean added = people.addWitness("Chris", "Hemsworth", 38, "Male", "I watched my brother steal", Long.parseLong("4115559999"), "294 Asgard Way");
         assertTrue(added);
     }
+
+    @Test
+    void test() {
+        int num = 1;
+        assertEquals(1, num);
+    }
 }
