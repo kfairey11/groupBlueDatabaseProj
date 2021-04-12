@@ -70,4 +70,11 @@ public class CasesTest {
         caselist = DataLoader.getCases();
         assertEquals(0, caselist.size());
     }
+
+    @Test
+    void testNullCases()
+    {
+        boolean hasNull = cases.haveCase(-1);
+        assertFalse(hasNull);
+    }
 }
